@@ -1,0 +1,3 @@
+# Keep hash-bound organizer originals, HDL, bitstreams, and evidence byte-exact.
+# They intentionally contain a mixture of CRLF and LF line endings.
+* -text

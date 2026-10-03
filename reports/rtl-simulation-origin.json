@@ -1,0 +1,26 @@
+{
+  "kind": "reused_matching_rtl_simulation_evidence",
+  "recorded_at_utc": "2026-10-03T22:08:40.421494+00:00",
+  "source_report": "build/experiments/bsram/reports/rtl-simulation.json",
+  "source_report_sha256": "58cd698c30c056a428689e273fc1d5e4ac858507b03f34fd21e229630dae6fd6",
+  "source_build_manifest_sha256": "e255f5aaad4ef758432cd6d4f0c4f5181b911592ae13db895dd8bdb62fe063dd",
+  "hdl_and_build_input_sha256": {
+    "rtl/uart_rx.v": "6269435e9fdd5cd63b739c3acd244ae837a3a4e139d67c385c59f585b7bc8287",
+    "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+    "rtl/signal_engine.v": "167c388e406bdeeaf894e84e41041382f58735a776ebc950008819ff392c14f4",
+    "rtl/trade_top.v": "162aa718a694466d5e4d51444e063b69c0ef3efde9d8710ae9b20f5f6c17a523",
+    "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+    "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+    "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+    "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+  },
+  "identical_test_input_sha256": {
+    "sim/tb_engine.sv": "3d2a48b07b8607e2ce2873a0301ac558e5570af3fe2e1e52fa185d69d33c1233",
+    "sim/tb_uart.sv": "037a12ab41964e9e0e954fc9456dc774e728bed9cf7b24b4719300a9a36cb44b",
+    "host/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f"
+  },
+  "canonical_runner_sha256": "561164c397d272b60a7d570b74761730be5592106d0d1a1f10751f36b5cacee9",
+  "experiment_runner_sha256": "674565e9b8e17480ab9de5264c8353fbe295afc9afa34c4a6e0dc5fd4c835e77",
+  "runner_difference": "Only explicit path to the same installed Icarus/vvp binaries; AST otherwise identical.",
+  "scope": "RTL evidence only. Mapped evidence must match the canonical netlist or be rerun. No hardware claim."
+}

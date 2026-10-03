@@ -1,0 +1,120 @@
+{
+  "label": "Supplemental stress, NOT organizer qualification",
+  "status": "supplemental_stress_failed",
+  "official_qualification_verified": false,
+  "started_at_utc": "2026-10-03T22:23:16.445492+00:00",
+  "port": "COM6",
+  "device": "USB Serial Port (COM6)",
+  "hwid": "USB VID:PID=0403:6010 SER=2025030317B",
+  "candidate_before": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "6269435e9fdd5cd63b739c3acd244ae837a3a4e139d67c385c59f585b7bc8287",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "167c388e406bdeeaf894e84e41041382f58735a776ebc950008819ff392c14f4",
+      "rtl/trade_top.v": "162aa718a694466d5e4d51444e063b69c0ef3efde9d8710ae9b20f5f6c17a523",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "16cff3b2fd3e2b3f07c60f8001c922aac18c1b54edf8a1571514e5484c630542",
+    "build_manifest_sha256": "17a4c07cebdca64e408266f5fb182ca79679c925c4010b6593315a576a46c07c",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 327,
+      "synthesis_total_logic": 437,
+      "synthesis_bsram_blocks": 1,
+      "synthesis_registers": 428,
+      "synthesis_alus": 109,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 107.651,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 27.748,
+      "worst_hold_slack_ns": 0.379
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "candidate_after": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "6269435e9fdd5cd63b739c3acd244ae837a3a4e139d67c385c59f585b7bc8287",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "167c388e406bdeeaf894e84e41041382f58735a776ebc950008819ff392c14f4",
+      "rtl/trade_top.v": "162aa718a694466d5e4d51444e063b69c0ef3efde9d8710ae9b20f5f6c17a523",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "16cff3b2fd3e2b3f07c60f8001c922aac18c1b54edf8a1571514e5484c630542",
+    "build_manifest_sha256": "17a4c07cebdca64e408266f5fb182ca79679c925c4010b6593315a576a46c07c",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 327,
+      "synthesis_total_logic": 437,
+      "synthesis_bsram_blocks": 1,
+      "synthesis_registers": 428,
+      "synthesis_alus": 109,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 107.651,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 27.748,
+      "worst_hold_slack_ns": 0.379
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "test_tool_sha256": {
+    "stress_board.py": "5a8b240024ca7ed08a9b837faa9ae3ee0e89a616f459ecc4e36a7301d0f940b6",
+    "board_test.py": "9580d8a3c718f62656fe849fa04bc06e82b3994eeff042bf4d140214d97681a3",
+    "build_fpga.py": "696fb4f05c0916dd95b743fbdf41a170b15be82704205f194c1881d3f4144f5d"
+  },
+  "serial_settings": {
+    "baud": 115200,
+    "timeout_seconds": 1.0,
+    "other_settings": "pyserial defaults; no explicit control-line toggles"
+  },
+  "serial_connections_requested": 1,
+  "runner_programmed_or_reset_board": false,
+  "planned_sessions": 10,
+  "planned_packets": 1000,
+  "packets_attempted": 295,
+  "packets_passed": 295,
+  "sessions": [
+    {
+      "name": "constant_max_zero",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "constant_zero_max",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "alternating_extremes",
+      "seed": null,
+      "packets_passed": 95
+    }
+  ],
+  "note": "All 8 response bytes including warm-up are compared. This is independent supplemental stress, not an organizer test or judging score. Local hashes do not prove the programmed image.",
+  "error": "Stress run exceeded the 180-second overall bound",
+  "candidate_unchanged": true,
+  "completed_at_utc": "2026-10-03T22:27:48.737686+00:00",
+  "runtime_seconds": 272.281,
+  "latency_us": {
+    "mean": 920396.7332203389,
+    "median": 16790.1,
+    "minimum": 12887.0,
+    "maximum": 266592291.5
+  },
+  "packets_csv_sha256": "b9a58e38c80d220d2ea5169818468a541dcd68a9f6713f0153b9acddc034808a"
+}

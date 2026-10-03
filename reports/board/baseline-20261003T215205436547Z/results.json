@@ -1,0 +1,71 @@
+{
+  "started_at_utc": "2026-10-03T21:52:05.439535+00:00",
+  "status": "requested_practice_tests_passed",
+  "mode": "both",
+  "port": "COM6",
+  "device": "USB Serial Port (COM6)",
+  "hwid": "USB VID:PID=0403:6010 SER=2025030317B",
+  "candidate": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "6269435e9fdd5cd63b739c3acd244ae837a3a4e139d67c385c59f585b7bc8287",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "f8b949e96677b8a9111ee9e93144585c2d9e91f0e2ab6927245d8024d29fde1e",
+      "rtl/trade_top.v": "162aa718a694466d5e4d51444e063b69c0ef3efde9d8710ae9b20f5f6c17a523",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "a4ab5989d995a2654c8489237b0423ebe5d74bd9652896abecdbe903a2b3ae52",
+    "build_manifest_sha256": "1c087cf6614e9240fab10e7068ddea804478a09f85a9b61e02e58198c677f8f6",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 345,
+      "synthesis_registers": 444,
+      "synthesis_alus": 109,
+      "synthesis_ssram_blocks": 8,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 128.568,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 29.259,
+      "worst_hold_slack_ns": 0.319
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "tests": [
+    {
+      "test": "quick",
+      "passed": true,
+      "official_source_sha256": "a2b7f96ffe1b504c4dff0a993f309442672ec6a491f6b4c326a6ddf8d7563726",
+      "executed_copy_sha256": "a2b7f96ffe1b504c4dff0a993f309442672ec6a491f6b4c326a6ddf8d7563726",
+      "exit_code": 0,
+      "log_sha256": "73a44b7c1d7f348bef371a73bfb4373d301b73764a04df06331ac1088f584155"
+    },
+    {
+      "test": "robust",
+      "passed": true,
+      "official_source_sha256": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+      "executed_copy_sha256": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+      "exit_code": 0,
+      "log_sha256": "11c718a300301d23f744a1a4bdf76ef355c565429c4825d487d5cf6fbe2c48ba",
+      "packet_audit": {
+        "passed": true,
+        "packet_count": 100,
+        "includes_warmup_audit": true,
+        "issues": [],
+        "average_latency_us": 16893.565,
+        "output_sha256": {
+          "trade_results_100.csv": "8ef9fa4e136bd74b7c94ad9581d82262ed8234d8cf9385b4c30560dce5e02914",
+          "trade_summary_100.txt": "cf8f2edff4fe1851158b209bb7eb5696012f394f123015df1fbdcfd836d0a76f"
+        }
+      }
+    }
+  ],
+  "runner_programmed_or_reset_board": false,
+  "note": "Physical serial practice tests only. These do not verify the programmed image or establish an official judging score.",
+  "completed_at_utc": "2026-10-03T21:52:08.565025+00:00"
+}

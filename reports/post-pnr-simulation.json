@@ -1,0 +1,25 @@
+{
+  "status": "post_pnr_functional_simulation_passed",
+  "tested_at_utc": "2026-10-03T22:16:34.710198+00:00",
+  "physical_board_tested": false,
+  "sdf_delay_annotation": false,
+  "packets": 21,
+  "production_gap_cycles": 13500,
+  "runtime_seconds": 424.84,
+  "coverage": [
+    "power-on initialization",
+    "16-packet warm-up",
+    "BUY/SELL/hold",
+    "full-range unsigned 16-bit history reads",
+    "maximum 20-bit running sum",
+    "swapped item slots",
+    "false start rejection",
+    "malformed stop-bit recovery"
+  ],
+  "bitstream_sha256": "16cff3b2fd3e2b3f07c60f8001c922aac18c1b54edf8a1571514e5484c630542",
+  "post_pnr_netlist_sha256": "01bb5498cfeb8b580acd0d49c784821950264a8a7aafb305fed544981aebd03c",
+  "testbench_sha256": "037a12ab41964e9e0e954fc9456dc774e728bed9cf7b24b4719300a9a36cb44b",
+  "vendor_library_sha256": "797e52271b149b650f4ed6ae0ef2794a853c6ef19973f957abc4f576fa48b7a1",
+  "vectors_sha256": "6f923ee914e855d8e041782c2fc2f5540006dea39b27c253a176f67c6a2e980a",
+  "result": "PASS UART: 21 packets, bit period 8680.556 ns, gap 13500 clocks\nsim/tb_uart.sv:87: $finish called at 103490859848 (1ps)"
+}

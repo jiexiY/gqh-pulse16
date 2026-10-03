@@ -1,0 +1,15 @@
+.tools/
+.venv/
+official/
+build/
+__pycache__/
+*.vcd
+*.vvp
+impl/
+*.user
+*.lock
+.env
+.env.*
+*.pem
+*.key
+
