@@ -20,7 +20,8 @@ LUTs**. Total Logic, not the primitive LUT subtotal, is the ranking metric.
 `reports/build-summary.json` records its SHA-256, source hashes, resource usage,
 and timing. Physical evidence is in `reports/board/final-20261003/`, summarized
 in `reports/physical-verification.json`. Run `preflight.ps1` to check that the
-candidate and evidence still match. Reprogram this exact file in SRAM mode if
+candidate and software evidence still match; the physical summary identifies the
+exact tested bitstream separately. Reprogram this exact file in SRAM mode if
 the board loses power, then rerun verification. The interrupted host-sleep stress
 run is disclosed in the main README and is not counted as a completed pass.
 Do not substitute an example bitstream or publish a different source revision.

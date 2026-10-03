@@ -68,8 +68,9 @@ Still required before submission:
   containing that exact source and bitstream. Enter its full commit SHA on Devpost.
 - Verify the completed Devpost submission and return the borrowed board and accessories.
 
-The private GitHub destination is `jiexiY/gqh-pulse16`; its push is pending
-confirmation. Private hosting alone does not satisfy the organizer's public
+The verified project has been pushed to the **private** repository
+[jiexiY/gqh-pulse16](https://github.com/jiexiY/gqh-pulse16). Visibility remains
+private at the participant's request. Private hosting does not satisfy the organizer's public
 repository requirement. The generated `.fs` is physically tested, but the entry
 has not been officially judged or submitted.
 

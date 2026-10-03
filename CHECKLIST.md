@@ -27,7 +27,7 @@
 - [x] Pass final quick test (21 packets) and supplemental stress (1,000 packets across 10 sessions without reset).
 - [x] Preserve and disclose the incomplete 295-correct-packet stress run interrupted by Windows Modern Standby; do not count it as a pass.
 - [x] Freeze final tested source/bitstream and document metrics, team details and limitations.
-- [ ] Confirm private GitHub push to `jiexiY/gqh-pulse16` (private visibility does not satisfy the final public-repository requirement).
+- [x] Push to `jiexiY/gqh-pulse16` and verify private visibility and matching remote commit (private visibility does not satisfy the final public-repository requirement).
 - [ ] Publish public repository and submit its URL/full commit SHA on Devpost.
 - [ ] Return board and all accessories in the **ballroom** by October 4, 11 AM EDT (latest Discord update).
 
