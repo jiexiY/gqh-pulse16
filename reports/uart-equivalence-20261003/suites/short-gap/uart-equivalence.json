@@ -1,0 +1,31 @@
+{
+  "status": "uart_waveform_equivalence_passed",
+  "packets_per_gap": 528,
+  "compared_gaps": [
+    16
+  ],
+  "input_sha256": {
+    "rtl\\trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+    "rtl\\uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+    "rtl\\signal_engine.v": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+    "build\\experiments\\uart-small-20261003\\variants\\receive-shift-fields\\trade_top.v": "23dc451ecf8636e5aab3301f40937fc1e63f5f65c733d4406c69a973015f5c9e",
+    "build\\experiments\\uart-small-20261003\\variants\\receive-shift-fields\\uart_rx.v": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
+    "build\\experiments\\competition-verification-20261003\\tb_uart_equivalence.sv": "478e58cebb96887be1ebd19c99f4fd27891b9a7caa910950a869f1d092a92cf7",
+    "build\\experiments\\competition-verification-20261003\\verify_uart_equivalence.py": "53fe05fe3ce52ba6f99e05c15ae3e59f5148b1193ed0ba4e55a9e2797dcd9052",
+    "sim\\run_tests.py": "561164c397d272b60a7d570b74761730be5592106d0d1a1f10751f36b5cacee9",
+    "host\\22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f"
+  },
+  "vectors_sha256": "880b2f06a96005f2aae84ceb89d78a88077ea39f203e7508f1b18ece0f90cc0d",
+  "results": [
+    {
+      "gap_cycles": 16,
+      "output": "PASS UART equivalence: 528 packets, 19970534 clocks, 28 active-TX errors, gap 16 clocks\nC:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\competition-verification-20261003\\tb_uart_equivalence.sv:98: $finish called at 739668659300 (1ps)"
+    }
+  ],
+  "physical_board_tested": false,
+  "finalized_at_utc": "2026-10-04T01:40:14.478457+00:00",
+  "input_validation": "The preserved namespaced DUT snapshots exactly match current original sources under the documented module-name substitutions; shared engine matches frozen274 hash.",
+  "scope_note": "Only completed gap16 phase is counted. Full528 production-gap phase was stopped incomplete. Separate production64 suite has its own vectors and report.",
+  "incomplete_phase_record": "production-incomplete.json",
+  "finalizer_sha256": "639a8d4cfa8ebfacd607b1e730da971f514671c720c16c2f89329b65b4ed9799"
+}

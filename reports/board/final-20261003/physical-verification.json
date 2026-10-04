@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "local_physical_practice_verified",
+  "date": "2026-10-03",
+  "board": {
+    "model": "Sipeed Tang Nano 20K",
+    "assigned_number": 9,
+    "number_source": "participant confirmation",
+    "port": "COM6",
+    "team": "jiexi yang",
+    "participant": "Jiexi Yang",
+    "university": "University of Florida"
+  },
+  "candidate_bitstream": "bitstream/trade_top.fs",
+  "candidate_sha256": "16cff3b2fd3e2b3f07c60f8001c922aac18c1b54edf8a1571514e5484c630542",
+  "programming": {
+    "mode": "SRAM Program (operation 2)",
+    "tool_reported_success": true,
+    "receipt": "reports/board/final-20261003/programming/receipt.json",
+    "user_code": "0x00007856",
+    "status_code": "0x00006020",
+    "flash_written": false,
+    "readback_performed": false,
+    "note": "Receipt binds the staged bitstream to a successful vendor-programmer operation. Subsequent UART tests establish behavior, not a cryptographic on-device readback."
+  },
+  "qualification_practice": {
+    "pairs": 5,
+    "sequence": "original robust immediately followed by organizer fullrange, repeated five times; no runner-controlled reset or programming within this sequence",
+    "packets_received_and_audited": 1000,
+    "scored_actions_correct": 1680,
+    "scored_actions_total": 1680,
+    "timeouts": 0,
+    "warmup_responses_also_audited": true,
+    "robust_run_average_latency_ms": [
+      16.823709,
+      16.830175,
+      16.843658,
+      16.828892,
+      16.830057
+    ],
+    "median_of_five_robust_run_means_ms": 16.830057,
+    "all_runs_within_local_full_points_latency_threshold": true,
+    "primitive_luts_within_local_full_points_threshold": true,
+    "official_qualification_verified": false
+  },
+  "quick": {
+    "packets": 21,
+    "status": "passed"
+  },
+  "supplemental_stress": {
+    "packets": 1000,
+    "sessions": 10,
+    "status": "passed",
+    "scope": "Independent reference, full-range prices, explicit extremes, swapped slots including warmup, consecutive index-zero restarts on one serial connection",
+    "runtime_seconds": 17.656,
+    "not_organizer_qualification": true
+  },
+  "interrupted_attempt": {
+    "status": "not_a_pass",
+    "path": "reports/board/final-20261003/interrupted-stress",
+    "packets_attempted": 295,
+    "correct_responses": 295,
+    "stop_reason": "Overall 180-second safety bound exceeded",
+    "observed_long_packet_latency_ms": 266592.2915,
+    "windows_events": [
+      {
+        "provider": "Microsoft-Windows-Kernel-Power",
+        "event_id": 506,
+        "local_time": "2026-10-03T18:23:12-04:00",
+        "reason": "Modern Standby, Idle Timeout"
+      },
+      {
+        "provider": "Microsoft-Windows-Kernel-Power",
+        "event_id": 507,
+        "local_time": "2026-10-03T18:27:48-04:00",
+        "reason": "Exit Modern Standby, Austerity Battery Drain Budget Exceeded"
+      }
+    ],
+    "interpretation": "Windows standby coincided with the execution pause. This interrupted run is retained and excluded from the five-run latency measurement. The complete stress rerun passed without reprogramming or RTL changes."
+  },
+  "synthesis_metrics": {
+    "total_logic": 437,
+    "registers": 428,
+    "bsram_blocks": 1,
+    "primitive_luts": 327,
+    "alus": 109,
+    "ssram_blocks": 0
+  },
+  "software_verification": {
+    "engine_packets": 10907,
+    "bit_level_uart_packets": 1107,
+    "mapped_fullrange_uart_packets": 21,
+    "tooling_unit_tests": 89
+  },
+  "evidence_sha256": {
+    "reports/build-summary.json": "17a4c07cebdca64e408266f5fb182ca79679c925c4010b6593315a576a46c07c",
+    "reports/board/final-20261003/programming/receipt.json": "3f9b7495ab5f5779cbd03282fd1f262400c48dfb989f1b808e75eef2a3ca304b",
+    "reports/board/final-20261003/qualification-1/results.json": "b5e2c033c89fb799dbd73d8f11efdc77253cb1b6372090bee63d4344b40fe618",
+    "reports/board/final-20261003/qualification-2/results.json": "54deadf4c0a83c8c3cd8bb550bcb1e1004657509d3f61879358c873add52dc08",
+    "reports/board/final-20261003/qualification-3/results.json": "eed0f0dbf9300095e68d54b250f58f8b12ee19768425170edf54cdd874751130",
+    "reports/board/final-20261003/qualification-4/results.json": "0142d4058354f2845f32558cc4a1a3709442e5689011362e692c3d9b43b79b83",
+    "reports/board/final-20261003/qualification-5/results.json": "298a9a7a0ca6f1856e8aa0efe823409bbfccdcb823bf7d96f2d22960bc1a67a0",
+    "reports/board/final-20261003/quick/results.json": "0472e50a3a24ce5495683b511fa6094c141d86db2962a943fb25f9dc24e484db",
+    "reports/board/final-20261003/stress/results.json": "1fcdfca05c6b53086561b433c6874033d1862ecdd87eee8d748aea99763f6211",
+    "reports/board/final-20261003/interrupted-stress/results.json": "6854b3973486738dc5d528bece8586d1689b975eafc425234f38bf4a2aabbf80"
+  },
+  "limitations": [
+    "Practice seeds and this Dell's host latency are not the judge's hidden seeds or PC.",
+    "PR1014 clock-route warning remains documented; internal 27 MHz timing and tested physical traffic passed.",
+    "SRAM configuration is volatile; power loss requires reprogramming the submitted bitstream.",
+    "No official score, ranking, or first-place guarantee is established.",
+    "Private GitHub hosting alone does not satisfy the event's public-repository requirement; Devpost submission and board return remain outstanding."
+  ]
+}

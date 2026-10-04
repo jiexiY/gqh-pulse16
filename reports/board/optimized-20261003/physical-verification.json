@@ -1,0 +1,182 @@
+{
+  "schema_version": 2,
+  "status": "local_physical_practice_verified",
+  "date": "2026-10-03",
+  "board": {
+    "model": "Sipeed Tang Nano 20K",
+    "assigned_number": 9,
+    "number_source": "participant confirmation",
+    "port": "COM6",
+    "team": "jiexi yang",
+    "participant": "Jiexi Yang",
+    "university": "University of Florida"
+  },
+  "candidate_bitstream": "bitstream/trade_top.fs",
+  "candidate_sha256": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+  "programming": {
+    "mode": "SRAM Program (operation 2)",
+    "tool_reported_success": true,
+    "receipt": "reports/board/optimized-20261003/programming/receipt.json",
+    "user_code": [
+      "0x0000CC36"
+    ],
+    "status_code": [
+      "0x00006020"
+    ],
+    "flash_written": false,
+    "readback_performed": false,
+    "note": "Receipt binds the staged bitstream to successful SRAM programming; UART results establish tested behavior, not cryptographic readback."
+  },
+  "qualification_practice": {
+    "pairs": 5,
+    "sequence": "quick, then five robust/fullrange pairs, then stress; no runner-controlled reset or programming after the receipt",
+    "packets_received_and_audited": 1000,
+    "scored_actions_correct": 1680,
+    "scored_actions_total": 1680,
+    "timeouts": 0,
+    "warmup_responses_also_audited": true,
+    "robust_run_average_latency_ms": [
+      16.912512,
+      16.90805,
+      16.90712,
+      16.879293,
+      16.887416
+    ],
+    "median_of_five_robust_run_means_ms": 16.90712,
+    "all_runs_within_local_full_points_latency_threshold": true,
+    "primitive_luts_within_local_full_points_threshold": true,
+    "official_qualification_verified": false
+  },
+  "quick": {
+    "packets": 21,
+    "status": "passed"
+  },
+  "supplemental_stress": {
+    "packets": 1000,
+    "sessions": 10,
+    "status": "passed",
+    "runtime_seconds": 17.75,
+    "latency_us": {
+      "mean": 16784.9114,
+      "median": 16837.3,
+      "minimum": 7867.9,
+      "maximum": 20202.8
+    },
+    "scope": "All 8 response bytes including warm-up are compared. This is independent supplemental stress, not an organizer test or judging score. Local hashes do not prove the programmed image.",
+    "not_organizer_qualification": true
+  },
+  "synthesis_metrics": {
+    "total_logic": 307,
+    "registers": 203,
+    "bsram_blocks": 3,
+    "primitive_luts": 263,
+    "alus": 43,
+    "ssram_blocks": 0
+  },
+  "timing_metrics": {
+    "clock_constraint_mhz": 27.0,
+    "reported_fmax_mhz": 98.418,
+    "setup_violated_endpoints": 0,
+    "hold_violated_endpoints": 0,
+    "worst_setup_slack_ns": 26.876,
+    "worst_hold_slack_ns": 0.077
+  },
+  "software_verification": {
+    "engine_packets": 10907,
+    "bit_level_uart_packets": 1107,
+    "mapped_fullrange_uart_packets": 21,
+    "tooling_unit_tests": "See latest independently executed test log; not inferred by this helper"
+  },
+  "promotion_provenance": {
+    "candidate_build_manifest_sha256": "fe17b190374cd4dbf91affd481b2249acb63ee8b7fc5ce51ff2ee135d7c355b9",
+    "canonical_build_manifest_sha256": "fe17b190374cd4dbf91affd481b2249acb63ee8b7fc5ce51ff2ee135d7c355b9",
+    "matching_fields": [
+      "source_sha256",
+      "bitstream_sha256",
+      "post_pnr_netlist_sha256",
+      "metrics"
+    ],
+    "note": "Manifest byte hashes may differ due to build metadata/timestamps; exact source, bitstream, mapped netlist and parsed metrics must match."
+  },
+  "historical_previous_candidate": {
+    "summary": "reports/board/final-20261003/physical-verification.json",
+    "candidate_sha256": "16cff3b2fd3e2b3f07c60f8001c922aac18c1b54edf8a1571514e5484c630542",
+    "synthesis_metrics": {
+      "total_logic": 437,
+      "registers": 428,
+      "bsram_blocks": 1,
+      "primitive_luts": 327,
+      "alus": 109,
+      "ssram_blocks": 0
+    },
+    "note": "Previous physical tests and interrupted standby run remain historical; none are counted for this candidate."
+  },
+  "evidence_sha256": {
+    "reports/board/optimized-20261003/hardware-sequence.json": "a66b302e2e7cd469dcd5abe32965402c2a70d393022b4c08fe446ba13d500b91",
+    "reports/board/optimized-20261003/candidate-build-summary.json": "fe17b190374cd4dbf91affd481b2249acb63ee8b7fc5ce51ff2ee135d7c355b9",
+    "reports/board/optimized-20261003/programming/program-sram.log": "b5223e65873350323f8f4b74a73f967a2e92b04de20b89fd86679d2eec80e09d",
+    "reports/board/optimized-20261003/programming/receipt.json": "3282d270e8f5621a67ef39b66f8a80363b10d57117ca2a20d900dc37e9922d57",
+    "reports/board/optimized-20261003/programming/scan.log": "709e4300f9c8326f38601594e3c46b1b069a7a561a1168aeb4be772177f1f5d5",
+    "reports/board/optimized-20261003/quick/21_quick_uart_test.py": "a2b7f96ffe1b504c4dff0a993f309442672ec6a491f6b4c326a6ddf8d7563726",
+    "reports/board/optimized-20261003/quick/quick.log": "0523dcf4a8724f30ddf67989a3217e08eb70f138acdf4021b120d93ce3a14334",
+    "reports/board/optimized-20261003/quick/results.json": "7b16fee509ab31db9dfa2553c5056c1ea34b132e901aadfe65cdab7aae502835",
+    "reports/board/optimized-20261003/qualification-1/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "reports/board/optimized-20261003/qualification-1/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+    "reports/board/optimized-20261003/qualification-1/fullrange.log": "3823cd7220fd4ae51dc003c4e19d4274a3197e10548204353484e54431bcaf60",
+    "reports/board/optimized-20261003/qualification-1/results.json": "09fcf7604a760e4babe241f00115f6418838bab6ac10cb12905f804c4231f078",
+    "reports/board/optimized-20261003/qualification-1/robust.log": "3ca9064b98b651c29dd0d63ab6c2953ab61e6fff4c8172c8c3275f26ca894ce2",
+    "reports/board/optimized-20261003/qualification-1/trade_results_100.csv": "dc8f2f07ab725ac6ca944540ccb5f78497e0fd66f74fc41b33ce37fe1c939f26",
+    "reports/board/optimized-20261003/qualification-1/trade_results_100_fullrange.csv": "5bdb88447a92becb4dbe578ddfd5e27dc0f4cd0d3ee6cc3217b029b425563266",
+    "reports/board/optimized-20261003/qualification-1/trade_summary_100.txt": "9b6b634a80dd6964cdfd21795b111e015ba8910e1fc47781fdc52d3b5c0f2dd0",
+    "reports/board/optimized-20261003/qualification-1/trade_summary_100_fullrange.txt": "95e87c491efbb9637132d63b8bc2c48acb4325fdd6aecb8744d59130653ad764",
+    "reports/board/optimized-20261003/qualification-2/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "reports/board/optimized-20261003/qualification-2/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+    "reports/board/optimized-20261003/qualification-2/fullrange.log": "945ccf0a383043bb7af0f17ff6fc7f525937f7261a8f08566b241bdc676ea154",
+    "reports/board/optimized-20261003/qualification-2/results.json": "81fa277ddbee883e12ac5dbe051ea617790227add2b74b8ed71b9cb5155b264f",
+    "reports/board/optimized-20261003/qualification-2/robust.log": "81b2c2822b5841bb717019647d50bd5193d47ebb2e04e1a211e4648531bcf5c6",
+    "reports/board/optimized-20261003/qualification-2/trade_results_100.csv": "08729e7be4e7fc660f7d66b0806d0fe1efc3ecb5da0b6fe96e1a253ed03ac564",
+    "reports/board/optimized-20261003/qualification-2/trade_results_100_fullrange.csv": "df273b231293e022d1bc70d35639d53027e0ff5bd32fd5f6a932c0e4c2a7a2d0",
+    "reports/board/optimized-20261003/qualification-2/trade_summary_100.txt": "847219a38dbeadf49648151553ecdc4dd48f9d951810a252f1427d0f3300b784",
+    "reports/board/optimized-20261003/qualification-2/trade_summary_100_fullrange.txt": "62c9f6d642106ff4151d60347dff6c591f9fac51c24a7426f1941dbe06b8a2bd",
+    "reports/board/optimized-20261003/qualification-3/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "reports/board/optimized-20261003/qualification-3/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+    "reports/board/optimized-20261003/qualification-3/fullrange.log": "91ca7a7b58fb1831b75aa970384a6e751c6eb40c1d828a1ace2f5080ad0891c4",
+    "reports/board/optimized-20261003/qualification-3/results.json": "8aa1ab7a668b8163db38144b3016e8375fb04a5822c2101ea1c0da6e3c8b26b3",
+    "reports/board/optimized-20261003/qualification-3/robust.log": "0cdeaef51cb41938d1166c811f2085dff03a979cf9c98f3cd80160a8caf4059c",
+    "reports/board/optimized-20261003/qualification-3/trade_results_100.csv": "c357b6a41821f15e3e036c8324f2ef6d1bd4d89fa8013017ebb26a11adc58ba7",
+    "reports/board/optimized-20261003/qualification-3/trade_results_100_fullrange.csv": "6fc861a5e22331e5e8ed076d683c8a9496b72a4254c1208646a86c3019740853",
+    "reports/board/optimized-20261003/qualification-3/trade_summary_100.txt": "61a56506bea0ee39bfc4758e254e5aac9ca72293dc3b26b47da4681af263dd29",
+    "reports/board/optimized-20261003/qualification-3/trade_summary_100_fullrange.txt": "9093da2282ca4ac0a62cc4348bf8191dafafe324a5e033b01154cff87850e924",
+    "reports/board/optimized-20261003/qualification-4/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "reports/board/optimized-20261003/qualification-4/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+    "reports/board/optimized-20261003/qualification-4/fullrange.log": "f61d2fb8231dae4129e889e17b7d41eb25364edcac4d1e29e26fcd471969377c",
+    "reports/board/optimized-20261003/qualification-4/results.json": "9b730a26586b3943de0c368886af93a139c5cb55c7f1f1c023c37442ef06bed3",
+    "reports/board/optimized-20261003/qualification-4/robust.log": "38c2f51b63f554b5577e266f386d45aa694be14637a315419c0e377963891643",
+    "reports/board/optimized-20261003/qualification-4/trade_results_100.csv": "d1b3abcdd93d268618f9040ff5e02eccdd843892682abe9036a067858c7bae70",
+    "reports/board/optimized-20261003/qualification-4/trade_results_100_fullrange.csv": "3cb30a8fa06e693ea40f9b03ae146cfd7b1321ef3014abb0c6108bc92a1ded8a",
+    "reports/board/optimized-20261003/qualification-4/trade_summary_100.txt": "35b19817faf33e79162aeeeb1239ac61c386569e1d3dfafd2772a07127ab564e",
+    "reports/board/optimized-20261003/qualification-4/trade_summary_100_fullrange.txt": "e543e497ada6a9c79dfa071d927d4f14f624a6fc67e5c2de36562855ea89d8c0",
+    "reports/board/optimized-20261003/qualification-5/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "reports/board/optimized-20261003/qualification-5/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+    "reports/board/optimized-20261003/qualification-5/fullrange.log": "c8b97ac5157ca5bad77e609fef1b513a08392639b6be58276305c50db9211bf8",
+    "reports/board/optimized-20261003/qualification-5/results.json": "dfd15eeaa2385f307d02756198f5506bf5caf9662cb85031623e917900baa52a",
+    "reports/board/optimized-20261003/qualification-5/robust.log": "78d3d3bf5e1f1ea48e53870670c9bd8ca10ffbb4feada14dd55acf7dc6cbc3e2",
+    "reports/board/optimized-20261003/qualification-5/trade_results_100.csv": "5c4fcd20f88cadd4d397c9342a2e3e926a1b12cd250357e5697132864322c5e4",
+    "reports/board/optimized-20261003/qualification-5/trade_results_100_fullrange.csv": "048c3b24a6e57fd2912554cb20a61899f0117ce1cb0077f9f4d2b898ddcc306d",
+    "reports/board/optimized-20261003/qualification-5/trade_summary_100.txt": "4c7e725fc088c32ebe58eed57a48ce273e9cf2c2971ab3f82b5b50be5542e84e",
+    "reports/board/optimized-20261003/qualification-5/trade_summary_100_fullrange.txt": "050c9186d5dfad17bc9642706405ff507fdb4a0983069d4a713209fd822caf07",
+    "reports/board/optimized-20261003/stress/packets.csv": "71935b5577e4cd88b8f4e13cba9ecfb59bd610a62184fb66cf1f8be64240fd29",
+    "reports/board/optimized-20261003/stress/results.json": "2961f765c37b6ceb1bffdb66cb53e89c9cf660438f3c97abec0d396d52ea0744",
+    "reports/build-summary.json": "fe17b190374cd4dbf91affd481b2249acb63ee8b7fc5ce51ff2ee135d7c355b9",
+    "reports/rtl-simulation.json": "7d9b9a700a40c89015e7594fe40933bc9d10e27c8bbe17c82e0ffd78f494b47d",
+    "reports/post-pnr-simulation.json": "ce23353bdff6e3bf715f352a37530a0252e150cd0a40a65901daadb77ef3cf05",
+    "reports/board/final-20261003/physical-verification.json": "381853ebcbb4b7e4a54e5a73b1309244ea4f7ae18cf38dc10b624884975a1f07"
+  },
+  "limitations": [
+    "Practice seeds and this Dell's host latency are not the judge's hidden seeds or PC.",
+    "PR1014 clock-route warning remains documented; internal 27 MHz timing and tested physical traffic passed.",
+    "SRAM configuration is volatile; power loss requires reprogramming the submitted bitstream.",
+    "No official score, ranking, or first-place guarantee is established.",
+    "Private GitHub hosting alone does not satisfy the event's public-repository requirement; Devpost submission and board return remain outstanding."
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "label": "Supplemental stress, NOT organizer qualification",
+  "status": "supplemental_stress_passed",
+  "official_qualification_verified": false,
+  "started_at_utc": "2026-10-04T01:06:06.890219+00:00",
+  "port": "COM6",
+  "device": "USB Serial Port (COM6)",
+  "hwid": "USB VID:PID=0403:6010 SER=2025030317B",
+  "candidate_before": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+      "rtl/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "dc98a557d956b7ebed262461f3d17642e7ef9f53937bb7e62466b1edd568b69e",
+    "build_manifest_sha256": "5f7d10aaa2c0c6144e0fe59d0e534d6adcc5b00a80e4a495cde1c4ec64806de0",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 230,
+      "synthesis_total_logic": 274,
+      "synthesis_bsram_blocks": 2,
+      "synthesis_registers": 203,
+      "synthesis_alus": 43,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 132.426,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 29.486,
+      "worst_hold_slack_ns": 0.077
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "candidate_after": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+      "rtl/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "dc98a557d956b7ebed262461f3d17642e7ef9f53937bb7e62466b1edd568b69e",
+    "build_manifest_sha256": "5f7d10aaa2c0c6144e0fe59d0e534d6adcc5b00a80e4a495cde1c4ec64806de0",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 230,
+      "synthesis_total_logic": 274,
+      "synthesis_bsram_blocks": 2,
+      "synthesis_registers": 203,
+      "synthesis_alus": 43,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 132.426,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 29.486,
+      "worst_hold_slack_ns": 0.077
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "test_tool_sha256": {
+    "stress_board.py": "5a8b240024ca7ed08a9b837faa9ae3ee0e89a616f459ecc4e36a7301d0f940b6",
+    "board_test.py": "9580d8a3c718f62656fe849fa04bc06e82b3994eeff042bf4d140214d97681a3",
+    "build_fpga.py": "696fb4f05c0916dd95b743fbdf41a170b15be82704205f194c1881d3f4144f5d"
+  },
+  "serial_settings": {
+    "baud": 115200,
+    "timeout_seconds": 1.0,
+    "other_settings": "pyserial defaults; no explicit control-line toggles"
+  },
+  "serial_connections_requested": 1,
+  "runner_programmed_or_reset_board": false,
+  "planned_sessions": 10,
+  "planned_packets": 1000,
+  "packets_attempted": 1000,
+  "packets_passed": 1000,
+  "sessions": [
+    {
+      "name": "constant_max_zero",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "constant_zero_max",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "alternating_extremes",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "rounding_and_held_actions",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_0",
+      "seed": 520147307,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_1",
+      "seed": 3174583076,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_2",
+      "seed": 1534051549,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_3",
+      "seed": 4188487318,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_4",
+      "seed": 2547955791,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_5",
+      "seed": 907424264,
+      "packets_passed": 100
+    }
+  ],
+  "note": "All 8 response bytes including warm-up are compared. This is independent supplemental stress, not an organizer test or judging score. Local hashes do not prove the programmed image.",
+  "candidate_unchanged": true,
+  "completed_at_utc": "2026-10-04T01:06:24.748018+00:00",
+  "runtime_seconds": 17.859,
+  "latency_us": {
+    "mean": 16809.1645,
+    "median": 16820.3,
+    "minimum": 7304.7,
+    "maximum": 21313.8
+  },
+  "packets_csv_sha256": "06d87879f1433d97019f94013dcd994ec2e7b08d5a4cd2a060697ab51ae8bd84"
+}

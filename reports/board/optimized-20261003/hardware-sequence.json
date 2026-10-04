@@ -1,0 +1,126 @@
+{
+  "status": "physical_practice_passed",
+  "candidate": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\combo-20261003",
+  "bitstream_sha256": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+  "programming": {
+    "schema_version": 1,
+    "action": "program-sram",
+    "started_at_utc": "2026-10-04T00:20:11.486348+00:00",
+    "status": "sram_programmed_not_functionally_tested",
+    "location": "273",
+    "cable_index": 4,
+    "frequency": "2.5MHz",
+    "commands": [
+      {
+        "label": "scan",
+        "argv": [
+          "C:\\Users\\jessi\\OneDrive\\73EC~1\\NEWPRO~1\\FPGA-T~1\\TOOLS~1\\GOWIN-~2\\GOWIN_~1.03_\\PROGRA~1\\bin\\PROGRA~2.EXE",
+          "--scan",
+          "--cable-index",
+          "4",
+          "--location",
+          "273",
+          "--frequency",
+          "2.5MHz"
+        ],
+        "command_line": "C:\\Users\\jessi\\OneDrive\\73EC~1\\NEWPRO~1\\FPGA-T~1\\TOOLS~1\\GOWIN-~2\\GOWIN_~1.03_\\PROGRA~1\\bin\\PROGRA~2.EXE --scan --cable-index 4 --location 273 --frequency 2.5MHz",
+        "cwd": "C:\\Users\\jessi\\OneDrive\\73EC~1\\NEWPRO~1\\FPGA-T~1\\TOOLS~1\\GOWIN-~2\\GOWIN_~1.03_\\PROGRA~1\\bin",
+        "started_at_utc": "2026-10-04T00:20:11.670866+00:00",
+        "timeout_seconds": 30,
+        "exit_code": 0,
+        "timed_out": false,
+        "finished_at_utc": "2026-10-04T00:20:12.687680+00:00",
+        "output": " Scanning!\n Target Cable: USB Debugger A/0/273/null@2.5MHz\nDevice Info:\n \tFamily: GW2AR  \n\tName: GW2A-18C GW2AR-18C  (One of them)  \n\tID: 0x0000081B  \n 1 device(s) found!\n Cost 0.62 second(s)\n  \n",
+        "log": "scan.log"
+      },
+      {
+        "label": "program-sram",
+        "argv": [
+          "C:\\Users\\jessi\\OneDrive\\73EC~1\\NEWPRO~1\\FPGA-T~1\\TOOLS~1\\GOWIN-~2\\GOWIN_~1.03_\\PROGRA~1\\bin\\PROGRA~2.EXE",
+          "--device",
+          "GW2AR-18C",
+          "--run",
+          "2",
+          "--fsFile",
+          "C:\\Users\\jessi\\OneDrive\\73EC~1\\NEWPRO~1\\FPGA-T~1\\build\\EXPERI~1\\COMBO-~1\\build\\PROGRA~1\\202610~1.485\\candidate.fs",
+          "--cable-index",
+          "4",
+          "--location",
+          "273",
+          "--frequency",
+          "2.5MHz"
+        ],
+        "command_line": "C:\\Users\\jessi\\OneDrive\\73EC~1\\NEWPRO~1\\FPGA-T~1\\TOOLS~1\\GOWIN-~2\\GOWIN_~1.03_\\PROGRA~1\\bin\\PROGRA~2.EXE --device GW2AR-18C --run 2 --fsFile C:\\Users\\jessi\\OneDrive\\73EC~1\\NEWPRO~1\\FPGA-T~1\\build\\EXPERI~1\\COMBO-~1\\build\\PROGRA~1\\202610~1.485\\candidate.fs --cable-index 4 --location 273 --frequency 2.5MHz",
+        "cwd": "C:\\Users\\jessi\\OneDrive\\73EC~1\\NEWPRO~1\\FPGA-T~1\\TOOLS~1\\GOWIN-~2\\GOWIN_~1.03_\\PROGRA~1\\bin",
+        "started_at_utc": "2026-10-04T00:20:12.747540+00:00",
+        "timeout_seconds": 180,
+        "exit_code": 0,
+        "timed_out": false,
+        "finished_at_utc": "2026-10-04T00:20:19.657429+00:00",
+        "output": " Target Cable: USB Debugger A/0/273/null@2.5MHz\n Target Device: GW2AR-18C(0x0000081B)\n Operation \"SRAM Program\" for device#1...\n\nPrograming: [                         ] 1%                 \nPrograming: [                         ] 2%                 \nPrograming: [                         ] 3%                 \nPrograming: [#                        ] 4%                 \nPrograming: [#                        ] 5%                 \nPrograming: [#                        ] 6%                 \nPrograming: [#                        ] 7%                 \nPrograming: [##                       ] 8%                 \nPrograming: [##                       ] 9%                 \nPrograming: [##                       ] 10%                 \nPrograming: [##                       ] 11%                 \nPrograming: [###                      ] 12%                 \nPrograming: [###                      ] 13%                 \nPrograming: [###                      ] 14%                 \nPrograming: [###                      ] 15%                 \nPrograming: [####                     ] 16%                 \nPrograming: [####                     ] 17%                 \nPrograming: [####                     ] 18%                 \nPrograming: [####                     ] 19%                 \nPrograming: [#####                    ] 20%                 \nPrograming: [#####                    ] 21%                 \nPrograming: [#####                    ] 22%                 \nPrograming: [#####                    ] 23%                 \nPrograming: [######                   ] 24%                 \nPrograming: [######                   ] 25%                 \nPrograming: [######                   ] 26%                 \nPrograming: [######                   ] 27%                 \nPrograming: [#######                  ] 28%                 \nPrograming: [#######                  ] 29%                 \nPrograming: [#######                  ] 30%                 \nPrograming: [#######                  ] 31%                 \nPrograming: [########                 ] 32%                 \nPrograming: [########                 ] 33%                 \nPrograming: [########                 ] 34%                 \nPrograming: [########                 ] 35%                 \nPrograming: [#########                ] 36%                 \nPrograming: [#########                ] 37%                 \nPrograming: [#########                ] 38%                 \nPrograming: [#########                ] 39%                 \nPrograming: [##########               ] 40%                 \nPrograming: [##########               ] 41%                 \nPrograming: [##########               ] 42%                 \nPrograming: [##########               ] 43%                 \nPrograming: [###########              ] 44%                 \nPrograming: [###########              ] 45%                 \nPrograming: [###########              ] 46%                 \nPrograming: [###########              ] 47%                 \nPrograming: [############             ] 48%                 \nPrograming: [############             ] 49%                 \nPrograming: [############             ] 50%                 \nPrograming: [############             ] 51%                 \nPrograming: [#############            ] 52%                 \nPrograming: [#############            ] 53%                 \nPrograming: [#############            ] 54%                 \nPrograming: [#############            ] 55%                 \nPrograming: [##############           ] 56%                 \nPrograming: [##############           ] 57%                 \nPrograming: [##############           ] 58%                 \nPrograming: [##############           ] 59%                 \nPrograming: [###############          ] 60%                 \nPrograming: [###############          ] 61%                 \nPrograming: [###############          ] 62%                 \nPrograming: [###############          ] 63%                 \nPrograming: [################         ] 64%                 \nPrograming: [################         ] 65%                 \nPrograming: [################         ] 66%                 \nPrograming: [################         ] 67%                 \nPrograming: [#################        ] 68%                 \nPrograming: [#################        ] 69%                 \nPrograming: [#################        ] 70%                 \nPrograming: [#################        ] 71%                 \nPrograming: [##################       ] 72%                 \nPrograming: [##################       ] 73%                 \nPrograming: [##################       ] 74%                 \nPrograming: [##################       ] 75%                 \nPrograming: [###################      ] 76%                 \nPrograming: [###################      ] 77%                 \nPrograming: [###################      ] 78%                 \nPrograming: [###################      ] 79%                 \nPrograming: [####################     ] 80%                 \nPrograming: [####################     ] 81%                 \nPrograming: [####################     ] 82%                 \nPrograming: [####################     ] 83%                 \nPrograming: [#####################    ] 84%                 \nPrograming: [#####################    ] 85%                 \nPrograming: [#####################    ] 86%                 \nPrograming: [#####################    ] 87%                 \nPrograming: [######################   ] 88%                 \nPrograming: [######################   ] 89%                 \nPrograming: [######################   ] 90%                 \nPrograming: [######################   ] 91%                 \nPrograming: [#######################  ] 92%                 \nPrograming: [#######################  ] 93%                 \nPrograming: [#######################  ] 94%                 \nPrograming: [#######################  ] 95%                 \nPrograming: [######################## ] 96%                 \nPrograming: [######################## ] 97%                 \nPrograming: [######################## ] 98%                 \nPrograming: [######################## ] 99%                 \nProgramming...: [#########################] 100%                 \n User Code is: 0x0000CC36\n Status Code is: 0x00006020\n Finished.\n Cost 6.46 second(s)\n  \n",
+        "log": "program-sram.log"
+      }
+    ],
+    "programming_attempted": true,
+    "functional_correctness_verified": false,
+    "scope": "SRAM programming receipt only; UART/qualification tests are separate evidence.",
+    "candidate_before": {
+      "bitstream_sha256": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+      "source_sha256": {
+        "rtl/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+        "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+        "rtl/signal_engine.v": "03be38cc4fd4ab2dcd4bb2792bb00d4e33e29784704073f21763c3060488b59c",
+        "rtl/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+        "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+        "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+        "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+        "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+      },
+      "build_summary_sha256": "fe17b190374cd4dbf91affd481b2249acb63ee8b7fc5ce51ff2ee135d7c355b9"
+    },
+    "preflight_passed": true,
+    "candidate_path": "bitstream/trade_top.fs",
+    "programmed_file_sha256": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+    "scan_output": " Scanning!\n Target Cable: USB Debugger A/0/273/null@2.5MHz\nDevice Info:\n \tFamily: GW2AR  \n\tName: GW2A-18C GW2AR-18C  (One of them)  \n\tID: 0x0000081B  \n 1 device(s) found!\n Cost 0.62 second(s)\n  \n",
+    "single_expected_fpga_confirmed": true,
+    "programming_flags": {
+      "selected_cable_confirmed": true,
+      "target_device_confirmed": true,
+      "sram_operation_confirmed": true,
+      "progress_100_percent": true,
+      "finished": true,
+      "no_error_marker": true
+    },
+    "user_code": [
+      "0x0000CC36"
+    ],
+    "status_code": [
+      "0x00006020"
+    ],
+    "candidate_after": {
+      "bitstream_sha256": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+      "source_sha256": {
+        "rtl/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+        "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+        "rtl/signal_engine.v": "03be38cc4fd4ab2dcd4bb2792bb00d4e33e29784704073f21763c3060488b59c",
+        "rtl/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+        "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+        "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+        "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+        "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+      },
+      "build_summary_sha256": "fe17b190374cd4dbf91affd481b2249acb63ee8b7fc5ce51ff2ee135d7c355b9"
+    },
+    "programmed_file_sha256_after": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+    "finished_at_utc": "2026-10-04T00:20:19.738854+00:00"
+  },
+  "qualification_pairs": [
+    "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\combo-20261003\\build\\board-tests\\20261004T002020737842Z",
+    "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\combo-20261003\\build\\board-tests\\20261004T002025435231Z",
+    "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\combo-20261003\\build\\board-tests\\20261004T002030128881Z",
+    "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\combo-20261003\\build\\board-tests\\20261004T002034867687Z",
+    "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\combo-20261003\\build\\board-tests\\20261004T002039574437Z"
+  ],
+  "quick": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\combo-20261003\\build\\board-tests\\20261004T002019784016Z",
+  "stress": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\combo-20261003\\build\\board-stress\\20261004T002044293715Z"
+}

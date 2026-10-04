@@ -7,34 +7,46 @@ All computation happens on the FPGA. Python is used only for verification.
 
 ## Current status
 
-The final BSRAM candidate has been programmed into **board 9's temporary SRAM**
+The optimized 267-Logic candidate has been programmed into **board 9's temporary SRAM**
 and physically verified on COM6. **Five consecutive local qualification pairs
 passed**: each original robust test was immediately followed by the organizer's
 full-range unsigned 16-bit test, without reset or reprogramming. Every run received
 all 100 responses, returned all 168 scored actions correctly, and had zero UART
 timeouts. The median of the five robust-run mean round-trip latencies was
-**16.830057 ms** on the team's Dell. The final quick test passed all 21 packets;
+**16.850055 ms** on the team's Dell. The final quick test passed all 21 packets;
 supplemental stress passed **1,000/1,000 packets across 10 sessions without reset**.
+The complete physical sequence audited **2,021 replies**: quick, five qualification
+pairs, then stress, without reset or reprogramming after the SRAM load.
 
 Final `bitstream/trade_top.fs` SHA-256:
-`16cff3b2fd3e2b3f07c60f8001c922aac18c1b54edf8a1571514e5484c630542`
+`6d37ce60101caf8d1580d44f368ef56a22af485da272043aff04627dc9ad167a`
 
-Raw final evidence is in `reports/board/final-20261003/`, with the summary in
+Raw current evidence is in `reports/board/competition-20261003/`, with the summary in
 `reports/physical-verification.json`. These are local practice results, not an
 official judging score or a placement guarantee. The immutable build manifest
 records the build-time state; physical evidence is separate and hash-bound.
-**Public repository visibility, Devpost submission and board return remain.**
+**Committing/pushing this version, public repository visibility, Devpost submission
+and board return remain.**
 
 Verified October 3, 2026: **10,907 engine packets and 1,107 bit-level UART
 packets passed**. The UART total includes 100 packets with production timing,
 807 additional cases with shortened inter-byte gaps, and 100 packets at each
 of two host baud offsets (+2% and -2%). This is a complete local simulation
-verification of the final HDL. Gowin V1.9.11.03 Education reports **437 total Logic**,
-428 registers, 1 BSRAM block, 327 primitive LUTs, 109 ALUs and 0 SSRAM blocks. Total Logic is
+verification of the final HDL. An additional **8,436 packets and 16,872 metadata
+invariant checks** passed across 137 sessions, with four deliberately faulty variants
+rejected; see `reports/relation-verification.json`. The new UART also matched the
+previous transmitter over 592 packets and 28,446,837 simulated clocks, including
+32 malformed-input injections during transmission. The production-gap subset
+contained 64 packets; the 528-packet short-gap subset covered all values of both
+echoed index bytes. Exact inputs, logs, and replay instructions are archived in
+`reports/uart-equivalence-20261003/`. An earlier 528-packet production-gap
+comparison was stopped for runtime and is explicitly not counted as a pass.
+Gowin V1.9.11.03 Education reports **267 total Logic**,
+189 registers, 2 BSRAM blocks, 223 primitive LUTs, 43 ALUs and 0 SSRAM blocks. Total Logic is
 the ranking metric; the primitive LUT subtotal is a different measurement.
 Place-and-route at 27 MHz reports **zero setup and hold violations**, with worst
-setup slack 27.748 ns and worst hold slack 0.379 ns. Reported internal Fmax is
-107.651 MHz; the design still runs at 27 MHz, not at that reported Fmax.
+setup slack 30.616 ns and worst hold slack 0.215 ns. Reported internal Fmax is
+155.729 MHz; the design still runs at 27 MHz, not at that reported Fmax.
 
 The build retains warning PR1014 for the required pin-4 clock input using some
 generic routing. Internal timing and the physical tests described above pass;
@@ -46,6 +58,7 @@ Quick commands from this folder:
 ```powershell
 .\build.ps1                              # Compile, check timing, export candidate
 .venv\Scripts\python.exe scripts/test_post_pnr.py  # Mapped-circuit simulation
+.venv\Scripts\python.exe sim/verify_relation.py   # Supplemental stored-state invariants
 .\preflight.ps1                          # Read-only source/report/hash audit
 .\board-test.ps1                         # List COM ports; opens no port
 .venv\Scripts\python.exe -m unittest discover -s tests -v # Tooling safety/regression checks
@@ -56,23 +69,27 @@ simulation of the mapped circuit on October 3. Its bitstream/netlist
 hashes must match the build; `preflight.ps1` checks this. This test uses the
 production UART divider and byte gap, with vendor primitive models but no SDF
 delay annotation. Full-range history values exercise bit 15 and the maximum
-16-price running sum. It does not model the USB bridge. The full RTL regression
-was reused from the isolated BSRAM experiment only after matching all HDL,
-settings, testbench and reference inputs; `reports/rtl-simulation-origin.json`
-records that provenance. The canonical mapped test was rerun after rebuilding.
-All **89 tooling safety/regression tests passed** for this release.
+16-price running sum. It does not model the USB bridge. The tested HDL, settings,
+bitstream, mapped netlist and reports were promoted byte-for-byte from the isolated
+competition-optimization experiment, without rebuilding. `reports/rtl-simulation-origin.json`
+records the matching hashes and test inputs; the simulator runner differs only
+in tool-path lookup, with the remaining AST identical. The canonical freshness
+audit passed after promotion. All **89 tooling safety/regression tests passed**
+again after promotion.
 
 Still required before submission:
 
-- Publish the final tested `.fs` in `bitstream/` in a public repository
+- Commit and push the new tested source, reports and `.fs` in `bitstream/` to a public repository
   containing that exact source and bitstream. Enter its full commit SHA on Devpost.
 - Verify the completed Devpost submission and return the borrowed board and accessories.
 
-The verified project has been pushed to the **private** repository
-[jiexiY/gqh-pulse16](https://github.com/jiexiY/gqh-pulse16). Visibility remains
-private at the participant's request. Private hosting does not satisfy the organizer's public
-repository requirement. The generated `.fs` is physically tested, but the entry
-has not been officially judged or submitted.
+The **private** repository
+[jiexiY/gqh-pulse16](https://github.com/jiexiY/gqh-pulse16) still contains the previous
+437-Logic version at commit `22f573f9ac2e0b04537fbfdcd703fe3fad058b88`.
+The current 267-Logic version is local, uncommitted and not pushed. Visibility
+remains private at the participant's request; private hosting does not satisfy
+the organizer's public-repository requirement. The new `.fs` is physically tested,
+but the entry has not been officially judged or submitted.
 
 ## Start here if FPGA is new to you
 
@@ -137,8 +154,8 @@ from synthesis by the project file.
    A fresh checkout first needs Python, Icarus Verilog, and a passing `test.ps1` run.
 3. The script checks **total Logic**, registers, BSRAM and primitive LUT usage,
    timing violations, required clock/device, source freshness, and output freshness.
-   The current ranking count is 437 Logic. The separate primitive LUT count is
-   327; do not confuse either with the report's 328 allocated-LUT figure.
+   The current ranking count is 267 Logic. The separate primitive LUT count is
+   223; use the report's aggregate Total Logic for ranking, not its LUT subtotal.
 4. On success it exports `bitstream/trade_top.fs`, unmodified vendor reports in
    `reports/gowin/`, and a source/output hash manifest. Run the mapped-circuit test
    and `preflight.ps1` before moving on. Do not rebuild while a test is running.
@@ -169,8 +186,8 @@ In the restricted automation environment Gowin cannot write its optional AppData
 `sh.log`; the full build output is instead captured under `reports/gowin/build.log`.
 For the Programmer CLI, the helper resolves the parent directory's existing
 short path while preserving the exact `.fs` basename. This path handling was
-physically verified by the final successful SRAM receipt
-`build/programming/20261003T222218.261541Z-85264f9e`, copied into the final evidence.
+physically verified by the successful SRAM receipt at
+`reports/board/competition-20261003/programming/receipt.json`.
 
 ## Verification
 
@@ -226,21 +243,43 @@ organizer originals and build evidence are hash-bound. Do not normalize line end
 ## Implementation choices
 
 `signal_engine.v` processes the two slots through one arithmetic datapath, while
-maintaining independent sums, previous prices, pointers, and last actions. A
+maintaining independent sums, previous comparison flags, pointers, and last actions. A
 32-word by 16-bit synchronous memory holds the two price windows in one BSRAM.
+One additional BSRAM block holds two 28-bit item records: 20-bit sum, two inclusive
+comparison flags, 2-bit action and 4-bit pointer. At each commit, the flags record
+whether the current price is less than or equal to, and greater than or equal to,
+its newly completed average. Equality sets both flags. On the next packet these
+are exactly the prior-price comparisons the trading rule needs, so the previous
+16-bit price and repeated comparison-selection logic are unnecessary. Flags are
+updated during warm-up too, including index 15 before the first scored packet.
+Request acceptance captures only the prices and item
+selectors needed for the two slots, rather than another complete packet copy.
 Gowin's documented `syn_ramstyle = "block_ram"` attribute selects block memory,
 which the revised ranking excludes from Total Logic. Avoiding a
 physical reset on the memory permits synthesis to infer RAM instead of a bank
-of resettable registers. Index zero clears the metadata; warm-up overwrites
-each entry before it can affect an average, so old-session data is invalidated.
+of resettable registers. Index zero masks old sums and pointers to zero for both
+items, while warm-up forces NONE and writes fresh metadata. Warm-up overwrites
+each history entry before it can affect an average, invalidating old-session data.
 
 The sum uses 20 bits: `16 * 65535 = 1048560`, which fits. Dividing by 16 is a
 four-bit shift, which implements the specified floor operation. Old-price
 comparisons use the old average; current-price comparisons use the updated
-average. With no crossing, the previous action is repeated.
+average. Prior comparisons are inclusive and current comparisons are strict.
+One zero-extended 17-bit subtractor compares the current price and updated average;
+one 20-bit add/subtract unit removes the oldest price and then adds the new one.
+With no crossing, the previous action is repeated.
 
 The receiver synchronizes the input, checks the start bit, samples near each
-bit's center, and rejects an invalid stop bit. The transmitter inserts an
+bit's center, and rejects an invalid stop bit. It shifts sampled UART bits and
+writes incoming packet bytes into indexed fields. For the required IDs 0x11 and
+0x22, one selector bit preserves each item's identity and slot order. Transmission
+reuses the stable request index/item fields, stores only the resulting actions,
+and shares one timer between baud timing and inter-byte idle. Receive and transmit
+share a byte counter because valid traffic is stop-and-wait; framing errors during
+transmission cannot reset that counter. Two-byte fields use enabled byte shifts,
+and the receiver exposes its completed shift register only through a valid-qualified
+interface. A stop-bit shift sentinel replaces the transmit bit counter while
+preserving every output bit's duration. The transmitter inserts an
 **0.5 ms gap between response bytes** to accommodate the BL616 bridge. This
 setting passed the final quick test, five consecutive robust/full-range pairs
 and the completed 1,000-packet supplemental stress test.
@@ -262,7 +301,7 @@ Reserved: always 0
 Indices 0–15 fill the windows and return NONE. Index 0 starts a fresh session.
 Routing is by item ID and responses preserve the request's slot order.
 
-## Hardware measurements — final candidate, October 3
+## Hardware measurements — current 267-Logic candidate, October 3
 
 | Metric | Measured result |
 |---|---|
@@ -270,26 +309,48 @@ Routing is by item ID and responses preserve the request's slot order.
 | Correct packets / 84 scored | 84 / 84 in every robust and full-range run; all 100 replies audited |
 | Correct actions / 168 scored | 168 / 168 in every robust and full-range run |
 | UART timeouts | 0 across all five qualification pairs |
-| Estimated correctness points / 70 | 70 / 70 in each local organizer practice run |
-| Median of five robust-run mean RTTs | 16.830057 ms on the team's Dell |
+| Median of five robust-run mean RTTs | 16.850055 ms on the team's Dell |
 | Final quick test | 21 / 21 packets passed |
 | Supplemental stress | 1,000 / 1,000 packets, 10 sessions without reset |
-| Total Logic / registers / BSRAM | 437 / 428 / 1, synthesis report |
-| Primitive Gowin LUT usage | 327 (synthesis report; not a physical measurement) |
-| Place-and-route timing | Pass at 27 MHz; setup +27.748 ns, hold +0.379 ns |
+| Total Logic / registers / BSRAM | 267 / 189 / 2, synthesis report |
+| Primitive Gowin LUT usage | 223 (synthesis report; not a physical measurement) |
+| Place-and-route timing | Pass at 27 MHz; setup +30.616 ns, hold +0.215 ns |
 | Board / UART / PC used | Tang Nano 20K board 9 / COM6 / Dell Inspiron 15 3520 |
 
-The five robust-run mean RTTs, in order, were **16.823709, 16.830175, 16.843658,
-16.828892 and 16.830057 ms**. Full-range runs establish correctness, not an
+The five robust-run mean RTTs, in order, were **16.860392, 16.839586, 16.839027,
+16.876044 and 16.850055 ms**. Full-range runs establish correctness, not an
 additional rescored latency result. The evidence directory contains the final
-programming receipt, `qualification-1` through `qualification-5`, `quick`,
-`stress`, and the disclosed `interrupted-stress` run.
+programming receipt, `qualification-1` through `qualification-5`, `quick`, and
+`stress`. All five pairs, the quick test and the stress run passed for this image.
 
-The preserved historical baseline used 503 Logic and 444 registers and passed
-the original quick/robust tests at 16.894 ms mean RTT. The BSRAM change saves
-66 Logic units (13.1%) and 16 registers. Its local fallback checkpoint is
-`build/checkpoints/baseline-before-bsram/`; do not confuse its older bitstream
-or physical results with the final candidate above.
+The immediate predecessor used **274 Logic, 203 registers and 2 BSRAM**, with
+16.857986 ms median RTT. Its exact source, bitstream and reports are preserved at
+`build/checkpoints/verified-274-before-competition/`; its physical evidence remains
+at `reports/board/relation-20261003/`. This round saves **7 Logic units (2.6%)**
+and **14 registers**, with unchanged BSRAM usage. The small RTT change is not
+treated as a meaningful speed improvement. Total Logic is **46.9% below the
+original 503-Logic baseline**. All current physical tests were rerun for this image.
+
+Earlier, replacing prior-price storage with relation flags reduced 307 Logic to
+274, with one fewer BSRAM. The 307-Logic fallback remains at
+`build/checkpoints/verified-307-before-relation/`, with physical evidence at
+`reports/board/optimized-20261003/`. Additional shared-ALU and byte-serial arithmetic
+experiments measured 276 and 296 Logic and were rejected. Removing duplicate
+engine input capture saved registers but no Logic and changed the standalone
+handshake contract, so that experiment was also rejected.
+
+An older physically verified version used **437 Logic, 428 registers and
+1 BSRAM**, with a five-run median of 16.830057 ms. Its bitstream SHA-256 was
+`16cff3b2fd3e2b3f07c60f8001c922aac18c1b54edf8a1571514e5484c630542`;
+its physical summary and raw evidence remain under `reports/board/final-20261003/`.
+The current design saves **170 Logic units (38.9%) and 239 registers** relative to
+that version, using one more BSRAM block. Judge-PC results remain unknown.
+
+The earlier historical baseline used **503 Logic, 444 registers and 0 BSRAM** and
+passed the original quick/robust tests at 16.894 ms mean RTT. Moving its history
+to BSRAM produced the 437-Logic version, saving 66 Logic units (13.1%). That
+baseline's local fallback checkpoint is `build/checkpoints/baseline-before-bsram/`.
+None of these older physical results are counted as tests of the current image.
 
 ### October 3 scoring clarification
 
@@ -314,17 +375,20 @@ marker to recover reliably from every possible dropped or inserted byte.
 Local full-range qualification and the supplemental stress test passed, but
 unknown judge seeds, judge-PC USB scheduling, and arbitrary traffic are not
 exhaustively verified. Synthesis inferred one SDPB BSRAM block for history, with
-16-bit read/write ports and no SSRAM. The generated netlist retains the power-on
+16-bit read/write ports, and one additional block for metadata; no SSRAM is used.
+The generated netlist retains the power-on
 and reset-synchronizer initialization values. Simulated wire behavior cannot
 predict USB/Windows latency. No test result constitutes a first-place guarantee.
 
-One intermediate supplemental stress run was stopped by its 180-second overall
+During testing of the previous 437-Logic image, one supplemental stress run was
+stopped by its 180-second overall
 safety limit after **295 correct packets**. Windows event logs confirmed Modern
 Standby from **6:23:12 PM to 6:27:48 PM EDT** after an idle timeout. This was a
 host sleep interruption, not a DUT UART timeout or correctness failure. Its
-partial evidence is retained under `interrupted-stress`; the subsequent complete
-1,000-packet run passed. Keep the laptop awake and the cable undisturbed during
-testing. We do not count the interrupted run as a completed pass.
+partial evidence is retained under `reports/board/final-20261003/interrupted-stress`;
+the subsequent complete 1,000-packet historical run passed. Keep the laptop awake
+and the cable undisturbed during testing. The interrupted run is not a completed
+pass, and neither historical run is counted in the current candidate's results.
 
 PR1014 is documented rather than suppressed: the required clock pin is listed as
 LPLL1_T_in, not a GCLK pin, and the report shows a generic route feeding the primary

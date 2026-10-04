@@ -6,17 +6,17 @@
   "short_gap_uart_packets": 807,
   "baud_offset_uart_packets": 200,
   "results": [
-    "PASS engine: 10907 complete packet responses\nsim/tb_engine.sv:36: $finish called at 1199800000 (1ps)",
-    "PASS UART: 100 packets, bit period 8680.556 ns, gap 13500 clocks\nsim/tb_uart.sv:87: $finish called at 490196728754 (1ps)",
-    "PASS UART: 807 packets, bit period 8680.556 ns, gap 16 clocks\nsim/tb_uart.sv:87: $finish called at 1130167923128 (1ps)",
-    "PASS UART: 100 packets, bit period 8510.349 ns, gap 16 clocks\nsim/tb_uart.sv:87: $finish called at 139379464641 (1ps)",
-    "PASS UART: 100 packets, bit period 8857.710 ns, gap 16 clocks\nsim/tb_uart.sv:87: $finish called at 141878209425 (1ps)"
+    "PASS engine: 10907 complete packet responses\nsim/tb_engine.sv:36: $finish called at 1491770000 (1ps)",
+    "PASS UART: 100 packets, bit period 8680.556 ns, gap 13500 clocks\nsim/tb_uart.sv:87: $finish called at 490206654938 (1ps)",
+    "PASS UART: 807 packets, bit period 8680.556 ns, gap 16 clocks\nsim/tb_uart.sv:87: $finish called at 1130246777030 (1ps)",
+    "PASS UART: 100 packets, bit period 8510.349 ns, gap 16 clocks\nsim/tb_uart.sv:87: $finish called at 139389390825 (1ps)",
+    "PASS UART: 100 packets, bit period 8857.710 ns, gap 16 clocks\nsim/tb_uart.sv:87: $finish called at 141888135609 (1ps)"
   ],
-  "runtime_seconds": 249.08,
+  "runtime_seconds": 278.06,
   "source_sha256": {
-    "rtl/uart_rx.v": "6269435e9fdd5cd63b739c3acd244ae837a3a4e139d67c385c59f585b7bc8287",
+    "rtl/uart_rx.v": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
     "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
-    "rtl/signal_engine.v": "167c388e406bdeeaf894e84e41041382f58735a776ebc950008819ff392c14f4",
-    "rtl/trade_top.v": "162aa718a694466d5e4d51444e063b69c0ef3efde9d8710ae9b20f5f6c17a523"
+    "rtl/signal_engine.v": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+    "rtl/trade_top.v": "23dc451ecf8636e5aab3301f40937fc1e63f5f65c733d4406c69a973015f5c9e"
   }
 }

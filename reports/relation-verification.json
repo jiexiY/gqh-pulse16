@@ -1,0 +1,737 @@
+{
+  "status": "supplemental_relation_simulation_passed",
+  "tested_at_utc": "2026-10-04T01:42:28.395265+00:00",
+  "physical_board_tested": false,
+  "gowin_build_performed": false,
+  "candidate_engine": "rtl\\signal_engine.v",
+  "packets": 8436,
+  "metadata_invariant_checks": 16872,
+  "sessions_without_external_reset": 137,
+  "equality_metadata_cases": 2766,
+  "reference": "Unmodified organizer MovingAverageReference class extracted with AST; serial code not executed",
+  "invariant": "After every commit, LE=(last price<=floor(stored sum/16)); GE=(last price>=floor(stored sum/16)), including warm-up",
+  "input_sha256": {
+    "rtl\\signal_engine.v": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+    "host\\22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "sim\\tb_relation.sv": "a9583898389cf9e94794f87825e4f3eb0b78535b7a52e268fdcf8ae9e0140000",
+    "sim\\verify_relation.py": "3d79e89b1c4335406e839335f9ccc9ec0fd10c7e0e476fca735e6464472b4487"
+  },
+  "vectors_sha256": "186ffb8c4ef1cee6436a95d6c40a348b7c0fd67b3816b6ded0be3bca9fee888d",
+  "simulator_sha256": "e2f442f4d5aa76e55c85c3ff77e4446fbfdb9946b7cfe8a2dff87f275da17b62",
+  "compiler_sha256": "803b8844af2cc8ed70b5f08b07ffa749901280e81339617ca3e72cbbb852bd2b",
+  "test_output": "PASS relation: 8436 packets, 16872 metadata invariants, 16598 loaded relations\nC:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\sim\\tb_relation.sv:67: $finish called at 1138130000 (1ps)",
+  "mutation_traps": [
+    {
+      "name": "strict_previous_le",
+      "rejected": true,
+      "source_sha256": "77ca00c36ffcf0595226316ccb32b3b331b528a6b5869353b12b851018b4ccec",
+      "evidence": "FATAL: C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\sim\\tb_relation.sv:25: Metadata invariant failed packet=15 item=1 expected=00640c0 got=0064040\n       Time: 1886000  Scope: tb_relation"
+    },
+    {
+      "name": "no_warmup_relations",
+      "rejected": true,
+      "source_sha256": "79b4d2d4820d6d894670d598ca21b344cdd4e959f3bfc6a3da94235cd3cf9263",
+      "evidence": "FATAL: C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\sim\\tb_relation.sv:25: Metadata invariant failed packet=0 item=0 expected=0006441 got=0006401\n       Time: 86000  Scope: tb_relation"
+    },
+    {
+      "name": "stored_old_relations",
+      "rejected": true,
+      "source_sha256": "0dcb8a9ef71b4672be39a8ad152d79cf0f04e825de7e30c17d3c5f3b8bf816f6",
+      "evidence": "FATAL: C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\sim\\tb_relation.sv:25: Metadata invariant failed packet=0 item=0 expected=0006441 got=00064X1\n       Time: 86000  Scope: tb_relation"
+    },
+    {
+      "name": "swapped_current_relations",
+      "rejected": true,
+      "source_sha256": "ecebac88c45fed6dac1cea5f9b53a97b5404b5e8691567b5484f4b490a9f6b0e",
+      "evidence": "FATAL: C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\sim\\tb_relation.sv:25: Metadata invariant failed packet=0 item=0 expected=0006441 got=0006481\n       Time: 86000  Scope: tb_relation"
+    }
+  ],
+  "sessions": [
+    {
+      "name": "equality_buy_sell",
+      "start_packet": 0,
+      "packets": 22
+    },
+    {
+      "name": "floor_equality_no_cross",
+      "start_packet": 22,
+      "packets": 20
+    },
+    {
+      "name": "max_sum_and_zero",
+      "start_packet": 42,
+      "packets": 56
+    },
+    {
+      "name": "alternating_unsigned_extremes",
+      "start_packet": 98,
+      "packets": 160
+    },
+    {
+      "name": "floor_threshold_15_16",
+      "start_packet": 258,
+      "packets": 116
+    },
+    {
+      "name": "max_packet_index",
+      "start_packet": 374,
+      "packets": 46
+    },
+    {
+      "name": "carry_borrow_boundary_1",
+      "start_packet": 420,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_2",
+      "start_packet": 470,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_3",
+      "start_packet": 520,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_4",
+      "start_packet": 570,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_5",
+      "start_packet": 620,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_6",
+      "start_packet": 670,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_7",
+      "start_packet": 720,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_8",
+      "start_packet": 770,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_9",
+      "start_packet": 820,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_10",
+      "start_packet": 870,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_11",
+      "start_packet": 920,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_12",
+      "start_packet": 970,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_13",
+      "start_packet": 1020,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_14",
+      "start_packet": 1070,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_15",
+      "start_packet": 1120,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_16",
+      "start_packet": 1170,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_17",
+      "start_packet": 1220,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_18",
+      "start_packet": 1270,
+      "packets": 50
+    },
+    {
+      "name": "carry_borrow_boundary_19",
+      "start_packet": 1320,
+      "packets": 50
+    },
+    {
+      "name": "max_sum_full_window_replacement",
+      "start_packet": 1370,
+      "packets": 64
+    },
+    {
+      "name": "floor_q0_r0",
+      "start_packet": 1434,
+      "packets": 52
+    },
+    {
+      "name": "floor_q0_r1",
+      "start_packet": 1486,
+      "packets": 52
+    },
+    {
+      "name": "floor_q0_r7",
+      "start_packet": 1538,
+      "packets": 52
+    },
+    {
+      "name": "floor_q0_r14",
+      "start_packet": 1590,
+      "packets": 52
+    },
+    {
+      "name": "floor_q0_r15",
+      "start_packet": 1642,
+      "packets": 52
+    },
+    {
+      "name": "floor_q1_r0",
+      "start_packet": 1694,
+      "packets": 52
+    },
+    {
+      "name": "floor_q1_r1",
+      "start_packet": 1746,
+      "packets": 52
+    },
+    {
+      "name": "floor_q1_r7",
+      "start_packet": 1798,
+      "packets": 52
+    },
+    {
+      "name": "floor_q1_r14",
+      "start_packet": 1850,
+      "packets": 52
+    },
+    {
+      "name": "floor_q1_r15",
+      "start_packet": 1902,
+      "packets": 52
+    },
+    {
+      "name": "floor_q15_r0",
+      "start_packet": 1954,
+      "packets": 52
+    },
+    {
+      "name": "floor_q15_r1",
+      "start_packet": 2006,
+      "packets": 52
+    },
+    {
+      "name": "floor_q15_r7",
+      "start_packet": 2058,
+      "packets": 52
+    },
+    {
+      "name": "floor_q15_r14",
+      "start_packet": 2110,
+      "packets": 52
+    },
+    {
+      "name": "floor_q15_r15",
+      "start_packet": 2162,
+      "packets": 52
+    },
+    {
+      "name": "floor_q16_r0",
+      "start_packet": 2214,
+      "packets": 52
+    },
+    {
+      "name": "floor_q16_r1",
+      "start_packet": 2266,
+      "packets": 52
+    },
+    {
+      "name": "floor_q16_r7",
+      "start_packet": 2318,
+      "packets": 52
+    },
+    {
+      "name": "floor_q16_r14",
+      "start_packet": 2370,
+      "packets": 52
+    },
+    {
+      "name": "floor_q16_r15",
+      "start_packet": 2422,
+      "packets": 52
+    },
+    {
+      "name": "floor_q17_r0",
+      "start_packet": 2474,
+      "packets": 52
+    },
+    {
+      "name": "floor_q17_r1",
+      "start_packet": 2526,
+      "packets": 52
+    },
+    {
+      "name": "floor_q17_r7",
+      "start_packet": 2578,
+      "packets": 52
+    },
+    {
+      "name": "floor_q17_r14",
+      "start_packet": 2630,
+      "packets": 52
+    },
+    {
+      "name": "floor_q17_r15",
+      "start_packet": 2682,
+      "packets": 52
+    },
+    {
+      "name": "floor_q255_r0",
+      "start_packet": 2734,
+      "packets": 52
+    },
+    {
+      "name": "floor_q255_r1",
+      "start_packet": 2786,
+      "packets": 52
+    },
+    {
+      "name": "floor_q255_r7",
+      "start_packet": 2838,
+      "packets": 52
+    },
+    {
+      "name": "floor_q255_r14",
+      "start_packet": 2890,
+      "packets": 52
+    },
+    {
+      "name": "floor_q255_r15",
+      "start_packet": 2942,
+      "packets": 52
+    },
+    {
+      "name": "floor_q256_r0",
+      "start_packet": 2994,
+      "packets": 52
+    },
+    {
+      "name": "floor_q256_r1",
+      "start_packet": 3046,
+      "packets": 52
+    },
+    {
+      "name": "floor_q256_r7",
+      "start_packet": 3098,
+      "packets": 52
+    },
+    {
+      "name": "floor_q256_r14",
+      "start_packet": 3150,
+      "packets": 52
+    },
+    {
+      "name": "floor_q256_r15",
+      "start_packet": 3202,
+      "packets": 52
+    },
+    {
+      "name": "floor_q257_r0",
+      "start_packet": 3254,
+      "packets": 52
+    },
+    {
+      "name": "floor_q257_r1",
+      "start_packet": 3306,
+      "packets": 52
+    },
+    {
+      "name": "floor_q257_r7",
+      "start_packet": 3358,
+      "packets": 52
+    },
+    {
+      "name": "floor_q257_r14",
+      "start_packet": 3410,
+      "packets": 52
+    },
+    {
+      "name": "floor_q257_r15",
+      "start_packet": 3462,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4095_r0",
+      "start_packet": 3514,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4095_r1",
+      "start_packet": 3566,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4095_r7",
+      "start_packet": 3618,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4095_r14",
+      "start_packet": 3670,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4095_r15",
+      "start_packet": 3722,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4096_r0",
+      "start_packet": 3774,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4096_r1",
+      "start_packet": 3826,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4096_r7",
+      "start_packet": 3878,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4096_r14",
+      "start_packet": 3930,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4096_r15",
+      "start_packet": 3982,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4097_r0",
+      "start_packet": 4034,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4097_r1",
+      "start_packet": 4086,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4097_r7",
+      "start_packet": 4138,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4097_r14",
+      "start_packet": 4190,
+      "packets": 52
+    },
+    {
+      "name": "floor_q4097_r15",
+      "start_packet": 4242,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32767_r0",
+      "start_packet": 4294,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32767_r1",
+      "start_packet": 4346,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32767_r7",
+      "start_packet": 4398,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32767_r14",
+      "start_packet": 4450,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32767_r15",
+      "start_packet": 4502,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32768_r0",
+      "start_packet": 4554,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32768_r1",
+      "start_packet": 4606,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32768_r7",
+      "start_packet": 4658,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32768_r14",
+      "start_packet": 4710,
+      "packets": 52
+    },
+    {
+      "name": "floor_q32768_r15",
+      "start_packet": 4762,
+      "packets": 52
+    },
+    {
+      "name": "floor_q65534_r0",
+      "start_packet": 4814,
+      "packets": 52
+    },
+    {
+      "name": "floor_q65534_r1",
+      "start_packet": 4866,
+      "packets": 52
+    },
+    {
+      "name": "floor_q65534_r7",
+      "start_packet": 4918,
+      "packets": 52
+    },
+    {
+      "name": "floor_q65534_r14",
+      "start_packet": 4970,
+      "packets": 52
+    },
+    {
+      "name": "floor_q65534_r15",
+      "start_packet": 5022,
+      "packets": 52
+    },
+    {
+      "name": "floor_q65535_r0",
+      "start_packet": 5074,
+      "packets": 52
+    },
+    {
+      "name": "restart_after_1",
+      "start_packet": 5126,
+      "packets": 1
+    },
+    {
+      "name": "restart_after_1",
+      "start_packet": 5127,
+      "packets": 1
+    },
+    {
+      "name": "restart_after_2",
+      "start_packet": 5128,
+      "packets": 2
+    },
+    {
+      "name": "restart_after_15",
+      "start_packet": 5130,
+      "packets": 15
+    },
+    {
+      "name": "restart_after_16",
+      "start_packet": 5145,
+      "packets": 16
+    },
+    {
+      "name": "restart_after_17",
+      "start_packet": 5161,
+      "packets": 17
+    },
+    {
+      "name": "restart_after_18",
+      "start_packet": 5178,
+      "packets": 18
+    },
+    {
+      "name": "restart_after_40",
+      "start_packet": 5196,
+      "packets": 40
+    },
+    {
+      "name": "independent_fullrange_0",
+      "start_packet": 5236,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_1",
+      "start_packet": 5336,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_2",
+      "start_packet": 5436,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_3",
+      "start_packet": 5536,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_4",
+      "start_packet": 5636,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_5",
+      "start_packet": 5736,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_6",
+      "start_packet": 5836,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_7",
+      "start_packet": 5936,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_8",
+      "start_packet": 6036,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_9",
+      "start_packet": 6136,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_10",
+      "start_packet": 6236,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_11",
+      "start_packet": 6336,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_12",
+      "start_packet": 6436,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_13",
+      "start_packet": 6536,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_14",
+      "start_packet": 6636,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_15",
+      "start_packet": 6736,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_16",
+      "start_packet": 6836,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_17",
+      "start_packet": 6936,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_18",
+      "start_packet": 7036,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_19",
+      "start_packet": 7136,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_20",
+      "start_packet": 7236,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_21",
+      "start_packet": 7336,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_22",
+      "start_packet": 7436,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_23",
+      "start_packet": 7536,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_24",
+      "start_packet": 7636,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_25",
+      "start_packet": 7736,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_26",
+      "start_packet": 7836,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_27",
+      "start_packet": 7936,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_28",
+      "start_packet": 8036,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_29",
+      "start_packet": 8136,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_30",
+      "start_packet": 8236,
+      "packets": 100
+    },
+    {
+      "name": "independent_fullrange_31",
+      "start_packet": 8336,
+      "packets": 100
+    }
+  ],
+  "runtime_seconds": 1.328
+}

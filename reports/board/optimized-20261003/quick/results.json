@@ -1,0 +1,54 @@
+{
+  "started_at_utc": "2026-10-04T00:20:19.785017+00:00",
+  "status": "requested_practice_tests_passed",
+  "mode": "quick",
+  "port": "COM6",
+  "device": "USB Serial Port (COM6)",
+  "hwid": "USB VID:PID=0403:6010 SER=2025030317B",
+  "candidate": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "03be38cc4fd4ab2dcd4bb2792bb00d4e33e29784704073f21763c3060488b59c",
+      "rtl/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+    "build_manifest_sha256": "fe17b190374cd4dbf91affd481b2249acb63ee8b7fc5ce51ff2ee135d7c355b9",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 263,
+      "synthesis_total_logic": 307,
+      "synthesis_bsram_blocks": 3,
+      "synthesis_registers": 203,
+      "synthesis_alus": 43,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 98.418,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 26.876,
+      "worst_hold_slack_ns": 0.077
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "tests": [
+    {
+      "test": "quick",
+      "passed": true,
+      "official_source_sha256": "a2b7f96ffe1b504c4dff0a993f309442672ec6a491f6b4c326a6ddf8d7563726",
+      "executed_copy_sha256": "a2b7f96ffe1b504c4dff0a993f309442672ec6a491f6b4c326a6ddf8d7563726",
+      "exit_code": 0,
+      "log_sha256": "0523dcf4a8724f30ddf67989a3217e08eb70f138acdf4021b120d93ce3a14334"
+    }
+  ],
+  "runner_programmed_or_reset_board": false,
+  "note": "Physical serial practice tests only. These do not verify the programmed image or establish an official judging score.",
+  "completed_at_utc": "2026-10-04T00:20:20.698196+00:00"
+}

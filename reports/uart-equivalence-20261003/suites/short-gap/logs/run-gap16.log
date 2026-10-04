@@ -1,0 +1,2 @@
+PASS UART equivalence: 528 packets, 19970534 clocks, 28 active-TX errors, gap 16 clocks
+C:\Users\jessi\OneDrive\文档\New project\fpga-trade\build\experiments\competition-verification-20261003\tb_uart_equivalence.sv:98: $finish called at 739668659300 (1ps)

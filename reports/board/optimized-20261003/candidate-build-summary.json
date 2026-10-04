@@ -1,0 +1,46 @@
+{
+  "status": "compiled_candidate_not_board_verified",
+  "built_at_utc": "2026-10-04T00:13:04.765013+00:00",
+  "physical_board_tested": false,
+  "runtime_seconds": 16.18,
+  "metrics": {
+    "tool_version": "V1.9.11.03 Education",
+    "part_number": "GW2AR-LV18QN88C8/I7",
+    "synthesis_total_luts": 263,
+    "synthesis_total_logic": 307,
+    "synthesis_bsram_blocks": 3,
+    "synthesis_registers": 203,
+    "synthesis_alus": 43,
+    "synthesis_ssram_blocks": 0,
+    "clock_constraint_mhz": 27.0,
+    "reported_fmax_mhz": 98.418,
+    "setup_violated_endpoints": 0,
+    "hold_violated_endpoints": 0,
+    "worst_setup_slack_ns": 26.876,
+    "worst_hold_slack_ns": 0.077
+  },
+  "warnings": [
+    "WARN  (PR1014) : Generic routing resource will be used to clock signal 'sys_clk_d' by the specified constraint. And then it may lead to the excessive delay or skew"
+  ],
+  "source_sha256": {
+    "rtl/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+    "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+    "rtl/signal_engine.v": "03be38cc4fd4ab2dcd4bb2792bb00d4e33e29784704073f21763c3060488b59c",
+    "rtl/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+    "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+    "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+    "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+    "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+  },
+  "bitstream": "bitstream/trade_top.fs",
+  "bitstream_sha256": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+  "post_pnr_netlist_sha256": "4d0ffa671c3295814d9ea2db3353d3d13562f3ac4e73791bb18d318c9a89c306",
+  "report_sha256": {
+    "synthesis.html": "722ee250bc4ce17e54ca338d8ebf47b36700dc529f9ab1d506046b2bfdfbdaa3",
+    "timing.txt": "ff38180157c4e7c6231b8576859ddf4426b47a42b0432c05750888946a3e6880",
+    "place-route.txt": "12995214222acb6369da076743686b01873b070b59520f38e4415931f140b912",
+    "pins.html": "e6bad00e03e5b2e025ab4c03359599b1a3b8f274857f3d718cfc110bf43c7398",
+    "build.log": "1337974dbe87c767ba21faa64533c4fd078efb8d656818d85cae4cbd40f82b47"
+  },
+  "timing_scope": "Internal synchronous paths at 27 MHz; not a physical UART/USB measurement"
+}

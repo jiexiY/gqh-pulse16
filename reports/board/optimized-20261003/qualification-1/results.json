@@ -1,0 +1,98 @@
+{
+  "started_at_utc": "2026-10-04T00:20:20.738839+00:00",
+  "status": "requested_practice_tests_passed",
+  "mode": "qualification",
+  "port": "COM6",
+  "device": "USB Serial Port (COM6)",
+  "hwid": "USB VID:PID=0403:6010 SER=2025030317B",
+  "candidate": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "03be38cc4fd4ab2dcd4bb2792bb00d4e33e29784704073f21763c3060488b59c",
+      "rtl/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "90dd9c475f3e5126a8eea58a09bc23476101ea013a64b34ff03b3ee8e8c87d4b",
+    "build_manifest_sha256": "fe17b190374cd4dbf91affd481b2249acb63ee8b7fc5ce51ff2ee135d7c355b9",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 263,
+      "synthesis_total_logic": 307,
+      "synthesis_bsram_blocks": 3,
+      "synthesis_registers": 203,
+      "synthesis_alus": 43,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 98.418,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 26.876,
+      "worst_hold_slack_ns": 0.077
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "tests": [
+    {
+      "test": "robust",
+      "passed": true,
+      "official_source_sha256": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+      "executed_copy_sha256": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+      "exit_code": 0,
+      "log_sha256": "3ca9064b98b651c29dd0d63ab6c2953ab61e6fff4c8172c8c3275f26ca894ce2",
+      "packet_audit": {
+        "passed": true,
+        "packet_count": 100,
+        "includes_warmup_audit": true,
+        "issues": [],
+        "average_latency_us": 16912.512,
+        "output_sha256": {
+          "trade_results_100.csv": "dc8f2f07ab725ac6ca944540ccb5f78497e0fd66f74fc41b33ce37fe1c939f26",
+          "trade_summary_100.txt": "9b6b634a80dd6964cdfd21795b111e015ba8910e1fc47781fdc52d3b5c0f2dd0"
+        }
+      }
+    },
+    {
+      "test": "fullrange",
+      "passed": true,
+      "official_source_sha256": "787d67f05a2dca644f308a58fb39d02eaab49e8c11b28526a5b3cfed7c17df05",
+      "executed_copy_sha256": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
+      "source_acquisition": {
+        "method": "Verbatim complete Discord file preview export, LF-normalized",
+        "source_url": "https://discord.com/channels/1492317189968105502/1554962057672269905/1556050530592366734",
+        "original_download_byte_sha256": null,
+        "note": "The pinned hash identifies the local exported source; original downloaded bytes were unavailable."
+      },
+      "exit_code": 0,
+      "log_sha256": "3823cd7220fd4ae51dc003c4e19d4274a3197e10548204353484e54431bcaf60",
+      "packet_audit": {
+        "passed": true,
+        "packet_count": 100,
+        "includes_warmup_audit": true,
+        "issues": [],
+        "average_latency_us": 16892.159,
+        "output_sha256": {
+          "trade_results_100_fullrange.csv": "5bdb88447a92becb4dbe578ddfd5e27dc0f4cd0d3ee6cc3217b029b425563266",
+          "trade_summary_100_fullrange.txt": "95e87c491efbb9637132d63b8bc2c48acb4325fdd6aecb8744d59130653ad764"
+        }
+      }
+    }
+  ],
+  "runner_programmed_or_reset_board": false,
+  "note": "Physical serial practice tests only. These do not verify the programmed image or establish an official judging score.",
+  "qualification_practice": {
+    "consecutive_correctness_tests_passed": true,
+    "local_robust_latency_ms": 16.912512,
+    "local_latency_within_full_points_threshold": true,
+    "synthesis_luts_within_full_points_threshold": true,
+    "official_qualification_verified": false,
+    "note": "Judge PC latency and hidden seeds still determine official qualification."
+  },
+  "completed_at_utc": "2026-10-04T00:20:25.398430+00:00"
+}

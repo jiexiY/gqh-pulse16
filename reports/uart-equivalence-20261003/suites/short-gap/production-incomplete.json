@@ -1,0 +1,16 @@
+{
+  "status": "production_phase_stopped_incomplete",
+  "reason": "Stopped only the owned production-gap simulation before its predictable timeout; no production pass is claimed from this run.",
+  "completed_phase": {
+    "gap_cycles": 16,
+    "packets": 528,
+    "compared_clocks": 19970534,
+    "active_tx_errors": 28,
+    "log": "run-gap16.log"
+  },
+  "incomplete_phase": {
+    "gap_cycles": 13500,
+    "planned_packets": 528,
+    "counted_as_pass": false
+  }
+}

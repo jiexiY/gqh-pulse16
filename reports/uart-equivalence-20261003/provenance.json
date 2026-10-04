@@ -1,0 +1,245 @@
+{
+  "status": "verified_supplemental_archive",
+  "physical_board_tested": false,
+  "suites": {
+    "short-gap": {
+      "original_report_sha256": "b56877c3c70d43b1e10d8d265ed23f51f3fbf9525974533307fbede0af60de9c",
+      "original_report_source": "build/experiments/competition-verification-20261003/runs/uart-267-equivalence/uart-equivalence.json",
+      "original_report_archive_path": "suites/short-gap/uart-equivalence.json",
+      "vectors_archive_path": "suites/short-gap/vectors.txt",
+      "testbench_archive_path": "suites/short-gap/testbench/tb_uart_equivalence.sv",
+      "rtl_archive_paths": [
+        "suites/short-gap/rtl/baseline_trade_top.v",
+        "suites/short-gap/rtl/baseline_uart_rx.v",
+        "suites/short-gap/rtl/candidate_trade_top.v",
+        "suites/short-gap/rtl/candidate_uart_rx.v",
+        "suites/short-gap/rtl/signal_engine.v"
+      ],
+      "original_input_mapping": {
+        "rtl\\trade_top.v": {
+          "archive_path": "suites/short-gap/original/baseline/trade_top.v",
+          "expected_sha256": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+          "resolved_source_at_archive": "build/checkpoints/verified-274-before-competition/rtl/trade_top.v"
+        },
+        "rtl\\uart_rx.v": {
+          "archive_path": "suites/short-gap/original/baseline/uart_rx.v",
+          "expected_sha256": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+          "resolved_source_at_archive": "build/checkpoints/verified-274-before-competition/rtl/uart_rx.v"
+        },
+        "rtl\\signal_engine.v": {
+          "archive_path": "suites/short-gap/rtl/signal_engine.v",
+          "expected_sha256": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+          "resolved_source_at_archive": "rtl/signal_engine.v"
+        },
+        "build\\experiments\\uart-small-20261003\\variants\\receive-shift-fields\\trade_top.v": {
+          "archive_path": "suites/short-gap/original/candidate/trade_top.v",
+          "expected_sha256": "23dc451ecf8636e5aab3301f40937fc1e63f5f65c733d4406c69a973015f5c9e",
+          "resolved_source_at_archive": "build/experiments/uart-small-20261003/variants/receive-shift-fields/trade_top.v"
+        },
+        "build\\experiments\\uart-small-20261003\\variants\\receive-shift-fields\\uart_rx.v": {
+          "archive_path": "suites/short-gap/original/candidate/uart_rx.v",
+          "expected_sha256": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
+          "resolved_source_at_archive": "build/experiments/uart-small-20261003/variants/receive-shift-fields/uart_rx.v"
+        },
+        "build\\experiments\\competition-verification-20261003\\tb_uart_equivalence.sv": {
+          "archive_path": "suites/short-gap/testbench/tb_uart_equivalence.sv",
+          "expected_sha256": "478e58cebb96887be1ebd19c99f4fd27891b9a7caa910950a869f1d092a92cf7",
+          "resolved_source_at_archive": "build/experiments/competition-verification-20261003/tb_uart_equivalence.sv"
+        },
+        "build\\experiments\\competition-verification-20261003\\verify_uart_equivalence.py": {
+          "archive_path": "suites/short-gap/original/verify_uart_equivalence.py",
+          "expected_sha256": "53fe05fe3ce52ba6f99e05c15ae3e59f5148b1193ed0ba4e55a9e2797dcd9052",
+          "resolved_source_at_archive": "build/experiments/competition-verification-20261003/verify_uart_equivalence.py"
+        },
+        "sim\\run_tests.py": {
+          "archive_path": "suites/short-gap/original/sim/run_tests.py",
+          "expected_sha256": "561164c397d272b60a7d570b74761730be5592106d0d1a1f10751f36b5cacee9",
+          "resolved_source_at_archive": "sim/run_tests.py"
+        },
+        "host\\22_robust_uart_test.py": {
+          "archive_path": "suites/short-gap/original/host/22_robust_uart_test.py",
+          "expected_sha256": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+          "resolved_source_at_archive": "host/22_robust_uart_test.py"
+        }
+      },
+      "renamed_source_mapping": [
+        {
+          "archive_path": "suites/short-gap/rtl/baseline_trade_top.v",
+          "namespace": "baseline",
+          "original_archive_path": "suites/short-gap/original/baseline/trade_top.v",
+          "transformation": "Whole-word trade_top and uart_rx namespace substitution; normalized text equality verified"
+        },
+        {
+          "archive_path": "suites/short-gap/rtl/baseline_uart_rx.v",
+          "namespace": "baseline",
+          "original_archive_path": "suites/short-gap/original/baseline/uart_rx.v",
+          "transformation": "Whole-word trade_top and uart_rx namespace substitution; normalized text equality verified"
+        },
+        {
+          "archive_path": "suites/short-gap/rtl/candidate_trade_top.v",
+          "namespace": "candidate",
+          "original_archive_path": "suites/short-gap/original/candidate/trade_top.v",
+          "transformation": "Whole-word trade_top and uart_rx namespace substitution; normalized text equality verified"
+        },
+        {
+          "archive_path": "suites/short-gap/rtl/candidate_uart_rx.v",
+          "namespace": "candidate",
+          "original_archive_path": "suites/short-gap/original/candidate/uart_rx.v",
+          "transformation": "Whole-word trade_top and uart_rx namespace substitution; normalized text equality verified"
+        }
+      ],
+      "verified_runs": [
+        {
+          "gap_cycles": 16,
+          "packets": 528,
+          "compared_clocks": 19970534,
+          "active_tx_errors": 28
+        }
+      ]
+    },
+    "production-gap": {
+      "original_report_sha256": "a7c4722f80647b59bb79005b53d27295e6cfb0213556916e55be39a481bb1fed",
+      "original_report_source": "build/experiments/competition-verification-20261003/runs/uart-267-production64/uart-equivalence.json",
+      "original_report_archive_path": "suites/production-gap/uart-equivalence.json",
+      "vectors_archive_path": "suites/production-gap/vectors.txt",
+      "testbench_archive_path": "suites/production-gap/testbench/tb_uart_equivalence.sv",
+      "rtl_archive_paths": [
+        "suites/production-gap/rtl/baseline_trade_top.v",
+        "suites/production-gap/rtl/baseline_uart_rx.v",
+        "suites/production-gap/rtl/candidate_trade_top.v",
+        "suites/production-gap/rtl/candidate_uart_rx.v",
+        "suites/production-gap/rtl/signal_engine.v"
+      ],
+      "original_input_mapping": {
+        "rtl\\trade_top.v": {
+          "archive_path": "suites/production-gap/original/baseline/trade_top.v",
+          "expected_sha256": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+          "resolved_source_at_archive": "build/checkpoints/verified-274-before-competition/rtl/trade_top.v"
+        },
+        "rtl\\uart_rx.v": {
+          "archive_path": "suites/production-gap/original/baseline/uart_rx.v",
+          "expected_sha256": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+          "resolved_source_at_archive": "build/checkpoints/verified-274-before-competition/rtl/uart_rx.v"
+        },
+        "rtl\\signal_engine.v": {
+          "archive_path": "suites/production-gap/rtl/signal_engine.v",
+          "expected_sha256": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+          "resolved_source_at_archive": "rtl/signal_engine.v"
+        },
+        "build\\experiments\\uart-small-20261003\\variants\\receive-shift-fields\\trade_top.v": {
+          "archive_path": "suites/production-gap/original/candidate/trade_top.v",
+          "expected_sha256": "23dc451ecf8636e5aab3301f40937fc1e63f5f65c733d4406c69a973015f5c9e",
+          "resolved_source_at_archive": "build/experiments/uart-small-20261003/variants/receive-shift-fields/trade_top.v"
+        },
+        "build\\experiments\\uart-small-20261003\\variants\\receive-shift-fields\\uart_rx.v": {
+          "archive_path": "suites/production-gap/original/candidate/uart_rx.v",
+          "expected_sha256": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
+          "resolved_source_at_archive": "build/experiments/uart-small-20261003/variants/receive-shift-fields/uart_rx.v"
+        },
+        "build\\experiments\\competition-verification-20261003\\tb_uart_equivalence.sv": {
+          "archive_path": "suites/production-gap/testbench/tb_uart_equivalence.sv",
+          "expected_sha256": "478e58cebb96887be1ebd19c99f4fd27891b9a7caa910950a869f1d092a92cf7",
+          "resolved_source_at_archive": "build/experiments/competition-verification-20261003/tb_uart_equivalence.sv"
+        },
+        "build\\experiments\\competition-verification-20261003\\verify_uart_production.py": {
+          "archive_path": "suites/production-gap/original/verify_uart_production.py",
+          "expected_sha256": "3e0cc8169db51967d37909325d912183f2bcab88254b75a199ce3c0d9eb3e49e",
+          "resolved_source_at_archive": "build/experiments/competition-verification-20261003/verify_uart_production.py"
+        },
+        "sim\\run_tests.py": {
+          "archive_path": "suites/production-gap/original/sim/run_tests.py",
+          "expected_sha256": "561164c397d272b60a7d570b74761730be5592106d0d1a1f10751f36b5cacee9",
+          "resolved_source_at_archive": "sim/run_tests.py"
+        },
+        "host\\22_robust_uart_test.py": {
+          "archive_path": "suites/production-gap/original/host/22_robust_uart_test.py",
+          "expected_sha256": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+          "resolved_source_at_archive": "host/22_robust_uart_test.py"
+        }
+      },
+      "renamed_source_mapping": [
+        {
+          "archive_path": "suites/production-gap/rtl/baseline_trade_top.v",
+          "namespace": "baseline",
+          "original_archive_path": "suites/production-gap/original/baseline/trade_top.v",
+          "transformation": "Whole-word trade_top and uart_rx namespace substitution; normalized text equality verified"
+        },
+        {
+          "archive_path": "suites/production-gap/rtl/baseline_uart_rx.v",
+          "namespace": "baseline",
+          "original_archive_path": "suites/production-gap/original/baseline/uart_rx.v",
+          "transformation": "Whole-word trade_top and uart_rx namespace substitution; normalized text equality verified"
+        },
+        {
+          "archive_path": "suites/production-gap/rtl/candidate_trade_top.v",
+          "namespace": "candidate",
+          "original_archive_path": "suites/production-gap/original/candidate/trade_top.v",
+          "transformation": "Whole-word trade_top and uart_rx namespace substitution; normalized text equality verified"
+        },
+        {
+          "archive_path": "suites/production-gap/rtl/candidate_uart_rx.v",
+          "namespace": "candidate",
+          "original_archive_path": "suites/production-gap/original/candidate/uart_rx.v",
+          "transformation": "Whole-word trade_top and uart_rx namespace substitution; normalized text equality verified"
+        }
+      ],
+      "verified_runs": [
+        {
+          "gap_cycles": 13500,
+          "packets": 64,
+          "compared_clocks": 8476303,
+          "active_tx_errors": 4
+        }
+      ]
+    }
+  },
+  "baseline_checkpoint": "build/checkpoints/verified-274-before-competition",
+  "canonical_logic_at_archive": 267,
+  "replay": ".venv/Scripts/python.exe reports/uart-equivalence-20261003/replay.py",
+  "verification_scope": "Functional RTL and exact UART output waveform comparison, not formal proof, mapped timing, physical USB testing or official qualification",
+  "archived_at_utc": "2026-10-04T01:46:20.465340+00:00",
+  "archive_sha256": {
+    "original/archive_uart_equivalence.py": "926312a5fa2cb06dc3fbf44301f58fa73737b064020c1ad14331969c97f05ec1",
+    "original/baseline-build-summary.json": "5f7d10aaa2c0c6144e0fe59d0e534d6adcc5b00a80e4a495cde1c4ec64806de0",
+    "original/candidate-build-summary.json": "4199af469927a5cb06fbf3184587ca6bcf8769202528203a16e51c2b44906b13",
+    "README.md": "57d194eca75b25d6a5882f18677bff2f3f6f18f5d050c4fe5cb952be089c5e86",
+    "replay.py": "67d3b52cf178fe1d6c063b5194e7a9ad403aaf25e91491ef6c824587de2d6bcd",
+    "suites/production-gap/initial-input-hashes.json": "d49be7012ee7fc8aed19428ca3067f4c219571f5dd9a129eb60df5f995b75ba4",
+    "suites/production-gap/logs/compile-gap13500.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "suites/production-gap/logs/run-gap13500.log": "c6eb420c1750d6125da2c05ed4ff25b021629dbc0af87d956c488e7f2b7ccb37",
+    "suites/production-gap/original/baseline/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+    "suites/production-gap/original/baseline/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+    "suites/production-gap/original/candidate/trade_top.v": "23dc451ecf8636e5aab3301f40937fc1e63f5f65c733d4406c69a973015f5c9e",
+    "suites/production-gap/original/candidate/uart_rx.v": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
+    "suites/production-gap/original/host/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "suites/production-gap/original/sim/run_tests.py": "561164c397d272b60a7d570b74761730be5592106d0d1a1f10751f36b5cacee9",
+    "suites/production-gap/original/verify_uart_production.py": "3e0cc8169db51967d37909325d912183f2bcab88254b75a199ce3c0d9eb3e49e",
+    "suites/production-gap/rtl/baseline_trade_top.v": "a0ee823653bf7629e109d672a5eff78ec06d0ee6063e64bc83c28f779e46e5b2",
+    "suites/production-gap/rtl/baseline_uart_rx.v": "013551b56b9fb84972b92e96102146dca81bd84cf13904f363d60b854189765c",
+    "suites/production-gap/rtl/candidate_trade_top.v": "df3a18627897ce0167485a48651624d6fb89366b571a7e0804a9c430b06b7682",
+    "suites/production-gap/rtl/candidate_uart_rx.v": "3d5775e64d9f716dd9670d0d89b3aa635617a1a7f6af89a8863cf4408ad23286",
+    "suites/production-gap/rtl/signal_engine.v": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+    "suites/production-gap/testbench/tb_uart_equivalence.sv": "478e58cebb96887be1ebd19c99f4fd27891b9a7caa910950a869f1d092a92cf7",
+    "suites/production-gap/uart-equivalence.json": "a7c4722f80647b59bb79005b53d27295e6cfb0213556916e55be39a481bb1fed",
+    "suites/production-gap/vectors.txt": "9192018193d9286a08ae2993001005a522ac758ee2434f25fbcf5d728d5815e5",
+    "suites/short-gap/logs/compile-gap16.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "suites/short-gap/logs/run-gap16.log": "db4eaf0f3d38554fdf62cdfc72bfa16b8808b11313a913929efad7c0f4995c6c",
+    "suites/short-gap/original/baseline/trade_top.v": "972963e004f7de46a9ab7efe66331aeccfbbbf0d59693c0ab2d7babb33ccf7e8",
+    "suites/short-gap/original/baseline/uart_rx.v": "8ca067935e7280d9af9c8ceb9193d8909a1f6938fc90f335e293f965d25772dc",
+    "suites/short-gap/original/candidate/trade_top.v": "23dc451ecf8636e5aab3301f40937fc1e63f5f65c733d4406c69a973015f5c9e",
+    "suites/short-gap/original/candidate/uart_rx.v": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
+    "suites/short-gap/original/finalize_short_gap.py": "639a8d4cfa8ebfacd607b1e730da971f514671c720c16c2f89329b65b4ed9799",
+    "suites/short-gap/original/host/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
+    "suites/short-gap/original/sim/run_tests.py": "561164c397d272b60a7d570b74761730be5592106d0d1a1f10751f36b5cacee9",
+    "suites/short-gap/original/verify_uart_equivalence.py": "53fe05fe3ce52ba6f99e05c15ae3e59f5148b1193ed0ba4e55a9e2797dcd9052",
+    "suites/short-gap/production-incomplete.json": "aa6b36c21d23877afdc5c76c75ddb96370d4df3f4d857062833a2ca7db22e633",
+    "suites/short-gap/rtl/baseline_trade_top.v": "a0ee823653bf7629e109d672a5eff78ec06d0ee6063e64bc83c28f779e46e5b2",
+    "suites/short-gap/rtl/baseline_uart_rx.v": "013551b56b9fb84972b92e96102146dca81bd84cf13904f363d60b854189765c",
+    "suites/short-gap/rtl/candidate_trade_top.v": "df3a18627897ce0167485a48651624d6fb89366b571a7e0804a9c430b06b7682",
+    "suites/short-gap/rtl/candidate_uart_rx.v": "3d5775e64d9f716dd9670d0d89b3aa635617a1a7f6af89a8863cf4408ad23286",
+    "suites/short-gap/rtl/signal_engine.v": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
+    "suites/short-gap/testbench/tb_uart_equivalence.sv": "478e58cebb96887be1ebd19c99f4fd27891b9a7caa910950a869f1d092a92cf7",
+    "suites/short-gap/uart-equivalence.json": "b56877c3c70d43b1e10d8d265ed23f51f3fbf9525974533307fbede0af60de9c",
+    "suites/short-gap/vectors.txt": "880b2f06a96005f2aae84ceb89d78a88077ea39f203e7508f1b18ece0f90cc0d"
+  }
+}
