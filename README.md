@@ -83,8 +83,9 @@ by your chosen route:
   JTAG/UART drivers. Neither the Gowin compiler nor Icarus is needed.
 - **RTL simulation:** [Icarus Verilog](https://steveicarus.github.io/iverilog/).
   Make `iverilog` and `vvp` available on PATH or under `.tools/iverilog/app/bin`.
-- **Full source rebuild:** Icarus plus
-  [Gowin EDA Education](https://www.gowinsemi.com/en/support/database/1865/),
+- **Full source rebuild:** Icarus plus the complete
+  [Gowin V1.9.11.03 Education (Windows x64)](https://www.gowinsemi.com/en/document/main/database/1865/)
+  package,
   including `gw_sh.exe` and the vendor simulation libraries. Programmer alone
   cannot rebuild the design.
 
@@ -95,7 +96,11 @@ Gowin does not have to be installed inside the project. Use the actual paths to
 your installed compiler and programmer in the commands below; paths containing
 spaces must be quoted. The verified tool version is **V1.9.11.03 Education**.
 
-From the repository root:
+Enter the commands below in **Windows PowerShell or PowerShell 7**, from the
+repository root. They launch Python directly: no `.ps1` script, virtual-environment
+activation or execution-policy change is required for the application workflow.
+The repository's `.ps1` files are optional convenience wrappers. Run commands in
+order and stop if any fails; do not continue using stale outputs.
 
 ```powershell
 python -m venv .venv
@@ -124,7 +129,7 @@ has SHA-256:
 After the Python setup and Icarus installation, run from the repository root:
 
 ```powershell
-.\test.ps1
+.venv\Scripts\python.exe -u sim/run_tests.py
 ```
 
 This runs the actual RTL against generated reference vectors and writes fresh
@@ -137,25 +142,77 @@ measure hardware latency or verify placement-and-routing timing.
 
 This route requires the full Gowin EDA installation and Icarus, but no board.
 
+### Install and check the compiler
+
+Download **Gowin V1.9.11.03 Education (Windows x64)** from the official link
+above and install or extract the complete package. A location on `D:` or `E:`
+is fine. Keep its directory structure intact; do not copy just `gw_sh.exe`.
+An installation containing only `Programmer/bin/programmer_cli.exe` cannot
+perform synthesis, place-and-route or mapped-circuit simulation.
+
+Set these paths to the installation on this computer and check both files
+**before starting a rebuild**:
+
+```powershell
+$GowinRoot = 'D:\Gowin\Gowin_V1.9.11.03_Education_x64'
+$Gowin = Join-Path $GowinRoot 'IDE\bin\gw_sh.exe'
+$GowinSimlib = Join-Path $GowinRoot 'IDE\simlib\gw2a\prim_sim.v'
+if (!(Test-Path -LiteralPath $Gowin -PathType Leaf)) {
+    throw 'Full Gowin EDA compiler missing. Install the Windows x64 Education package and correct $GowinRoot.'
+}
+if (!(Test-Path -LiteralPath $GowinSimlib -PathType Leaf)) {
+    throw 'Gowin simulation library missing. Use the complete EDA installation, not Programmer alone.'
+}
+```
+
+If either check fails, stop the rebuild route. The [RTL-only route](#rtl-simulation)
+remains available with Icarus, but it does not establish a successful Gowin build.
+The full toolchain must actually be installed on each computer doing a rebuild;
+the repository does not bundle it.
+
+### Generate fresh build results
+
 For a clean rebuild, create a separate source-only copy containing `rtl/`,
 `constraints/`, `host/`, `sim/`, `scripts/`, `tests/` and the root project files
 (`*.ps1`, `trade_top.gprj`, `requirements.txt`, `README.md`, `CHECKLIST.md`,
 `.gitattributes` and `.gitignore`). Do not copy `reports/`, `bitstream/`, `build/`,
 `impl/`, `.tools/` or `.venv/`. Complete the Python setup above in this new copy
-and make the externally installed tools available before running:
+and make the externally installed tools available before running. Keep `$Gowin`
+from the compiler check above in the same terminal:
 
 ```powershell
-# Replace this example with the compiler path on this computer.
-$Gowin = 'D:\Gowin\Gowin_V1.9.11.03_Education_x64\IDE\bin\gw_sh.exe'
-.\test.ps1
-.\build.ps1 -Gowin $Gowin
-.venv\Scripts\python.exe scripts/test_post_pnr.py --gowin $Gowin
-.\preflight.ps1
+.venv\Scripts\python.exe -u sim/run_tests.py
+if ($LASTEXITCODE -ne 0) { throw 'RTL simulation failed; stop here.' }
+.venv\Scripts\python.exe scripts/build_fpga.py --gowin "$Gowin"
+if ($LASTEXITCODE -ne 0) { throw 'Gowin build failed; stop here.' }
+.venv\Scripts\python.exe scripts/test_post_pnr.py --gowin "$Gowin"
+if ($LASTEXITCODE -ne 0) { throw 'Mapped-circuit simulation failed; stop here.' }
+.venv\Scripts\python.exe scripts/preflight.py
+if ($LASTEXITCODE -ne 0) { throw 'Artifact preflight failed; stop here.' }
+```
+
+This checks **10,907 engine responses, 1,107 RTL UART packets and 21
+mapped-circuit packets**, then validates the freshly generated artifacts.
+
+### Tooling regression tests
+
+After the build and mapped simulation succeed, run the complete suite:
+
+```powershell
 .venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-A successful complete workflow checks **10,907 engine responses, 1,107 RTL UART
-packets, 21 mapped-circuit packets and 100 passing regression tests**.
+The complete suite has **100 tests**. Eight require the build reports and
+artifacts, so full discovery in a source-only copy before building will fail;
+do not copy old reports into that copy to obtain a pass.
+
+Three tests exercise the optional `.ps1` wrappers. They use an existing `pwsh`
+installation when available, otherwise Windows PowerShell, and require that
+shell's existing policy to allow local scripts. This requirement applies to
+those wrapper tests, not the direct-Python build and simulation commands above.
+If policy blocks the wrapper tests, report them as blocked; do not weaken the
+policy or claim 100 passing tests. Any failures or skips mean the full suite has
+not passed.
 
 The build uses `trade_top.gprj` and `scripts/build_gowin.tcl`, then exports the
 bitstream and vendor reports. Use an ASCII-only project/tool path where possible.
@@ -175,19 +232,19 @@ Detect the board's current JTAG location and UART port before programming.
 Close other applications using the serial port.
 
 ```powershell
-.\preflight.ps1
+.venv\Scripts\python.exe scripts/preflight.py
 # Replace this example with the programmer path on this computer.
 $Programmer = 'D:\Gowin\Gowin_V1.9.11.03_Education_x64\Programmer\bin\programmer_cli.exe'
-.\program-board.ps1 -Programmer $Programmer -ListCables
-.\program-board.ps1 -Programmer $Programmer -Scan -Location 273
-.\program-board.ps1 -Programmer $Programmer -ProgramSram -Location 273
-.\board-test.ps1                         # List serial ports only
-.\board-test.ps1 -Port COM6 -Test quick
-.\board-test.ps1 -Port COM6 -Test qualification
+.venv\Scripts\python.exe scripts/program_fpga.py --programmer "$Programmer" --list-cables
+.venv\Scripts\python.exe scripts/program_fpga.py --programmer "$Programmer" --scan --location 273
+.venv\Scripts\python.exe scripts/program_fpga.py --programmer "$Programmer" --program-sram --location 273
+.venv\Scripts\python.exe scripts/board_test.py                         # List serial ports only
+.venv\Scripts\python.exe scripts/board_test.py --port COM6 --test quick
+.venv\Scripts\python.exe scripts/board_test.py --port COM6 --test qualification
 .venv\Scripts\python.exe scripts/stress_board.py --port COM6
 ```
 
-`-Programmer` selects the installed executable explicitly. Without it, the helper
+`--programmer` selects the installed executable explicitly. Without it, the helper
 retains the optional project-local installation under
 `.tools/gowin-portable/Gowin_V1.9.11.03_Education_x64/`. A missing explicit path
 stops with an error; it never silently selects another programmer. Alternatively,
@@ -205,10 +262,17 @@ receipt is not a functional pass: run the quick and qualification tests afterwar
 
 ### Tool-path troubleshooting
 
+- **PowerShell says running scripts is disabled:** use the direct Python commands
+  above, not the optional `.ps1` wrappers or `.venv\Scripts\Activate.ps1`.
+  No execution-policy change is needed. The separate wrapper regression tests
+  still require a shell policy that permits those scripts.
+- **Compiler missing, but Programmer opens:** install the complete Gowin EDA
+  Education package and repeat [the compiler checks](#install-and-check-the-compiler).
+  `programmer_cli.exe` is not a substitute for `IDE/bin/gw_sh.exe`.
 - **Missing installed programmer:** check `$Programmer` points to the actual
-  `programmer_cli.exe`, then supply `-Programmer $Programmer` for each operation.
+  `programmer_cli.exe`, then supply `--programmer "$Programmer"` for each operation.
 - **Cannot locate Gowin for mapped simulation:** supply `--gowin $Gowin` to
-  `scripts/test_post_pnr.py`. A previous build's `-Gowin` argument is not persistent.
+  `scripts/test_post_pnr.py`. A previous build's `--gowin` argument is not persistent.
 - **Missing `iverilog` or `vvp`:** install Icarus and add its `bin` folder to PATH
   in the terminal running the commands. Reopen the terminal after changing PATH.
 - **Stale build or changed hashes:** do not edit the manifest to suppress the
