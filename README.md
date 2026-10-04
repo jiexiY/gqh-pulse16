@@ -6,17 +6,23 @@ Pulse16 runs on a Tang Nano 20K and processes two independent streams of unsigne
 NONE according to the challenge's crossing rules. All signal computation runs on
 the FPGA; Python is used for verification only.
 
-## Tooling portability
+## Getting started
 
-This is a post-submission tooling and documentation update only. Windows helpers
-accept explicit Gowin installation paths; the FPGA RTL, constraints, submitted
-bitstream and frozen submission tag remain unchanged.
+Start with software verification; **no FPGA board is required** for the build and
+simulation steps.
 
-The tooling in [commit `2842bc6`](https://github.com/jiexiY/gqh-pulse16/commit/2842bc6abb4b9ace380cf55f7dd0b1222df55022)
-passed **10/10 fresh source-only workflows on one Windows host**, including RTL
-simulation, Gowin synthesis and place-and-route, mapped-circuit simulation, and
-all 100 regression tests per run. These are software verification results, not
-new physical-board tests or verification on other laptops.
+1. **Set up your environment.** Follow [Setup and release verification](#setup-and-release-verification)
+   to install Python, Gowin EDA Education and Icarus Verilog, then create a local
+   Python environment. Gowin can be installed outside the project.
+2. **Build and verify the design.** Follow [Build from source](#build-from-source)
+   to run RTL simulation, compile a new bitstream, simulate the mapped circuit
+   and run the regression tests. These steps generate new results.
+3. **Test on hardware when available.** Follow [Program and test](#program-and-test)
+   to detect a Tang Nano 20K, program SRAM and run the UART tests.
+
+A successful software run reports **10,907 engine responses, 1,107 RTL UART
+packets, 21 mapped-circuit packets and 100 passing regression tests**. Physical
+USB/UART behavior and round-trip latency require the hardware step.
 
 ## Results
 
@@ -70,11 +76,13 @@ intentional inter-byte gap. Its 234-clock divider produces approximately
 
 ## Setup and release verification
 
-Use **Windows, Python 3.12 or newer**, and a USB data cable. Python 3.12 and 3.13
-have been used for this project. To build or simulate the design, also install
+Use **Windows and Python 3.12 or newer**. Python 3.12 and 3.13 have been used for
+this project. To build or simulate the design, also install
 [Gowin EDA Education](https://www.gowinsemi.com/en/support/database/1865/) and
 [Icarus Verilog](https://steveicarus.github.io/iverilog/). Make `iverilog` and `vvp`
 available on PATH or under `.tools/iverilog/app/bin`.
+Only physical-board testing requires a Tang Nano 20K and USB data cable; board
+drivers are not needed for software-only verification.
 
 Extract the project to a short, ASCII-only directory such as `D:\GQH\Pulse16`.
 Gowin does not have to be installed inside the project. Use the actual paths to
@@ -86,13 +94,13 @@ From the repository root:
 ```powershell
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
-.\preflight.ps1
 ```
 
-Preflight checks the supplied source, build reports and bitstream for consistency.
-It does **not** run the design or require archived physical-test logs. To test the
-supplied bitstream on hardware, continue to **Program and test**. To rebuild it,
-use a separate project copy and follow **Build from source**.
+For software-only verification, continue to [Build from source](#build-from-source).
+For the supplied bitstream, run `.\preflight.ps1` before [Program and test](#program-and-test).
+Preflight checks source, build reports and bitstream consistency; it does **not**
+run the design or require archived physical-test logs. A fresh source-only build
+runs preflight after generating its own reports and bitstream.
 
 Optional: `.venv\Scripts\python.exe scripts/verify_release_evidence.py` verifies
 the archived evidence only. It is not a fresh functional test, and is not a step
@@ -104,6 +112,13 @@ has SHA-256:
 ```
 
 ## Build from source
+
+For a clean rebuild, create a separate source-only copy containing `rtl/`,
+`constraints/`, `host/`, `sim/`, `scripts/`, `tests/` and the root project files
+(`*.ps1`, `trade_top.gprj`, `requirements.txt`, `README.md`, `CHECKLIST.md`,
+`.gitattributes` and `.gitignore`). Do not copy `reports/`, `bitstream/`, `build/`,
+`impl/`, `.tools/` or `.venv/`. Complete the Python setup above in this new copy
+and make the externally installed tools available before running:
 
 ```powershell
 # Replace this example with the compiler path on this computer.
@@ -168,6 +183,12 @@ receipt is not a functional pass: run the quick and qualification tests afterwar
   in that order, then use the newly generated artifacts and their own test results.
 
 ## Verification and limitations
+
+The tooling in [commit `2842bc6`](https://github.com/jiexiY/gqh-pulse16/commit/2842bc6abb4b9ace380cf55f7dd0b1222df55022)
+passed 10/10 fresh source-only workflows on one Windows host, including RTL
+simulation, Gowin synthesis and place-and-route, mapped-circuit simulation and
+all 100 regression tests per run. This verifies software execution on that host;
+it does not establish physical-board behavior or compatibility with every laptop.
 
 RTL simulation passed 10,907 engine packets and 1,107 bit-level UART packets,
 including nominal timing and host baud offsets of +2% and -2%. Supplemental
