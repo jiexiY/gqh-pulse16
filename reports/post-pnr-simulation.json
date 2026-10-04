@@ -1,11 +1,11 @@
 {
   "status": "post_pnr_functional_simulation_passed",
-  "tested_at_utc": "2026-10-04T01:40:54.580938+00:00",
+  "tested_at_utc": "2026-10-04T13:17:42.965247+00:00",
   "physical_board_tested": false,
   "sdf_delay_annotation": false,
   "packets": 21,
-  "production_gap_cycles": 13500,
-  "runtime_seconds": 171.59,
+  "production_gap_cycles": 0,
+  "runtime_seconds": 32.78,
   "coverage": [
     "power-on initialization",
     "16-packet warm-up",
@@ -16,10 +16,10 @@
     "false start rejection",
     "malformed stop-bit recovery"
   ],
-  "bitstream_sha256": "6d37ce60101caf8d1580d44f368ef56a22af485da272043aff04627dc9ad167a",
-  "post_pnr_netlist_sha256": "be083e2ead360ea2b6257c0bd636270928a513a2526892f1861d061672ffcabd",
-  "testbench_sha256": "037a12ab41964e9e0e954fc9456dc774e728bed9cf7b24b4719300a9a36cb44b",
+  "bitstream_sha256": "87400736f80c5e2d8b2bd5250f278955cfb237753736f84473c832dc8e913707",
+  "post_pnr_netlist_sha256": "9fc52a67a579d0d2ff435c60640b3a0e1957a571a7b423a403e194df8c52cad2",
+  "testbench_sha256": "a0651498eb72995b6c6e968eedb4ab6da8d2982a79fcb618af5f040b2a53a996",
   "vendor_library_sha256": "797e52271b149b650f4ed6ae0ef2794a853c6ef19973f957abc4f576fa48b7a1",
   "vectors_sha256": "6f923ee914e855d8e041782c2fc2f5540006dea39b27c253a176f67c6a2e980a",
-  "result": "PASS UART: 21 packets, bit period 8680.556 ns, gap 13500 clocks\nsim/tb_uart.sv:87: $finish called at 103492008026 (1ps)"
+  "result": "PASS UART: 21 packets, bit period 8680.556 ns, gap 0 clocks\nsim/tb_uart.sv:87: $finish called at 29995541612 (1ps)"
 }

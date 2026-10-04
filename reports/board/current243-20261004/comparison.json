@@ -1,0 +1,169 @@
+{
+  "status": "round_two_local_evidence_verified",
+  "created_at_utc": "2026-10-04T13:25:20.699417+00:00",
+  "baseline": {
+    "label": "round2-baseline250",
+    "project": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\meta-gap0-final-20261004",
+    "metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 206,
+      "synthesis_total_logic": 250,
+      "synthesis_bsram_blocks": 2,
+      "synthesis_registers": 179,
+      "synthesis_alus": 43,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 146.057,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 30.19,
+      "worst_hold_slack_ns": 0.077
+    },
+    "bitstream_sha256": "7f729b20160f72f49389d0f43582839453f229b9d6088a482a1d0696e02d6b08",
+    "robust_means_ms": [
+      16.927595,
+      16.913726000000004,
+      16.769391,
+      16.767129,
+      16.936297
+    ],
+    "median_rtt_ms": 16.913726000000004,
+    "checked_responses": 3021,
+    "stress_latency_us": {
+      "mean": 16909.1922,
+      "median": 16894.9,
+      "minimum": 2180.0,
+      "maximum": 94053.3
+    },
+    "stress_folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\meta-gap0-final-20261004\\build\\board-stress\\20261004T125949937355Z",
+    "evidence": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-board-tests\\20261004T125919122979Z\\results.json",
+    "evidence_sha256": "8a6d358d577e56ec358a335eb9d29719d8f3966711a2e6678c4ef7638e1a19f4"
+  },
+  "candidate": {
+    "label": "round2-final243",
+    "project": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004",
+    "metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 206,
+      "synthesis_total_logic": 243,
+      "synthesis_bsram_blocks": 2,
+      "synthesis_registers": 159,
+      "synthesis_alus": 36,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 147.878,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 30.275,
+      "worst_hold_slack_ns": 0.199
+    },
+    "bitstream_sha256": "87400736f80c5e2d8b2bd5250f278955cfb237753736f84473c832dc8e913707",
+    "robust_means_ms": [
+      16.856447,
+      16.865141,
+      16.869819,
+      16.85565,
+      16.855006
+    ],
+    "median_rtt_ms": 16.856447,
+    "checked_responses": 3021,
+    "stress_latency_us": {
+      "mean": 16796.50685,
+      "median": 16847.85,
+      "minimum": 2490.4,
+      "maximum": 18765.7
+    },
+    "stress_folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132014191917Z",
+    "evidence": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-board-tests\\20261004T131942391729Z\\results.json",
+    "evidence_sha256": "89dc4aee5101abfcbbd1ba823dde7e1211244682c5a768334a96a89e8efeb650"
+  },
+  "candidate_total_physical_responses": 13021,
+  "frozen_bitstreams_unchanged": true,
+  "publication_performed": false,
+  "official_score_established": false,
+  "latency_change_percent": -0.3386539429573676,
+  "latency_interpretation": "Within five percent of the same-round baseline. No meaningful speed improvement established; host scheduling and workload differ across runs.",
+  "soak": {
+    "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-soak\\20261004T132132159103Z\\results.json",
+    "sha256": "888f516ace6dffc0bc53214ede1640d6917dcfc1d6bf1c120c15947f0e040326",
+    "runs": [
+      {
+        "seed": "0x20261030",
+        "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132132185104Z",
+        "results_sha256": "ff6d8c8218f574e9a83b947153dc18edbd24153310cdde81266b3728287f2ebb",
+        "passed_packets": 2000,
+        "latency_us": {
+          "mean": 16787.04875,
+          "median": 16856.3,
+          "minimum": 2592.5,
+          "maximum": 23629.1
+        }
+      },
+      {
+        "seed": "0x20261031",
+        "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132207024605Z",
+        "results_sha256": "6746ad7af1e5dbca125cc7c92d1a40737e3396697db63dea54a2b50cb2f6b197",
+        "passed_packets": 2000,
+        "latency_us": {
+          "mean": 16796.31805,
+          "median": 16862.550000000003,
+          "minimum": 2499.2,
+          "maximum": 39641.5
+        }
+      },
+      {
+        "seed": "0x20261032",
+        "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132241957174Z",
+        "results_sha256": "0df337312ef9ea6403382489d4a78a55225fdbb42f663384d265f5f5e4e12d89",
+        "passed_packets": 2000,
+        "latency_us": {
+          "mean": 16788.5705,
+          "median": 16839.35,
+          "minimum": 2428.7,
+          "maximum": 57945.4
+        }
+      },
+      {
+        "seed": "0x20261033",
+        "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132316872884Z",
+        "results_sha256": "c99d5766b8d47a589c5334e025cd47621bd2714e2e376b5b7ff9a78b7f8c0f39",
+        "passed_packets": 2000,
+        "latency_us": {
+          "mean": 16773.1457,
+          "median": 16838.45,
+          "minimum": 2151.7,
+          "maximum": 18370.7
+        }
+      },
+      {
+        "seed": "0x20261034",
+        "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132351768473Z",
+        "results_sha256": "ef4731c77aa60339bfa25571697ce604a8b0bd68f8720cafc34071c46ca39f59",
+        "passed_packets": 2000,
+        "latency_us": {
+          "mean": 16830.50745,
+          "median": 16843.45,
+          "minimum": 2661.1,
+          "maximum": 44204.1
+        }
+      }
+    ]
+  },
+  "contract_audit": {
+    "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-round2-audit\\runs\\20261004T131256717454Z-9312c470\\report.json",
+    "sha256": "d5fb3d6c6fbc82dfd38a85faa6302c5002b227bbe44ce76715571102cf1352ef",
+    "packets": 307
+  },
+  "exact_engine_fuzz_replay": {
+    "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-round2-audit\\engine-runs\\20261004T131257435570Z-24e1468d\\report.json",
+    "sha256": "e077a9fe2f86f8316bbe5df71d00ee741ec4f5249a5c00088d3cd995907a1907",
+    "packets": 133272
+  },
+  "startup_equivalence": {
+    "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\startup-proof\\results.json",
+    "sha256": "74d333710347cba5ecbe2494d35fe5366b277f86ca793d7e04b5651fa105715a"
+  },
+  "scope": "Observed local correctness and host round-trip latency; not exhaustive correctness, hidden judging, or a guaranteed rank."
+}

@@ -1,0 +1,204 @@
+{
+  "label": "Supplemental stress, NOT organizer qualification",
+  "status": "supplemental_stress_passed",
+  "official_qualification_verified": false,
+  "started_at_utc": "2026-10-04T13:20:14.192917+00:00",
+  "port": "COM6",
+  "device": "USB Serial Port (COM6)",
+  "hwid": "USB VID:PID=0403:6010 SER=2025030317B",
+  "candidate_before": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "47ea91eed44376e3933fe6971ddcea2e0431bc06cc12adcae95be068ea9b0b93",
+      "rtl/trade_top.v": "761a56e63596a4868130922124330ca20e1e4e38a9b0eec238f729ae08489c63",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "87400736f80c5e2d8b2bd5250f278955cfb237753736f84473c832dc8e913707",
+    "build_manifest_sha256": "02bbcda95b1ea0e4e9d959f4f4d4afa1d02ed7669eedd90410150f46aa533b32",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 206,
+      "synthesis_total_logic": 243,
+      "synthesis_bsram_blocks": 2,
+      "synthesis_registers": 159,
+      "synthesis_alus": 36,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 147.878,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 30.275,
+      "worst_hold_slack_ns": 0.199
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "candidate_after": {
+    "source_sha256": {
+      "rtl/uart_rx.v": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
+      "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+      "rtl/signal_engine.v": "47ea91eed44376e3933fe6971ddcea2e0431bc06cc12adcae95be068ea9b0b93",
+      "rtl/trade_top.v": "761a56e63596a4868130922124330ca20e1e4e38a9b0eec238f729ae08489c63",
+      "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
+      "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
+      "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
+      "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
+    },
+    "bitstream": "bitstream/trade_top.fs",
+    "bitstream_sha256": "87400736f80c5e2d8b2bd5250f278955cfb237753736f84473c832dc8e913707",
+    "build_manifest_sha256": "02bbcda95b1ea0e4e9d959f4f4d4afa1d02ed7669eedd90410150f46aa533b32",
+    "build_metrics": {
+      "tool_version": "V1.9.11.03 Education",
+      "part_number": "GW2AR-LV18QN88C8/I7",
+      "synthesis_total_luts": 206,
+      "synthesis_total_logic": 243,
+      "synthesis_bsram_blocks": 2,
+      "synthesis_registers": 159,
+      "synthesis_alus": 36,
+      "synthesis_ssram_blocks": 0,
+      "clock_constraint_mhz": 27.0,
+      "reported_fmax_mhz": 147.878,
+      "setup_violated_endpoints": 0,
+      "hold_violated_endpoints": 0,
+      "worst_setup_slack_ns": 30.275,
+      "worst_hold_slack_ns": 0.199
+    },
+    "loaded_bitstream_verified": false,
+    "loaded_bitstream_note": "Local file hashes do not establish which image is programmed on the board."
+  },
+  "test_tool_sha256": {
+    "stress_board.py": "5a8b240024ca7ed08a9b837faa9ae3ee0e89a616f459ecc4e36a7301d0f940b6",
+    "board_test.py": "9580d8a3c718f62656fe849fa04bc06e82b3994eeff042bf4d140214d97681a3",
+    "build_fpga.py": "696fb4f05c0916dd95b743fbdf41a170b15be82704205f194c1881d3f4144f5d"
+  },
+  "serial_settings": {
+    "baud": 115200,
+    "timeout_seconds": 1.0,
+    "other_settings": "pyserial defaults; no explicit control-line toggles"
+  },
+  "serial_connections_requested": 1,
+  "runner_programmed_or_reset_board": false,
+  "planned_sessions": 20,
+  "planned_packets": 2000,
+  "packets_attempted": 2000,
+  "packets_passed": 2000,
+  "sessions": [
+    {
+      "name": "constant_max_zero",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "constant_zero_max",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "alternating_extremes",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "rounding_and_held_actions",
+      "seed": null,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_0",
+      "seed": 539365409,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_1",
+      "seed": 3193801178,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_2",
+      "seed": 1553269651,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_3",
+      "seed": 4207705420,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_4",
+      "seed": 2567173893,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_5",
+      "seed": 926642366,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_6",
+      "seed": 3581078135,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_7",
+      "seed": 1940546608,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_8",
+      "seed": 300015081,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_9",
+      "seed": 2954450850,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_10",
+      "seed": 1313919323,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_11",
+      "seed": 3968355092,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_12",
+      "seed": 2327823565,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_13",
+      "seed": 687292038,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_14",
+      "seed": 3341727807,
+      "packets_passed": 100
+    },
+    {
+      "name": "random_fullrange_15",
+      "seed": 1701196280,
+      "packets_passed": 100
+    }
+  ],
+  "note": "All 8 response bytes including warm-up are compared. This is independent supplemental stress, not an organizer test or judging score. Local hashes do not prove the programmed image.",
+  "candidate_unchanged": true,
+  "completed_at_utc": "2026-10-04T13:20:49.049245+00:00",
+  "runtime_seconds": 34.844,
+  "latency_us": {
+    "mean": 16796.50685,
+    "median": 16847.85,
+    "minimum": 2490.4,
+    "maximum": 18765.7
+  },
+  "packets_csv_sha256": "d3ba5492c79dc0d28f8b9c67853e7c4c4eb4c0f79a2980b32e6beb7c14f6deca"
+}

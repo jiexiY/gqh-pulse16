@@ -1,0 +1,2 @@
+PASS startup RTL: 1024 clocks, exact255-clock completion, overlapping and repeated button resets
+C:\Users\jessi\OneDrive\文档\New project\fpga-trade\build\experiments\round2-combined-20261004\build\startup-proof\tb_startup.sv:35: $finish called at 37926912 (1ps)

@@ -1,0 +1,57 @@
+{
+  "status": "exact_engine_fuzz_replay_passed",
+  "physical_board_tested": false,
+  "uart_tested": false,
+  "scope": "Fresh engine-only RTL simulation using the previously independently crosschecked identical corpus; not new seed coverage or official qualification",
+  "candidate": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004",
+  "engine_sha256": "47ea91eed44376e3933fe6971ddcea2e0431bc06cc12adcae95be068ea9b0b93",
+  "runner_sha256": "d9845e175ca527391ca99ee868475fa8010508e79e2963f60ae4034604ec0f2e",
+  "source_corpus_report": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-engine-fuzz\\runs\\20261004T122252679971Z-b9049706\\report.json",
+  "source_corpus_report_sha256": "a0b0f1698521f939816e714d31168e439a12f5a220e281e7b5a39025e28a808d",
+  "vectors_sha256": "490dc9b8be14c749e989680d97b0635e3187384c90bb40e0c03fbb443ada2369",
+  "packet_count": 133272,
+  "testbench_sha256": "3d2a48b07b8607e2ce2873a0301ac558e5570af3fe2e1e52fa185d69d33c1233",
+  "stages": [
+    {
+      "label": "compile",
+      "argv": [
+        "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\.tools\\iverilog\\app\\bin\\iverilog.exe",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_engine",
+        "-o",
+        "engine.vvp",
+        "signal_engine.v",
+        "tb_engine.sv"
+      ],
+      "exit_code": 0,
+      "seconds": 0.094,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "simulate",
+      "argv": [
+        "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\.tools\\iverilog\\app\\bin\\vvp.exe",
+        "engine.vvp",
+        "+VECTORS=vectors.txt"
+      ],
+      "exit_code": 0,
+      "seconds": 14.453,
+      "log_sha256": "7a773471a0fedd510e7db5bf2532477c6371575e76e2461dadb914eb56775a77"
+    }
+  ],
+  "tools": {
+    "iverilog.exe": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\.tools\\iverilog\\app\\bin\\iverilog.exe",
+      "sha256": "803b8844af2cc8ed70b5f08b07ffa749901280e81339617ca3e72cbbb852bd2b"
+    },
+    "vvp.exe": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\.tools\\iverilog\\app\\bin\\vvp.exe",
+      "sha256": "e2f442f4d5aa76e55c85c3ff77e4446fbfdb9946b7cfe8a2dff87f275da17b62"
+    }
+  },
+  "original_engine_unchanged": true,
+  "simulator_executable_sha256": "268ffc8182706fb51084fc8abb7c4dd594a47db05d6738c0bf8a11de887e488b",
+  "finished_at_utc": "2026-10-04T13:13:12.053152+00:00"
+}

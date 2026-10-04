@@ -1,0 +1,75 @@
+{
+  "status": "extended_stress_passed",
+  "candidate_sha256": "87400736f80c5e2d8b2bd5250f278955cfb237753736f84473c832dc8e913707",
+  "suite_results": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-board-tests\\20261004T131942391729Z\\results.json",
+  "suite_results_sha256": "89dc4aee5101abfcbbd1ba823dde7e1211244682c5a768334a96a89e8efeb650",
+  "runner_sha256": "99f356856debd51c38cab4b16fbfddbf3980204604fa5771e211706fb04d216c",
+  "runs": [
+    {
+      "seed": "0x20261030",
+      "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132132185104Z",
+      "results_sha256": "ff6d8c8218f574e9a83b947153dc18edbd24153310cdde81266b3728287f2ebb",
+      "passed_packets": 2000,
+      "latency_us": {
+        "mean": 16787.04875,
+        "median": 16856.3,
+        "minimum": 2592.5,
+        "maximum": 23629.1
+      }
+    },
+    {
+      "seed": "0x20261031",
+      "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132207024605Z",
+      "results_sha256": "6746ad7af1e5dbca125cc7c92d1a40737e3396697db63dea54a2b50cb2f6b197",
+      "passed_packets": 2000,
+      "latency_us": {
+        "mean": 16796.31805,
+        "median": 16862.550000000003,
+        "minimum": 2499.2,
+        "maximum": 39641.5
+      }
+    },
+    {
+      "seed": "0x20261032",
+      "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132241957174Z",
+      "results_sha256": "0df337312ef9ea6403382489d4a78a55225fdbb42f663384d265f5f5e4e12d89",
+      "passed_packets": 2000,
+      "latency_us": {
+        "mean": 16788.5705,
+        "median": 16839.35,
+        "minimum": 2428.7,
+        "maximum": 57945.4
+      }
+    },
+    {
+      "seed": "0x20261033",
+      "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132316872884Z",
+      "results_sha256": "c99d5766b8d47a589c5334e025cd47621bd2714e2e376b5b7ff9a78b7f8c0f39",
+      "passed_packets": 2000,
+      "latency_us": {
+        "mean": 16773.1457,
+        "median": 16838.45,
+        "minimum": 2151.7,
+        "maximum": 18370.7
+      }
+    },
+    {
+      "seed": "0x20261034",
+      "folder": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\board-stress\\20261004T132351768473Z",
+      "results_sha256": "ef4731c77aa60339bfa25571697ce604a8b0bd68f8720cafc34071c46ca39f59",
+      "passed_packets": 2000,
+      "latency_us": {
+        "mean": 16830.50745,
+        "median": 16843.45,
+        "minimum": 2661.1,
+        "maximum": 44204.1
+      }
+    }
+  ],
+  "start_seed": "0x20261030",
+  "started_at_utc": "2026-10-04T13:21:32.160104+00:00",
+  "programmed_or_reset_board": false,
+  "official_qualification_verified": false,
+  "passed_packets": 10000,
+  "finished_at_utc": "2026-10-04T13:24:26.791698+00:00"
+}

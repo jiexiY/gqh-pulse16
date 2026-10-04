@@ -1,23 +1,23 @@
 {
   "status": "compiled_candidate_not_board_verified",
-  "built_at_utc": "2026-10-04T01:38:02.543628+00:00",
+  "built_at_utc": "2026-10-04T13:17:08.519646+00:00",
   "physical_board_tested": false,
-  "runtime_seconds": 8.71,
+  "runtime_seconds": 6.16,
   "metrics": {
     "tool_version": "V1.9.11.03 Education",
     "part_number": "GW2AR-LV18QN88C8/I7",
-    "synthesis_total_luts": 223,
-    "synthesis_total_logic": 267,
+    "synthesis_total_luts": 206,
+    "synthesis_total_logic": 243,
     "synthesis_bsram_blocks": 2,
-    "synthesis_registers": 189,
-    "synthesis_alus": 43,
+    "synthesis_registers": 159,
+    "synthesis_alus": 36,
     "synthesis_ssram_blocks": 0,
     "clock_constraint_mhz": 27.0,
-    "reported_fmax_mhz": 155.729,
+    "reported_fmax_mhz": 147.878,
     "setup_violated_endpoints": 0,
     "hold_violated_endpoints": 0,
-    "worst_setup_slack_ns": 30.616,
-    "worst_hold_slack_ns": 0.215
+    "worst_setup_slack_ns": 30.275,
+    "worst_hold_slack_ns": 0.199
   },
   "warnings": [
     "WARN  (PR1014) : Generic routing resource will be used to clock signal 'sys_clk_d' by the specified constraint. And then it may lead to the excessive delay or skew"
@@ -25,22 +25,22 @@
   "source_sha256": {
     "rtl/uart_rx.v": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
     "rtl/uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
-    "rtl/signal_engine.v": "d9b322cdb19c86ed4ec183cbf42e6ebf51c5d3e3ad6385a9af911f1d310c8c91",
-    "rtl/trade_top.v": "23dc451ecf8636e5aab3301f40937fc1e63f5f65c733d4406c69a973015f5c9e",
+    "rtl/signal_engine.v": "47ea91eed44376e3933fe6971ddcea2e0431bc06cc12adcae95be068ea9b0b93",
+    "rtl/trade_top.v": "761a56e63596a4868130922124330ca20e1e4e38a9b0eec238f729ae08489c63",
     "constraints/19_tang_nano_20k.cst": "cfa65fc9d94df4850e6849b5dd48da4fce6cdd0527cc0e30beb59df5fcf41ccf",
     "constraints/trade_top.sdc": "0ede287254a7d097329432b90bfb351d2e521b320a732d8991282c01510cda12",
     "trade_top.gprj": "b19ae39a254c0e5cceffa978001fea64f44e56c4983a71590bb55c0a0159bc06",
     "scripts/build_gowin.tcl": "b5079dbba1f7e935afc32514ed4d6719ce794890a2e27787c4898092b8f4b93e"
   },
   "bitstream": "bitstream/trade_top.fs",
-  "bitstream_sha256": "6d37ce60101caf8d1580d44f368ef56a22af485da272043aff04627dc9ad167a",
-  "post_pnr_netlist_sha256": "be083e2ead360ea2b6257c0bd636270928a513a2526892f1861d061672ffcabd",
+  "bitstream_sha256": "87400736f80c5e2d8b2bd5250f278955cfb237753736f84473c832dc8e913707",
+  "post_pnr_netlist_sha256": "9fc52a67a579d0d2ff435c60640b3a0e1957a571a7b423a403e194df8c52cad2",
   "report_sha256": {
-    "synthesis.html": "1b4a6c67110c04a4f6a416b610af63060f38e09a0f379a52d99e368aa5a9ca86",
-    "timing.txt": "e8404e182f056ba4e9b5a7af3960a26f2b1c87447fccacc9a4495ea39a5b8c79",
-    "place-route.txt": "559f131ea864373f792e84d14e97cc21d6d8598d8456b9d3a6dac9185c58a933",
-    "pins.html": "252d2a92421152fcddbe682b93f6ca5785bb5d8f5bc572cd82e819e341d5b33e",
-    "build.log": "0d9fbc40d9b130ad91560f27ad31fcb2103fae2c5d62a5d71a81e7535b287e09"
+    "synthesis.html": "8021cc42cb401f781fb2870e57549aebc8a1a8fc73a6b66711d0755af188afe7",
+    "timing.txt": "69dabeb9b21891d792d1178a2e6caa547cb1b763a037d049d88d1b4afa7e2268",
+    "place-route.txt": "e2f6b01482b2a511c00066201ad6f2be0f2be81f840b0d7ce5be074b91ac4345",
+    "pins.html": "1726afbf9a5ced537ccf7b2aab86b1b4ad66da67abdf1cf555ae4515e42784c1",
+    "build.log": "79ee060e08f06a37c919b410ab424c21e40dec662a9b76dd1f64cf498d5ab8a2"
   },
   "timing_scope": "Internal synchronous paths at 27 MHz; not a physical UART/USB measurement"
 }

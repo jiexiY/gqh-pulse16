@@ -73,7 +73,7 @@ def main():
         "status": "post_pnr_functional_simulation_passed",
         "tested_at_utc": datetime.now(timezone.utc).isoformat(),
         "physical_board_tested": False, "sdf_delay_annotation": False,
-        "packets": 21, "production_gap_cycles": 13500,
+        "packets": 21, "production_gap_cycles": 0,
         "runtime_seconds": round(time.monotonic() - started, 2),
         "coverage": ["power-on initialization", "16-packet warm-up", "BUY/SELL/hold",
                      "full-range unsigned 16-bit history reads", "maximum 20-bit running sum",

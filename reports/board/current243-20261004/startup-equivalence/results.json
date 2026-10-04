@@ -1,0 +1,29 @@
+{
+  "status": "startup_timeline_equivalence_passed",
+  "physical_power_cycle_tested": false,
+  "first_completed_clock": 255,
+  "unique_preterminal_states": 255,
+  "terminal_state": "0x80",
+  "enumerated_clock_states": 1024,
+  "reset_boolean_comparisons": 4096,
+  "all_two_bit_sync_states_enumerated": true,
+  "button_synchronizer_byte_equations_unchanged": true,
+  "actual_rtl_clock_comparisons": 1024,
+  "input_sha256": {
+    "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\scripts\\verify_startup.py": "8b8204da4a3616da48f9dd92557c3162190d467aae31ef9d1ac58aa1bfb2c87b",
+    "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\rtl\\trade_top.v": "761a56e63596a4868130922124330ca20e1e4e38a9b0eec238f729ae08489c63",
+    "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\meta-gap0-final-20261004\\rtl\\trade_top.v": "9335ef43e9ff3556367b2eb2b5a9859e51a5667568540fe737bbbc3d978e820d"
+  },
+  "generated_input_sha256": {
+    "baseline_trade_top.v": "ca9e3daebb50760a57ca7e79a7d48c8c5e346754ea6ded78398aed6dcc162062",
+    "candidate_trade_top.v": "ba8767c3f8874a8cad9bd725dfc117e2edb46f600fe7e6aed4ad22e52e178f95",
+    "tb_startup.sv": "e8eb75b9d6bf3ffc3d8ffcc52b5a71b98d029800956c813fa4efc2ca3b1a786d"
+  },
+  "common_rtl_sha256": {
+    "rtl\\uart_rx.v": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70",
+    "rtl\\uart_tx.v": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6",
+    "rtl\\signal_engine.v": "47ea91eed44376e3933fe6971ddcea2e0431bc06cc12adcae95be068ea9b0b93"
+  },
+  "completed_at_utc": "2026-10-04T13:14:17.553408+00:00",
+  "result": "PASS startup RTL: 1024 clocks, exact255-clock completion, overlapping and repeated button resets\nC:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\build\\startup-proof\\tb_startup.sv:35: $finish called at 37926912 (1ps)"
+}

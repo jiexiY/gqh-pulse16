@@ -1,17 +1,17 @@
 *** GOWIN Tcl Command Line Console  *** 
 alog error: failed to open log file: 'C:/Users/jessi/AppData/Local/GowinSemi/IDE/cache/sh.log'
-Open project C:/Users/jessi/OneDrive/73EC~1/NEWPRO~1/FPGA-T~1/build/EXPERI~1/COMPET~1/trade_top.gprj finished
+Open project C:/Users/jessi/OneDrive/73EC~1/NEWPRO~1/FPGA-T~1/build/EXPERI~1/ROUND2~1/trade_top.gprj finished
 GowinSynthesis start
 Running parser ...
-Analyzing Verilog file 'C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\uart_rx.v'
-Analyzing Verilog file 'C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\uart_tx.v'
-Analyzing Verilog file 'C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\signal_engine.v'
-Analyzing Verilog file 'C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\trade_top.v'
-Compiling module 'trade_top'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\trade_top.v":2)
-Compiling module 'uart_rx'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\uart_rx.v":3)
-Compiling module 'signal_engine'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\signal_engine.v":5)
-Extracting RAM for identifier 'metadata'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\signal_engine.v":25)
-Extracting RAM for identifier 'history'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\rtl\signal_engine.v":28)
+Analyzing Verilog file 'C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\uart_rx.v'
+Analyzing Verilog file 'C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\uart_tx.v'
+Analyzing Verilog file 'C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\signal_engine.v'
+Analyzing Verilog file 'C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\trade_top.v'
+Compiling module 'trade_top'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\trade_top.v":2)
+Compiling module 'uart_rx'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\uart_rx.v":3)
+Compiling module 'signal_engine'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\signal_engine.v":5)
+Extracting RAM for identifier 'metadata'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\signal_engine.v":26)
+Extracting RAM for identifier 'history'("C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\rtl\signal_engine.v":29)
 NOTE  (EX0101) : Current top module is "trade_top"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
@@ -29,13 +29,13 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-[95%] Generate netlist file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\gwsynthesis\trade_top.vg" completed
-[100%] Generate report file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\gwsynthesis\trade_top_syn.rpt.html" completed
+[95%] Generate netlist file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\gwsynthesis\trade_top.vg" completed
+[100%] Generate report file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\gwsynthesis\trade_top_syn.rpt.html" completed
 GowinSynthesis finish
-Reading netlist file: "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\gwsynthesis\trade_top.vg"
-Parsing netlist file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\gwsynthesis\trade_top.vg" completed
+Reading netlist file: "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\gwsynthesis\trade_top.vg"
+Parsing netlist file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\gwsynthesis\trade_top.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\constraints\19_tang_nano_20k.cst"
+Reading constraint file: "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\constraints\19_tang_nano_20k.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -55,12 +55,12 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\pnr\trade_top.power.html" completed
-Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\pnr\trade_top.pin.html" completed
-Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\pnr\trade_top.rpt.html" completed
-Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\pnr\trade_top.rpt.txt" completed
-Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\pnr\trade_top.vo" completed
-Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\pnr\trade_top.tr.html" completed
-Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\COMPET~1\impl\pnr\trade_top.tr" completed
-Sat Oct  3 21:38:02 2026
+Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\pnr\trade_top.power.html" completed
+Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\pnr\trade_top.pin.html" completed
+Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\pnr\trade_top.rpt.html" completed
+Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\pnr\trade_top.rpt.txt" completed
+Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\pnr\trade_top.vo" completed
+Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\pnr\trade_top.tr.html" completed
+Generate file "C:\Users\jessi\OneDrive\73EC~1\NEWPRO~1\FPGA-T~1\build\EXPERI~1\ROUND2~1\impl\pnr\trade_top.tr" completed
+Sun Oct  4 09:17:08 2026
 

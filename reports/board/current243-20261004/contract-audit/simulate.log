@@ -1,0 +1,3 @@
+PASS UART: 307 packets, bit period 8680.556 ns, gap 0 clocks
+inputs/tb_uart.sv:110: $finish called at 430221650924 (1ps)
+PASS contract: 307 completed, 1 aborted, 3330 protected engine cycles, 5754101 protected TX cycles, 154 ignored valid RX, 153 ignored RX errors

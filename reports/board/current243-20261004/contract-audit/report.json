@@ -1,0 +1,97 @@
+{
+  "status": "integrated_contract_audit_passed",
+  "candidate": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004",
+  "physical_board_tested": false,
+  "scope": "Supplemental integrated RTL UART simulation with reset and adversarial RX during TX",
+  "runner_sha256": "a33d4637728501fffee073924e5e864fb2354f4ceb9be42864356a7f18d57da6",
+  "original_inputs": {
+    "uart_rx.v": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\rtl\\uart_rx.v",
+      "sha256": "f432430523f085ace6d11c3023452fab2d807e5ec5d3b55f9a8b372587763f70"
+    },
+    "uart_tx.v": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\rtl\\uart_tx.v",
+      "sha256": "8aa54e0802738ae15a291c7bd53704dcbd8c26a88fd352d56aefe6caeab32ab6"
+    },
+    "signal_engine.v": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\rtl\\signal_engine.v",
+      "sha256": "47ea91eed44376e3933fe6971ddcea2e0431bc06cc12adcae95be068ea9b0b93"
+    },
+    "trade_top.v": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\experiments\\round2-combined-20261004\\rtl\\trade_top.v",
+      "sha256": "761a56e63596a4868130922124330ca20e1e4e38a9b0eec238f729ae08489c63"
+    },
+    "tb_uart.original.sv": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\sim\\tb_uart.sv",
+      "sha256": "037a12ab41964e9e0e954fc9456dc774e728bed9cf7b24b4719300a9a36cb44b"
+    },
+    "top_contract_monitor.sv": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-round2-audit\\top_contract_monitor.sv",
+      "sha256": "028ac111a41c295c4de1220f4b5a07043ed2a960ad9c5b1293cfb2e7ce326164"
+    },
+    "run_top_contract.py": {
+      "path": "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\build\\optimization-round2-audit\\run_top_contract.py",
+      "sha256": "a33d4637728501fffee073924e5e864fb2354f4ceb9be42864356a7f18d57da6"
+    }
+  },
+  "stages": [
+    {
+      "name": "compile",
+      "argv": [
+        "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\.tools\\iverilog\\app\\bin\\iverilog.exe",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_uart",
+        "-s",
+        "top_contract_monitor",
+        "-Ptb_uart.GAP_CYCLES=0",
+        "-o",
+        "contract.vvp",
+        "inputs/uart_rx.v",
+        "inputs/uart_tx.v",
+        "inputs/signal_engine.v",
+        "inputs/trade_top.v",
+        "inputs/tb_uart.sv",
+        "inputs/top_contract_monitor.sv"
+      ],
+      "exit_code": 0,
+      "seconds": 0.094,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "simulate",
+      "argv": [
+        "C:\\Users\\jessi\\OneDrive\\\u6587\u6863\\New project\\fpga-trade\\.tools\\iverilog\\app\\bin\\vvp.exe",
+        "contract.vvp",
+        "+VECTORS=vectors.txt"
+      ],
+      "exit_code": 0,
+      "seconds": 89.422,
+      "log_sha256": "3c0f0c2bd50e1d4efc87db10d184cc496cbe39d3e823cbe277d09cf9cf68d2d4"
+    }
+  ],
+  "packets": 307,
+  "source_fuzz_vectors_sha256": "490dc9b8be14c749e989680d97b0635e3187384c90bb40e0c03fbb443ada2369",
+  "selected_fuzz_sessions": [
+    0,
+    1024,
+    1025,
+    1026,
+    1027,
+    1280,
+    1281,
+    1282,
+    1283,
+    1284,
+    1285,
+    1286,
+    1287
+  ],
+  "vectors_sha256": "8ee427bf9822d0200cb0e7a176aa4d05dd26ba7dcf78a63ec3787ea103c66e3b",
+  "derived_testbench_sha256": "ccbd29e18af541979b9bdeee775d25a1390dcc22112196062e8dcb48020e3eaa",
+  "gap_parameter": 0,
+  "original_inputs_unchanged": true,
+  "transcript": "PASS UART: 307 packets, bit period 8680.556 ns, gap 0 clocks\ninputs/tb_uart.sv:110: $finish called at 430221650924 (1ps)\nPASS contract: 307 completed, 1 aborted, 3330 protected engine cycles, 5754101 protected TX cycles, 154 ignored valid RX, 153 ignored RX errors\n",
+  "finished_at_utc": "2026-10-04T13:14:26.301798+00:00"
+}

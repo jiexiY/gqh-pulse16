@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module tb_uart #(parameter integer GAP_CYCLES=13500);
+module tb_uart #(parameter integer GAP_CYCLES=0);
     reg sys_clk=0, reset_btn=0, uart_rx_i=1;
     wire uart_tx_o, led0_n, led1_n;
     reg [63:0] request, expected, received=0;

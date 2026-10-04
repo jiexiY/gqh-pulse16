@@ -1,186 +1,65 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "status": "local_physical_practice_verified",
-  "date": "2026-10-03",
+  "date": "2026-10-04",
   "board": {
     "model": "Sipeed Tang Nano 20K",
-    "assigned_number": 9,
-    "number_source": "participant confirmation",
-    "port": "COM6",
-    "team": "jiexi yang",
-    "participant": "Jiexi Yang",
-    "university": "University of Florida"
+    "assigned_number": 9
   },
   "candidate_bitstream": "bitstream/trade_top.fs",
-  "candidate_sha256": "6d37ce60101caf8d1580d44f368ef56a22af485da272043aff04627dc9ad167a",
+  "candidate_sha256": "87400736f80c5e2d8b2bd5250f278955cfb237753736f84473c832dc8e913707",
+  "build_summary_sha256": "02bbcda95b1ea0e4e9d959f4f4d4afa1d02ed7669eedd90410150f46aa533b32",
+  "evidence_directory": "reports/board/current243-20261004",
+  "evidence_index": "reports/board/current243-20261004/sha256.json",
+  "evidence_index_sha256": "2e1f90772affee050e00b9e074d5fec31af044ac9dac35408206a70b8aa81c81",
   "programming": {
-    "mode": "SRAM Program (operation 2)",
-    "tool_reported_success": true,
-    "receipt": "reports/board/competition-20261003/programming/receipt.json",
-    "user_code": [
-      "0x0000A5CC"
-    ],
-    "status_code": [
-      "0x00006020"
-    ],
+    "mode": "SRAM",
+    "receipt": "reports/board/current243-20261004/programming/receipt.json",
     "flash_written": false,
-    "readback_performed": false,
-    "note": "Receipt binds the staged bitstream to successful SRAM programming; UART results establish tested behavior, not cryptographic readback."
+    "readback_performed": false
   },
-  "qualification_practice": {
-    "pairs": 5,
-    "sequence": "quick, then five robust/fullrange pairs, then stress; no runner-controlled reset or programming after the receipt",
-    "packets_received_and_audited": 1000,
-    "scored_actions_correct": 1680,
-    "scored_actions_total": 1680,
-    "timeouts": 0,
-    "warmup_responses_also_audited": true,
-    "robust_run_average_latency_ms": [
-      16.860392,
-      16.839586,
-      16.839026999999998,
-      16.876043999999997,
-      16.850055
-    ],
-    "median_of_five_robust_run_means_ms": 16.850055,
-    "all_runs_within_local_full_points_latency_threshold": true,
-    "primitive_luts_within_local_full_points_threshold": true,
-    "official_qualification_verified": false
-  },
-  "quick": {
-    "packets": 21,
-    "status": "passed"
-  },
-  "supplemental_stress": {
-    "packets": 1000,
-    "sessions": 10,
-    "status": "passed",
-    "runtime_seconds": 17.781,
-    "latency_us": {
-      "mean": 16916.6571,
-      "median": 16846.45,
-      "minimum": 10344.3,
-      "maximum": 51194.6
-    },
-    "scope": "All 8 response bytes including warm-up are compared. This is independent supplemental stress, not an organizer test or judging score. Local hashes do not prove the programmed image.",
-    "not_organizer_qualification": true
-  },
+  "total_checked_physical_responses": 13021,
+  "quick_packets": 21,
+  "qualification_packets": 1000,
+  "qualification_pairs": 5,
+  "qualification_scored_actions_correct": 1680,
+  "qualification_scored_actions_total": 1680,
+  "supplemental_stress_packets": 2000,
+  "extended_soak_packets": 10000,
+  "robust_run_average_latency_ms": [
+    16.856447,
+    16.865141,
+    16.869819,
+    16.85565,
+    16.855006
+  ],
+  "median_of_five_robust_run_means_ms": 16.856447,
   "synthesis_metrics": {
-    "total_logic": 267,
-    "registers": 189,
+    "total_logic": 243,
+    "registers": 159,
     "bsram_blocks": 2,
-    "primitive_luts": 223,
-    "alus": 43,
+    "primitive_luts": 206,
+    "alus": 36,
     "ssram_blocks": 0
   },
   "timing_metrics": {
-    "clock_constraint_mhz": 27.0,
-    "reported_fmax_mhz": 155.729,
+    "clock_constraint_mhz": 27,
+    "reported_fmax_mhz": 147.878,
     "setup_violated_endpoints": 0,
     "hold_violated_endpoints": 0,
-    "worst_setup_slack_ns": 30.616,
-    "worst_hold_slack_ns": 0.215
+    "worst_setup_slack_ns": 30.275,
+    "worst_hold_slack_ns": 0.199
   },
-  "software_verification": {
-    "engine_packets": 10907,
-    "bit_level_uart_packets": 1107,
-    "mapped_fullrange_uart_packets": 21,
-    "supplemental_relation_packets": 8436,
-    "metadata_invariant_checks": 16872,
-    "relation_mutation_traps_rejected": 4,
-    "tooling_unit_tests": "See latest independently executed test log; not inferred by this helper"
-  },
-  "promotion_provenance": {
-    "candidate_build_manifest_sha256": "4199af469927a5cb06fbf3184587ca6bcf8769202528203a16e51c2b44906b13",
-    "canonical_build_manifest_sha256": "4199af469927a5cb06fbf3184587ca6bcf8769202528203a16e51c2b44906b13",
-    "matching_fields": [
-      "source_sha256",
-      "bitstream_sha256",
-      "post_pnr_netlist_sha256",
-      "metrics"
-    ],
-    "note": "Manifest byte hashes may differ due to build metadata/timestamps; exact source, bitstream, mapped netlist and parsed metrics must match."
-  },
-  "historical_previous_candidate": {
-    "summary": "reports/board/relation-20261003/physical-verification.json",
-    "candidate_sha256": "dc98a557d956b7ebed262461f3d17642e7ef9f53937bb7e62466b1edd568b69e",
-    "synthesis_metrics": {
-      "total_logic": 274,
-      "registers": 203,
-      "bsram_blocks": 2,
-      "primitive_luts": 230,
-      "alus": 43,
-      "ssram_blocks": 0
-    },
-    "note": "Previous candidate physical tests remain historical; none are counted for this candidate."
-  },
-  "evidence_sha256": {
-    "reports/board/competition-20261003/hardware-sequence.json": "20fb2552521b2b65415bc7b5364e2940b6b5d948ca26e4a2b950dada6793da35",
-    "reports/board/competition-20261003/candidate-build-summary.json": "4199af469927a5cb06fbf3184587ca6bcf8769202528203a16e51c2b44906b13",
-    "reports/board/competition-20261003/programming/program-sram.log": "10644914a70cc7649208b9f10e3fb3e0bbfbf04620fc65b41d7a8ad3b634525f",
-    "reports/board/competition-20261003/programming/receipt.json": "f9fd3c3afa21620262a3047cfe391e97c2468e5ff0c2cfcd300a1e397f2b1c06",
-    "reports/board/competition-20261003/programming/scan.log": "a73101d83fb86faac61e2fd59bc3df559427747537a8bc8c27275db152231f03",
-    "reports/board/competition-20261003/quick/21_quick_uart_test.py": "a2b7f96ffe1b504c4dff0a993f309442672ec6a491f6b4c326a6ddf8d7563726",
-    "reports/board/competition-20261003/quick/quick.log": "42f3fbff722aa8595ed900fdeea60984ce777339c3013e5ffee8750bf72f9690",
-    "reports/board/competition-20261003/quick/results.json": "0ccecab757053b414b08e015643fc70f496f3e495bde3eb7a8e1880bb1a5fce8",
-    "reports/board/competition-20261003/qualification-1/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
-    "reports/board/competition-20261003/qualification-1/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
-    "reports/board/competition-20261003/qualification-1/fullrange.log": "3d5e74e58cd5f4100a3aff8161fe0a135f71fa17049dd0b31e9b5796117fbf69",
-    "reports/board/competition-20261003/qualification-1/results.json": "13a30e52efb5c63e8303045d97ed639867f7695d4386075cdd55f7a5d45f85d2",
-    "reports/board/competition-20261003/qualification-1/robust.log": "61bba725df8a2e43665aba728e10eb5c19a7614d1aadd37f197039c7654fd31f",
-    "reports/board/competition-20261003/qualification-1/trade_results_100.csv": "44f70bac065a81f39c559f4b0fa6fe1b495a54f232c4a3b9a791757863dbbdee",
-    "reports/board/competition-20261003/qualification-1/trade_results_100_fullrange.csv": "798ad1b4ce97709a9bb409f7367086318b6f604b77562c8818979257e89c7120",
-    "reports/board/competition-20261003/qualification-1/trade_summary_100.txt": "30d3a9f877a8ad81c00970d9de7ab66428e84af9e8f9d60441a6fbba9d04421a",
-    "reports/board/competition-20261003/qualification-1/trade_summary_100_fullrange.txt": "1b3657a57c5a38b05f3b73546924efa6300dd4e16fc2a4668f0b7c86381e6c64",
-    "reports/board/competition-20261003/qualification-2/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
-    "reports/board/competition-20261003/qualification-2/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
-    "reports/board/competition-20261003/qualification-2/fullrange.log": "19165b6cd0768649b1c9ef19a6ef48f35f652c1a02bf9df6c8f9e2657a191628",
-    "reports/board/competition-20261003/qualification-2/results.json": "3ae9c9562500e05920e648d5c50fecf4483cce1182a343dd2bd14046b5bf740e",
-    "reports/board/competition-20261003/qualification-2/robust.log": "8a071600c168fbae2a3005d551daff5e09ab65338decd5302cf523873d5a6587",
-    "reports/board/competition-20261003/qualification-2/trade_results_100.csv": "8a1f4d234267a38cac510f4af201121deca24c63b01c65df8645ffe9280e61d9",
-    "reports/board/competition-20261003/qualification-2/trade_results_100_fullrange.csv": "cb80b11a75b498d0ed260cc5a986cf3812b87ef1f43aa1992f8ce82792d1deb0",
-    "reports/board/competition-20261003/qualification-2/trade_summary_100.txt": "25820ab045a78832b46b56cfe55cd93df2be1a1d2b74f33e0d8b95f838bc70aa",
-    "reports/board/competition-20261003/qualification-2/trade_summary_100_fullrange.txt": "b60d076facbc2ada18ad776a1ad0d70f6162e0d897823470f958b0bb5b7a54cd",
-    "reports/board/competition-20261003/qualification-3/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
-    "reports/board/competition-20261003/qualification-3/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
-    "reports/board/competition-20261003/qualification-3/fullrange.log": "63dbb420b3cf18c525992a4c5399c6bb01bb586832e868b2fd73246f315ba098",
-    "reports/board/competition-20261003/qualification-3/results.json": "45227a6026580cad252ad532258b7fc8f354715b59efceeaeffc713490aad920",
-    "reports/board/competition-20261003/qualification-3/robust.log": "5d413ac272739f1545eafc6660b794b277a1871bc82c75caac8de7d397aa3174",
-    "reports/board/competition-20261003/qualification-3/trade_results_100.csv": "140e53dbea06e901d4e1350789b3cd6451a06b7e65d226c8bfe111998e6b3b17",
-    "reports/board/competition-20261003/qualification-3/trade_results_100_fullrange.csv": "f8c0cf5213b28c4d3dc0ad0f95e4206013617e3c357aef95615050a1ccf517c8",
-    "reports/board/competition-20261003/qualification-3/trade_summary_100.txt": "c0e162f48917b59f5c5403f154a5f65da543ee79611797ac5f293399df826d6a",
-    "reports/board/competition-20261003/qualification-3/trade_summary_100_fullrange.txt": "7a350c6ac6fbe4ceafd3e510e93eba1ecb9c3b20419bd7ef2375d13dcd62976e",
-    "reports/board/competition-20261003/qualification-4/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
-    "reports/board/competition-20261003/qualification-4/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
-    "reports/board/competition-20261003/qualification-4/fullrange.log": "258941bf5cb0a03878a83766f418d664658c35acf02fc4ef9a9b27581b9d15db",
-    "reports/board/competition-20261003/qualification-4/results.json": "d581b5f3ad81748f2998a8ffde31f545fcb9b4ffd872a87b11670964e788f3d4",
-    "reports/board/competition-20261003/qualification-4/robust.log": "70fd808d1a6870b9457ad2451b35efdd237de3ff0fea2a4c4fc797fcb50793a2",
-    "reports/board/competition-20261003/qualification-4/trade_results_100.csv": "8aad0fcacfb5133907d96e672593f1dc8c87b135abe9ba2a06b6b44a2a31c7e1",
-    "reports/board/competition-20261003/qualification-4/trade_results_100_fullrange.csv": "a259c627cbe269dc47c06e3951d2517528d9869b2227292c09d69bd16087c57b",
-    "reports/board/competition-20261003/qualification-4/trade_summary_100.txt": "71a085f50b6aea803c80884296ecdfacfa4e8bba89946fd774d116a6b5758627",
-    "reports/board/competition-20261003/qualification-4/trade_summary_100_fullrange.txt": "f7f5b3fed01c8e3f51ca6d39f65749118349bf2c4cb1a49619e2f856610cd89a",
-    "reports/board/competition-20261003/qualification-5/22_robust_uart_test.py": "52f3b8da200dd464f6f12be70c5b1288a35eefef9726ca9fd1fadb39a8b5264f",
-    "reports/board/competition-20261003/qualification-5/22_robust_uart_test_fullrange.py": "73295ff02aa06bac869f2c9c5c6ad6f244084b514f697846c176bc4c2ff2fc9c",
-    "reports/board/competition-20261003/qualification-5/fullrange.log": "379252880aaa04b848837e04b9beb4ccf7a81416e0991eb5d4bf718b7cb417f0",
-    "reports/board/competition-20261003/qualification-5/results.json": "57736c4a6371907ff80043abdb46f223fa9f4eff80a03df568e41f125a5b7868",
-    "reports/board/competition-20261003/qualification-5/robust.log": "2c2af4df9649508fff8183b9813101faa372d49f474ca80947bdad3cfb1d6f83",
-    "reports/board/competition-20261003/qualification-5/trade_results_100.csv": "2daa7e7c3b9176caffb6a64ca510d62998f4e21dcc26ae08aa29507df422f7d8",
-    "reports/board/competition-20261003/qualification-5/trade_results_100_fullrange.csv": "e65e55ab52dc1562fb462baa55b14802b59fc54d313db864a01c7a3c5842c995",
-    "reports/board/competition-20261003/qualification-5/trade_summary_100.txt": "a79468320aeee84061211e7570d2bccb345643f294de50c1483b3e7c86767b40",
-    "reports/board/competition-20261003/qualification-5/trade_summary_100_fullrange.txt": "0710a03766ecf7eec25a979f5aa54e8fa32452e8e55e07c65e651b5038fd4d36",
-    "reports/board/competition-20261003/stress/packets.csv": "94749b8dcdd4fe5166767d4fd222de1509d96bd4242ca31b034a7a6a46b66c2b",
-    "reports/board/competition-20261003/stress/results.json": "06b5fc0b32566b5f4f374fd606100310bba9a04dd6735c7b57765856376e08fd",
-    "reports/build-summary.json": "4199af469927a5cb06fbf3184587ca6bcf8769202528203a16e51c2b44906b13",
-    "reports/rtl-simulation.json": "0afcbb681c550462c912cd48a520272605cfd86ec39809cf5afcefcd2cf6f00f",
-    "reports/post-pnr-simulation.json": "b8f8019e14787db66e2aea1b664dc6807fab4c24a4b2895abb329df0e8812009",
-    "reports/relation-verification.json": "fce585e76d683c6f540e7e7678d5abb0682e2ec61a09a4cee0d6278b4b48c64e",
-    "reports/board/relation-20261003/physical-verification.json": "f03362f0ddacb5ba141fe7f5cb8457a9036e204c3bbdafa743d306940b1a3e4b"
-  },
+  "second_laptop_current_candidate_tested": false,
+  "physical_power_cycle_tested": false,
+  "official_qualification_verified": false,
+  "official_score_established": false,
   "limitations": [
-    "Practice seeds and this Dell's host latency are not the judge's hidden seeds or PC.",
-    "PR1014 clock-route warning remains documented; internal 27 MHz timing and tested physical traffic passed.",
-    "SRAM configuration is volatile; power loss requires reprogramming the submitted bitstream.",
-    "No official score, ranking, or first-place guarantee is established.",
-    "Private GitHub hosting alone does not satisfy the event's public-repository requirement; Devpost submission and board return remain outstanding."
+    "Local observed correctness is not exhaustive correctness or an official judging result.",
+    "Host round-trip latency includes UART, USB, driver and operating-system effects; no meaningful speed improvement is established.",
+    "Raw records preserve original timestamps, absolute provenance paths and then-current status fields; use the relative evidence directory for portable lookup.",
+    "The immutable build manifest predates physical tests; this separate hash-bound report records completed physical testing.",
+    "SRAM programming receipt and subsequent UART behavior are evidence, not cryptographic readback.",
+    "PR1014 remains in Gowin reports. SRAM configuration clears on power loss."
   ]
 }
