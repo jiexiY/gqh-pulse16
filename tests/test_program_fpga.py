@@ -2,6 +2,7 @@
 import contextlib
 import io
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -13,6 +14,9 @@ from unittest.mock import Mock, patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import program_fpga as tool
 from build_fpga import ROOT, digest
+
+# Allow cold Windows process startup; production UART/programming limits are separate.
+POWERSHELL_TEST_TIMEOUT_SECONDS = 120
 
 SCAN = ''' Scanning!
  Target Cable: USB Debugger A/0/273/null@2.5MHz
@@ -34,6 +38,22 @@ Programming...: [#########################] 100%
 '''
 
 
+@contextlib.contextmanager
+def temporary_directory(parent, prefix):
+    # Regular mkdir keeps Windows sandbox access; TemporaryDirectory's private
+    # directory ACL can prevent the sandbox token from reopening its own files.
+    parent = Path(parent).resolve()
+    directory = parent / (prefix + uuid.uuid4().hex)
+    directory.mkdir(parents=True)
+    try:
+        yield directory
+    finally:
+        target = directory.resolve()
+        if target.parent != parent or not target.name.startswith(prefix) or directory.is_symlink():
+            raise RuntimeError("Refusing to delete unexpected test fixture")
+        shutil.rmtree(target)
+
+
 class PureSafetyChecks(unittest.TestCase):
     def test_default_and_help_never_call_hardware(self):
         with patch.object(tool, "run_action") as run, contextlib.redirect_stdout(io.StringIO()):
@@ -42,6 +62,33 @@ class PureSafetyChecks(unittest.TestCase):
                 tool.main(["--help"])
             self.assertEqual(caught.exception.code, 0)
             run.assert_not_called()
+
+    def test_programmer_option_alone_and_help_never_call_hardware(self):
+        with patch.object(tool, "run_action") as run, contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(tool.main(["--programmer", "missing programmer.exe"]), 0)
+            with self.assertRaises(SystemExit) as caught:
+                tool.main(["--programmer", "missing programmer.exe", "--help"])
+            self.assertEqual(caught.exception.code, 0)
+            run.assert_not_called()
+
+    def test_cli_forwards_explicit_programmer_for_each_action(self):
+        programmer = str(Path("external Gowin installation") / "programmer_cli.exe")
+        for action, location in [("list-cables", None), ("scan", "273"), ("program-sram", "273")]:
+            args = ["--" + action, "--programmer", programmer]
+            if location is not None:
+                args += ["--location", location]
+            with self.subTest(action=action), patch.object(tool, "run_action") as run:
+                self.assertEqual(tool.main(args), 0)
+                run.assert_called_once_with(action, location, programmer=programmer)
+
+    def test_cli_without_programmer_preserves_existing_call_signature(self):
+        for action, location in [("list-cables", None), ("scan", "273"), ("program-sram", "273")]:
+            args = ["--" + action]
+            if location is not None:
+                args += ["--location", location]
+            with self.subTest(action=action), patch.object(tool, "run_action") as run:
+                self.assertEqual(tool.main(args), 0)
+                run.assert_called_once_with(action, location)
 
     def test_location_required_and_operations_cannot_be_injected(self):
         with patch.object(tool, "run_action") as run, contextlib.redirect_stderr(io.StringIO()):
@@ -100,6 +147,61 @@ class PureSafetyChecks(unittest.TestCase):
                 tool.command_for(Path("programmer_cli.exe"), "program-sram", "273", Path(name))
 
 
+@unittest.skipUnless(shutil.which("pwsh") or shutil.which("powershell"), "PowerShell is not installed")
+class PowerShellForwarding(unittest.TestCase):
+    def setUp(self):
+        self.directory = self.enterContext(temporary_directory(ROOT / "build", "programmer wrapper test "))
+        self.wrapper = self.directory / "program-board.ps1"
+        shutil.copyfile(ROOT / "program-board.ps1", self.wrapper)
+
+    def invoke_wrapper(self, flags, programmer=None):
+        powershell = shutil.which("pwsh") or shutil.which("powershell")
+        # The copied wrapper has no project Python. Its fallback resolves
+        # to this function, which captures argv without executing Python.
+        stub = ("$ErrorActionPreference = 'Stop'; "
+                "function global:python { "
+                "ConvertTo-Json -InputObject @($args) -Compress; "
+                "$global:LASTEXITCODE = 0 }; ")
+
+        def quote(value):
+            return "'" + str(value).replace("'", "''") + "'"
+
+        command = stub + "& " + quote(self.wrapper) + " " + flags
+        if programmer is not None:
+            command += " -Programmer " + quote(programmer)
+        return subprocess.run(
+            [powershell, "-NoProfile", "-NonInteractive", "-Command", command],
+            capture_output=True, text=True, timeout=POWERSHELL_TEST_TIMEOUT_SECONDS, shell=False)
+
+    def test_wrapper_forwards_programmer_as_one_argument(self):
+        programmer = str(self.directory / "installed Gowin" / "programmer_cli.exe")
+        cases = [("", []),
+                 ("-ListCables", ["--list-cables"]),
+                 ("-Scan -Location 273", ["--scan", "--location", "273"]),
+                 ("-ProgramSram -Location 273", ["--program-sram", "--location", "273"])]
+        for flags, forwarded in cases:
+            with self.subTest(flags=flags):
+                completed = self.invoke_wrapper(flags, programmer)
+                self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+                self.assertEqual(json.loads(completed.stdout.strip()),
+                                 [str(self.directory / "scripts/program_fpga.py"),
+                                  *forwarded, "--programmer", programmer])
+
+    def test_wrapper_omitted_programmer_preserves_fallback(self):
+        completed = self.invoke_wrapper("-Scan -Location 273")
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+        self.assertEqual(json.loads(completed.stdout.strip()),
+                         [str(self.directory / "scripts/program_fpga.py"), "--scan", "--location", "273"])
+
+    def test_wrapper_empty_or_whitespace_programmer_refuses_before_python(self):
+        for programmer in ["", " ", "\t"]:
+            with self.subTest(programmer=programmer):
+                completed = self.invoke_wrapper("-ProgramSram -Location 273", programmer)
+                self.assertNotEqual(completed.returncode, 0)
+                self.assertEqual(completed.stdout.strip(), "", "Mock Python must not run")
+                self.assertIn("Programmer path must not be empty", completed.stderr)
+
+
 class MockedProgramming(unittest.TestCase):
     def setUp(self):
         self.root = ROOT / "build" / ("program-test-" + uuid.uuid4().hex)
@@ -125,9 +227,18 @@ class MockedProgramming(unittest.TestCase):
             raise RuntimeError("Refusing to delete unexpected test fixture")
         shutil.rmtree(target)
 
-    def perform(self, action="program-sram", location="273"):
+    def perform(self, action="program-sram", location="273", **kwargs):
         with contextlib.redirect_stdout(io.StringIO()):
-            return tool.run_action(action, location, root=self.root, runner=self.runner, audit_fn=self.audit)
+            return tool.run_action(action, location, root=self.root, runner=self.runner,
+                                   audit_fn=self.audit, **kwargs)
+
+    def external_programmer(self):
+        directory = self.enterContext(temporary_directory(ROOT.parent, "external Gowin installation "))
+        programmer = directory / "Programmer bin" / "programmer_cli.exe"
+        programmer.parent.mkdir()
+        programmer.write_bytes(b"not executable - mocked only")
+        self.assertFalse(programmer.resolve().is_relative_to(ROOT.resolve()))
+        return programmer
 
     def receipt(self):
         paths = list((self.root / "build/programming").glob("*/receipt.json"))
@@ -148,6 +259,59 @@ class MockedProgramming(unittest.TestCase):
             self.assertIs(call.kwargs["shell"], False)
         program_command = self.runner.call_args_list[1].args[0]
         self.assertEqual(Path(program_command[program_command.index("--fsFile") + 1]).read_bytes(), b"fixture bitstream")
+
+    def test_default_programmer_remains_project_local(self):
+        self.perform("scan")
+        expected = (self.root / tool.PROGRAMMER).resolve()
+        command = self.runner.call_args.args[0]
+        self.assertEqual(command[0], tool.compiler_path(expected))
+        self.assertEqual(self.runner.call_args.kwargs["cwd"], tool.compiler_path(expected.parent))
+
+    def test_external_programmer_with_spaces_preserves_sram_safety(self):
+        programmer = self.external_programmer()
+        result = self.perform(programmer=str(programmer))
+        self.assertEqual(result["status"], "sram_programmed_not_functionally_tested")
+        self.assertFalse(result["functional_correctness_verified"])
+        self.assertEqual(self.runner.call_count, 2)
+        self.assertEqual(self.audit.call_count, 3)
+        for call in self.runner.call_args_list:
+            self.assertEqual(call.args[0][0], tool.compiler_path(programmer.resolve()))
+            self.assertEqual(call.kwargs["cwd"], tool.compiler_path(programmer.parent.resolve()))
+            self.assertIs(call.kwargs["shell"], False)
+        command = self.runner.call_args_list[1].args[0]
+        self.assertEqual(command[command.index("--run") + 1], "2")
+        self.assertEqual(command[command.index("--device") + 1], "GW2AR-18C")
+        self.assertEqual(command[command.index("--location") + 1], "273")
+        self.assertEqual(result, self.receipt())
+
+    def test_relative_programmer_resolves_from_callers_working_directory(self):
+        programmer = self.external_programmer()
+        previous = Path.cwd()
+        try:
+            os.chdir(programmer.parent.parent)
+            self.perform("scan", programmer=str(programmer.relative_to(Path.cwd())))
+        finally:
+            os.chdir(previous)
+        self.assertEqual(self.runner.call_args.args[0][0], tool.compiler_path(programmer.resolve()))
+        self.assertEqual(self.runner.call_args.kwargs["cwd"], tool.compiler_path(programmer.parent.resolve()))
+
+    def test_invalid_explicit_programmer_never_falls_back_or_calls_runner(self):
+        self.assertTrue((self.root / tool.PROGRAMMER).is_file())
+        for programmer in [self.root / "missing programmer.exe", self.root, ""]:
+            for action, location in [("list-cables", None), ("scan", "273"), ("program-sram", "273")]:
+                with self.subTest(programmer=programmer, action=action), self.assertRaises(ValueError):
+                    self.perform(action, location, programmer=programmer)
+        self.runner.assert_not_called()
+        self.audit.assert_not_called()
+        self.assertFalse((self.root / "build/programming").exists())
+
+    def test_external_programmer_still_refuses_wrong_device_id(self):
+        programmer = self.external_programmer()
+        self.runner.side_effect = [subprocess.CompletedProcess([], 0, SCAN.replace("0x0000081B", "0x0000081C"))]
+        with self.assertRaisesRegex(ValueError, "exactly one"):
+            self.perform(programmer=programmer)
+        self.assertEqual(self.runner.call_count, 1)
+        self.assertFalse(self.receipt()["programming_attempted"])
 
     def test_preflight_failure_never_touches_hardware(self):
         self.audit.return_value = (["stale simulation"], self.summary)

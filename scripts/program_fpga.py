@@ -115,7 +115,7 @@ def command_for(programmer, action, location=None, bitstream=None):
     raise ValueError("Only cable enumeration, exact-device scan, and SRAM programming are supported")
 
 
-def run_action(action, location=None, *, root=ROOT, runner=None, audit_fn=None):
+def run_action(action, location=None, *, root=ROOT, runner=None, audit_fn=None, programmer=None):
     if action not in {"list-cables", "scan", "program-sram"}:
         raise ValueError("Unsupported hardware action")
     if action != "list-cables":
@@ -123,9 +123,13 @@ def run_action(action, location=None, *, root=ROOT, runner=None, audit_fn=None):
     elif location is not None:
         raise ValueError("--location is not used when listing cables")
     root = Path(root).resolve()
-    programmer = root / PROGRAMMER
+    # An explicit installation is resolved from the caller's working directory.
+    # Never silently fall back when the caller selected a missing executable.
+    programmer = Path(programmer).resolve() if programmer is not None else root / PROGRAMMER
     if not programmer.is_file():
-        raise ValueError(f"Missing installed programmer: {programmer}")
+        raise ValueError(f"Missing installed programmer: {programmer}. "
+                         "Pass --programmer PATH/Programmer/bin/programmer_cli.exe "
+                         "(PowerShell: -Programmer PATH).")
     runner = runner or subprocess.run
     audit_fn = audit_fn or audit
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ") + "-" + uuid4().hex[:8]
@@ -134,6 +138,7 @@ def run_action(action, location=None, *, root=ROOT, runner=None, audit_fn=None):
     record = {
         "schema_version": 1, "action": action, "started_at_utc": utc_now(),
         "status": "started", "location": location, "cable_index": int(CABLE_INDEX),
+        "programmer": str(programmer),
         "frequency": FREQUENCY, "commands": [], "programming_attempted": False,
         "functional_correctness_verified": False,
         "scope": "SRAM programming receipt only; UART/qualification tests are separate evidence.",
@@ -242,6 +247,8 @@ def main(argv=None):
     choices.add_argument("--scan", action="store_true", help="Explicitly identify one expected FPGA using JTAG")
     choices.add_argument("--program-sram", action="store_true", help="Preflight, scan, then load approved SRAM bitstream")
     parser.add_argument("--location", type=location_number, help="Exact decimal USB location from --list-cables")
+    parser.add_argument("--programmer", help="Path to installed Programmer/bin/programmer_cli.exe; "
+                        "relative paths are resolved from the current working directory")
     args = parser.parse_args(argv)
     action = next((name for name in ("list-cables", "scan", "program-sram")
                    if getattr(args, name.replace("-", "_"))), None)
@@ -253,7 +260,8 @@ def main(argv=None):
     if action == "list-cables" and args.location is not None:
         parser.error("--location is not used with --list-cables")
     try:
-        run_action(action, args.location)
+        options = {"programmer": args.programmer} if args.programmer is not None else {}
+        run_action(action, args.location, **options)
     except (OSError, ValueError) as exc:
         print(f"PROGRAMMING STOPPED: {exc}")
         return 1

@@ -58,10 +58,16 @@ intentional inter-byte gap. Its 234-clock divider produces approximately
 
 ## Setup and release verification
 
-Use Python 3 and a USB data cable. To build or simulate the design, also install
+Use **Windows, Python 3.12 or newer**, and a USB data cable. Python 3.12 and 3.13
+have been used for this project. To build or simulate the design, also install
 [Gowin EDA Education](https://www.gowinsemi.com/en/support/database/1865/) and
 [Icarus Verilog](https://steveicarus.github.io/iverilog/). Make `iverilog` and `vvp`
 available on PATH or under `.tools/iverilog/app/bin`.
+
+Extract the project to a short, ASCII-only directory such as `D:\GQH\Pulse16`.
+Gowin does not have to be installed inside the project. Use the actual paths to
+your installed compiler and programmer in the commands below; paths containing
+spaces must be quoted. The verified tool version is **V1.9.11.03 Education**.
 
 From the repository root:
 
@@ -69,11 +75,16 @@ From the repository root:
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 .\preflight.ps1
-.venv\Scripts\python.exe scripts/verify_release_evidence.py
 ```
 
-These checks validate the supplied source, build reports, bitstream and archived
-test evidence without accessing the board. The supplied `bitstream/trade_top.fs`
+Preflight checks the supplied source, build reports and bitstream for consistency.
+It does **not** run the design or require archived physical-test logs. To test the
+supplied bitstream on hardware, continue to **Program and test**. To rebuild it,
+use a separate project copy and follow **Build from source**.
+
+Optional: `.venv\Scripts\python.exe scripts/verify_release_evidence.py` verifies
+the archived evidence only. It is not a fresh functional test, and is not a step
+in the rebuild workflow. The supplied `bitstream/trade_top.fs`
 has SHA-256:
 
 ```text
@@ -83,9 +94,11 @@ has SHA-256:
 ## Build from source
 
 ```powershell
+# Replace this example with the compiler path on this computer.
+$Gowin = 'D:\Gowin\Gowin_V1.9.11.03_Education_x64\IDE\bin\gw_sh.exe'
 .\test.ps1
-.\build.ps1 -Gowin C:\path\IDE\bin\gw_sh.exe
-.venv\Scripts\python.exe scripts/test_post_pnr.py
+.\build.ps1 -Gowin $Gowin
+.venv\Scripts\python.exe scripts/test_post_pnr.py --gowin $Gowin
 .\preflight.ps1
 .venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
@@ -103,17 +116,21 @@ Detect the board's current JTAG location and UART port before programming.
 Close other applications using the serial port.
 
 ```powershell
-.\program-board.ps1 -ListCables
-.\program-board.ps1 -Scan -Location 273
-.\program-board.ps1 -ProgramSram -Location 273
+# Replace this example with the programmer path on this computer.
+$Programmer = 'D:\Gowin\Gowin_V1.9.11.03_Education_x64\Programmer\bin\programmer_cli.exe'
+.\program-board.ps1 -Programmer $Programmer -ListCables
+.\program-board.ps1 -Programmer $Programmer -Scan -Location 273
+.\program-board.ps1 -Programmer $Programmer -ProgramSram -Location 273
 .\board-test.ps1                         # List serial ports only
 .\board-test.ps1 -Port COM6 -Test quick
 .\board-test.ps1 -Port COM6 -Test qualification
 .venv\Scripts\python.exe scripts/stress_board.py --port COM6
 ```
 
-The programming helper expects Gowin Programmer under
-`.tools/gowin-portable/Gowin_V1.9.11.03_Education_x64/`. With another installation,
+`-Programmer` selects the installed executable explicitly. Without it, the helper
+retains the optional project-local installation under
+`.tools/gowin-portable/Gowin_V1.9.11.03_Education_x64/`. A missing explicit path
+stops with an error; it never silently selects another programmer. Alternatively,
 use the vendor Programmer GUI in **SRAM mode**. No bridge firmware update or
 flash programming is required. SRAM configuration is lost when power is removed.
 
@@ -121,6 +138,22 @@ The test runner preserves organizer scripts and changes only PORT in temporary
 copies. Qualification runs robust followed by full-range without resetting or
 reprogramming. Logs and CSVs are written to `build/board-tests/`. Keep the host
 awake and the cable connected throughout testing.
+
+The helper verifies the selected FPGA and candidate hashes before SRAM
+programming. No arguments display help without accessing hardware. A programmer
+receipt is not a functional pass: run the quick and qualification tests afterward.
+
+### Tool-path troubleshooting
+
+- **Missing installed programmer:** check `$Programmer` points to the actual
+  `programmer_cli.exe`, then supply `-Programmer $Programmer` for each operation.
+- **Cannot locate Gowin for mapped simulation:** supply `--gowin $Gowin` to
+  `scripts/test_post_pnr.py`. A previous build's `-Gowin` argument is not persistent.
+- **Missing `iverilog` or `vvp`:** install Icarus and add its `bin` folder to PATH
+  in the terminal running the commands. Reopen the terminal after changing PATH.
+- **Stale build or changed hashes:** do not edit the manifest to suppress the
+  check. In a separate source copy, rerun simulation, build and mapped simulation
+  in that order, then use the newly generated artifacts and their own test results.
 
 ## Verification and limitations
 
