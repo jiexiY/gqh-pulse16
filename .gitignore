@@ -13,4 +13,5 @@ impl/
 *.pem
 *.key
 .devpost-hackathon-state.json
+devpost-submission.md
 
