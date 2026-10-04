@@ -52,6 +52,8 @@ The figures above refer only to the evidence included in this repository.
 - Board: Tang Nano 20K, assigned board **9**, device `GW2AR-LV18QN88C8/I7`.
 - Team: **jiexi yang**; participant: **Jiexi Yang**, **University of Florida**.
 - Top module: `trade_top`; toolchain: **Gowin V1.9.11.03 Education**.
+- Languages: Verilog-2001 for synthesizable RTL, SystemVerilog for testbenches,
+  and Python for host-side verification.
 - Pins: clock 4, reset 87, UART RX 70, UART TX 69, LEDs 15/16.
 - Physical constraints: unchanged organizer-supplied `19_tang_nano_20k.cst`.
 
@@ -278,3 +280,37 @@ receipt is not a functional pass: run the quick and qualification tests afterwar
 - **Stale build or changed hashes:** do not edit the manifest to suppress the
   check. In a separate source copy, rerun simulation, build and mapped simulation
   in that order, then use the newly generated artifacts and their own test results.
+
+## External resources
+
+- [GQH hardware resources](https://github.com/ShayanNazir/GQH-Hardware-Track-Submission)
+  at revision `80467b5d0e481373daf126de9a0f57e67f19906b` supply
+  `constraints/19_tang_nano_20k.cst`, `host/21_quick_uart_test.py` and
+  `host/22_robust_uart_test.py`. The
+  [participant guide](https://www.gqhacks.com/hardware/GQH_Hardware_Track_Participant_Guide.pdf)
+  defines the hardware interface and trading algorithm.
+- `host/22_robust_uart_test_fullrange.py` is the organizer's full-range test,
+  exported from the complete Discord file preview with LF line endings.
+  Its source, local checksum and provenance are recorded in
+  [the provenance record](host/22_robust_uart_test_fullrange.provenance.json).
+  The original downloadable attachment's byte hash is unavailable.
+- [Sipeed Tang Nano 20K examples](https://github.com/sipeed/TangNano-20K-example)
+  informed the Gowin project/device configuration; no Sipeed HDL was copied.
+- Gowin EDA supplies synthesis, placement/routing and vendor primitive models
+  for mapped simulation; Gowin SUG550 provides the RAM-inference guidance used
+  by the RTL. Icarus Verilog runs the simulations; pyserial provides the host
+  UART interface. These tools are installed separately and are not bundled
+  in the repository.
+
+## Known limitations
+
+- The interface requires complete, stop-and-wait requests containing one sample
+  for each supported item. Unknown IDs, missing or duplicate items, and arbitrary
+  byte loss or insertion are outside the supported protocol. There is no framing
+  marker to guarantee recovery from every corrupted byte stream.
+- Gowin reports PR1014 because the organizer-required clock pin uses some generic
+  routing. The supplied constraints are unchanged; the reported design has zero
+  setup or hold violations at 27 MHz. See [the build report](reports/build-summary.json).
+- Mapped-circuit simulation uses vendor primitive models without SDF delay
+  annotation. Physical communication and round-trip latency require board tests;
+  simulation results alone do not establish either.

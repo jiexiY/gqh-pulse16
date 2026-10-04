@@ -36,7 +36,7 @@ system effects.
 From the repository root, after setting up the Python environment:
 
 ```powershell
-.\preflight.ps1
+.venv\Scripts\python.exe scripts/preflight.py
 .venv\Scripts\python.exe scripts/verify_release_evidence.py
 ```
 
