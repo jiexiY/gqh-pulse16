@@ -25,8 +25,8 @@ Raw current evidence is in `reports/board/competition-20261003/`, with the summa
 `reports/physical-verification.json`. These are local practice results, not an
 official judging score or a placement guarantee. The immutable build manifest
 records the build-time state; physical evidence is separate and hash-bound.
-**Committing/pushing this version, public repository visibility, Devpost submission
-and board return remain.**
+**The source, tested bitstream and evidence are published in the public repository.
+Devpost submission and board return remain.**
 
 Verified October 3, 2026: **10,907 engine packets and 1,107 bit-level UART
 packets passed**. The UART total includes 100 packets with production timing,
@@ -79,17 +79,17 @@ again after promotion.
 
 Still required before submission:
 
-- Commit and push the new tested source, reports and `.fs` in `bitstream/` to a public repository
-  containing that exact source and bitstream. Enter its full commit SHA on Devpost.
+- Enter the public repository URL and its full final commit SHA on Devpost.
+  Use `git rev-parse HEAD` after syncing the published `main` branch.
 - Verify the completed Devpost submission and return the borrowed board and accessories.
 
-The **private** repository
-[jiexiY/gqh-pulse16](https://github.com/jiexiY/gqh-pulse16) still contains the previous
-437-Logic version at commit `22f573f9ac2e0b04537fbfdcd703fe3fad058b88`.
-The current 267-Logic version is local, uncommitted and not pushed. Visibility
-remains private at the participant's request; private hosting does not satisfy
-the organizer's public-repository requirement. The new `.fs` is physically tested,
-but the entry has not been officially judged or submitted.
+The **public** repository
+[jiexiY/gqh-pulse16](https://github.com/jiexiY/gqh-pulse16) contains the current
+267-Logic source, tested `.fs`, and verification evidence. Public visibility and
+unauthenticated access were verified on October 4, 2026. Publication does not
+submit the entry to Devpost: the entry has not been officially judged or submitted.
+The prior 437-Logic release and later optimization evidence remain in history,
+clearly separate from the current candidate's measurements.
 
 ## Start here if FPGA is new to you
 

@@ -26,5 +26,6 @@ the board loses power, then rerun verification. The previous 437-Logic image's
 interrupted host-sleep stress run is disclosed in the main README and is not
 counted as a completed pass or as testing of this image.
 Do not substitute an example bitstream or publish a different source revision.
-Public repository visibility, Devpost submission and board return remain pending.
+The repository is public; unauthenticated access was verified on October 4, 2026.
+Devpost submission and board return remain pending.
 

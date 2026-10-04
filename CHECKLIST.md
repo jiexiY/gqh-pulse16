@@ -34,9 +34,10 @@
 - [x] Promote the physically tested source/settings/bitstream/netlist/reports byte-for-byte without rebuilding; record provenance and pass canonical preflight.
 - [x] Freeze final tested source/bitstream and document metrics, team details and limitations.
 - [x] Previously push the 437-Logic version to private `jiexiY/gqh-pulse16` at `22f573f9ac2e0b04537fbfdcd703fe3fad058b88`; this is not the new candidate.
-- [ ] Commit and push the new 267-Logic source, tested bitstream and evidence; they are currently local and uncommitted.
+- [x] Commit and push the new 267-Logic source, tested bitstream and evidence; verify the matching remote commit.
 - [ ] Update the older Devpost draft's metrics from the verified current evidence before submission.
-- [ ] Publish public repository and submit its URL/full commit SHA on Devpost.
+- [x] Make `jiexiY/gqh-pulse16` public and verify unauthenticated access on October 4, 2026.
+- [ ] Submit the public repository URL/full final commit SHA on Devpost and verify final submission.
 - [ ] Return board and all accessories in the **ballroom** by October 4, 11 AM EDT (latest Discord update).
 
 The current source, simulation/build evidence, bitstream and local physical
@@ -48,8 +49,8 @@ Current evidence is under `reports/board/competition-20261003/`; the previous
 274-Logic evidence remains under `reports/board/relation-20261003/`, the
 307-Logic evidence remains under `reports/board/optimized-20261003/`, and the
 older 437-Logic physical summary remains under `reports/board/final-20261003/`.
-The clock-route warning PR1014 remains documented. Committing/pushing this
-version, public repository visibility, Devpost submission and board return are
-still pending; local passes are not an official judging score or a first-place
-guarantee.
+The clock-route warning PR1014 remains documented. This version's source,
+bitstream and evidence are now pushed to the public repository. Devpost submission
+and board return remain pending; local passes are not an official judging score
+or a first-place guarantee.
 
