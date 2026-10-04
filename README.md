@@ -204,7 +204,7 @@ After the build and mapped simulation succeed, run the complete suite:
 .venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-The complete suite has **100 tests**. Eight require the build reports and
+The complete suite has **101 tests**. Eight require the build reports and
 artifacts, so full discovery in a source-only copy before building will fail;
 do not copy old reports into that copy to obtain a pass.
 
@@ -213,7 +213,7 @@ installation when available, otherwise Windows PowerShell, and require that
 shell's existing policy to allow local scripts. This requirement applies to
 those wrapper tests, not the direct-Python build and simulation commands above.
 If policy blocks the wrapper tests, report them as blocked; do not weaken the
-policy or claim 100 passing tests. Any failures or skips mean the full suite has
+policy or claim 101 passing tests. Any failures or skips mean the full suite has
 not passed.
 
 The build uses `trade_top.gprj` and `scripts/build_gowin.tcl`, then exports the

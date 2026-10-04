@@ -174,6 +174,20 @@ class BoardTools(unittest.TestCase):
             self.assertFalse(test_passed("robust", bad))
 
 
+class MissingBuildGuidance(unittest.TestCase):
+    def test_missing_build_points_to_direct_python_readme_route(self):
+        missing_root = ROOT / "build" / ("missing-build-" + uuid.uuid4().hex)
+        self.assertFalse(missing_root.exists())
+        problems, summary = audit(missing_root)
+        self.assertIsNone(summary)
+        self.assertEqual(len(problems), 1)
+        for required in ("reports/build-summary.json", "direct-Python", "README.md",
+                         "Build from source", "full Gowin EDA"):
+            self.assertIn(required, problems[0])
+        self.assertNotIn(".ps1", problems[0])
+        self.assertFalse(missing_root.exists())
+
+
 class ReadinessAudit(unittest.TestCase):
     def setUp(self):
         # All mutations stay in a disposable test fixture, never in candidate files.

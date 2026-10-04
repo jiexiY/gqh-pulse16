@@ -11,7 +11,10 @@ def audit(root=ROOT):
     problems = []
     summary_path = root / "reports/build-summary.json"
     if not summary_path.is_file():
-        return ["No build-summary.json; run build.ps1"], None
+        return [
+            "No reports/build-summary.json; follow the direct-Python workflow in "
+            "README.md, 'Build from source' (requires full Gowin EDA)."
+        ], None
     summary = json.loads(summary_path.read_text(encoding="utf-8"))
     # Trust must be established in this audit, never asserted by manifest text.
     summary.pop("ranking_metrics_source", None)
