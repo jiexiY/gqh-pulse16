@@ -6,6 +6,18 @@ Pulse16 runs on a Tang Nano 20K and processes two independent streams of unsigne
 NONE according to the challenge's crossing rules. All signal computation runs on
 the FPGA; Python is used for verification only.
 
+## Tooling portability
+
+This is a post-submission tooling and documentation update only. Windows helpers
+accept explicit Gowin installation paths; the FPGA RTL, constraints, submitted
+bitstream and frozen submission tag remain unchanged.
+
+The tooling in [commit `2842bc6`](https://github.com/jiexiY/gqh-pulse16/commit/2842bc6abb4b9ace380cf55f7dd0b1222df55022)
+passed **10/10 fresh source-only workflows on one Windows host**, including RTL
+simulation, Gowin synthesis and place-and-route, mapped-circuit simulation, and
+all 100 regression tests per run. These are software verification results, not
+new physical-board tests or verification on other laptops.
+
 ## Results
 
 | Metric | Verified result |
