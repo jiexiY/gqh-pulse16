@@ -208,22 +208,3 @@ every corrupted stream. Local measurements do not guarantee judge-PC latency.
 
 See [verification results](CHECKLIST.md), [physical-test summary](reports/physical-verification.json)
 and [evidence index](reports/README.md) for reproducible supporting records.
-
-## Sources and disclosure
-
-- [Official hardware resources](https://github.com/ShayanNazir/GQH-Hardware-Track-Submission),
-  revision `80467b5d0e481373daf126de9a0f57e67f19906b`: organizer physical constraints
-  and original quick/robust host tests.
-- `host/22_robust_uart_test_fullrange.py` is a verbatim export of the organizer's
-  Discord file preview, normalized to LF. Its text length, line count and checksum
-  matched the displayed source. The original downloadable byte hash is unavailable;
-  the adjacent provenance JSON records the pinned local hash.
-- [Official participant guide](https://www.gqhacks.com/hardware/GQH_Hardware_Track_Participant_Guide.pdf):
-  challenge protocol and algorithm specification.
-- [Sipeed board examples](https://github.com/sipeed/TangNano-20K-example) informed
-  project XML and device configuration; no Sipeed HDL was copied.
-- Verilog, local tests and documentation were generated with OpenAI Codex
-  assistance during the event.
-- Local simulation uses Icarus Verilog. Vendor and simulator binaries are not
-  distributed with this repository.
-
