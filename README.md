@@ -8,21 +8,20 @@ the FPGA; Python is used for verification only.
 
 ## Getting started
 
-Start with software verification; **no FPGA board is required** for the build and
-simulation steps.
+Choose the route that matches what you want to evaluate. Rebuilding is **not
+required** to test the supplied bitstream on a board.
 
-1. **Set up your environment.** Follow [Setup and release verification](#setup-and-release-verification)
-   to install Python, Gowin EDA Education and Icarus Verilog, then create a local
-   Python environment. Gowin can be installed outside the project.
-2. **Build and verify the design.** Follow [Build from source](#build-from-source)
-   to run RTL simulation, compile a new bitstream, simulate the mapped circuit
-   and run the regression tests. These steps generate new results.
-3. **Test on hardware when available.** Follow [Program and test](#program-and-test)
-   to detect a Tang Nano 20K, program SRAM and run the UART tests.
+| Route | Required tools and hardware | Instructions |
+|---|---|---|
+| Test the supplied bitstream | Python + pyserial, Gowin Programmer, Tang Nano 20K, USB data cable and working JTAG/UART drivers | [Program and test](#program-and-test) |
+| Simulate the RTL | Python and Icarus Verilog; no board or Gowin installation | [RTL simulation](#rtl-simulation) |
+| Rebuild and verify from source | Python + pyserial, Gowin EDA Education and Icarus Verilog; no board required | [Build from source](#build-from-source) |
 
-A successful software run reports **10,907 engine responses, 1,107 RTL UART
-packets, 21 mapped-circuit packets and 100 passing regression tests**. Physical
-USB/UART behavior and round-trip latency require the hardware step.
+Start with the common [Python setup](#setup-and-release-verification), then follow
+your chosen route. **Gowin Programmer loads an existing bitstream; the Gowin
+compiler is needed only for rebuilding.** The full rebuild verification also uses
+Gowin's simulation libraries. Physical USB/UART behavior and round-trip latency
+can only be measured with a board.
 
 ## Results
 
@@ -76,13 +75,20 @@ intentional inter-byte gap. Its 234-clock divider produces approximately
 
 ## Setup and release verification
 
-Use **Windows and Python 3.12 or newer**. Python 3.12 and 3.13 have been used for
-this project. To build or simulate the design, also install
-[Gowin EDA Education](https://www.gowinsemi.com/en/support/database/1865/) and
-[Icarus Verilog](https://steveicarus.github.io/iverilog/). Make `iverilog` and `vvp`
-available on PATH or under `.tools/iverilog/app/bin`.
-Only physical-board testing requires a Tang Nano 20K and USB data cable; board
-drivers are not needed for software-only verification.
+The commands below target **Windows and Python 3.12 or newer**. Python 3.12 and
+3.13 have been used for this project. Install only the additional tools required
+by your chosen route:
+
+- **Supplied-bitstream hardware test:** Gowin Programmer and working board
+  JTAG/UART drivers. Neither the Gowin compiler nor Icarus is needed.
+- **RTL simulation:** [Icarus Verilog](https://steveicarus.github.io/iverilog/).
+  Make `iverilog` and `vvp` available on PATH or under `.tools/iverilog/app/bin`.
+- **Full source rebuild:** Icarus plus
+  [Gowin EDA Education](https://www.gowinsemi.com/en/support/database/1865/),
+  including `gw_sh.exe` and the vendor simulation libraries. Programmer alone
+  cannot rebuild the design.
+
+Board drivers are not needed for either software-only route.
 
 Extract the project to a short, ASCII-only directory such as `D:\GQH\Pulse16`.
 Gowin does not have to be installed inside the project. Use the actual paths to
@@ -96,8 +102,10 @@ python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-For software-only verification, continue to [Build from source](#build-from-source).
-For the supplied bitstream, run `.\preflight.ps1` before [Program and test](#program-and-test).
+For software-only verification, choose [RTL simulation](#rtl-simulation) or the
+complete [Build from source](#build-from-source) workflow.
+For the supplied bitstream, keep the repository's `reports/` and `bitstream/`
+directories and continue to [Program and test](#program-and-test).
 Preflight checks source, build reports and bitstream consistency; it does **not**
 run the design or require archived physical-test logs. A fresh source-only build
 runs preflight after generating its own reports and bitstream.
@@ -111,7 +119,23 @@ has SHA-256:
 87400736f80c5e2d8b2bd5250f278955cfb237753736f84473c832dc8e913707
 ```
 
+## RTL simulation
+
+After the Python setup and Icarus installation, run from the repository root:
+
+```powershell
+.\test.ps1
+```
+
+This runs the actual RTL against generated reference vectors and writes fresh
+results to `build/simulation-report.json`. A successful run checks **10,907
+engine responses and 1,107 RTL UART packets**. No Gowin installation, FPGA board
+or saved test logs are required. This route does not generate a bitstream,
+measure hardware latency or verify placement-and-routing timing.
+
 ## Build from source
+
+This route requires the full Gowin EDA installation and Icarus, but no board.
 
 For a clean rebuild, create a separate source-only copy containing `rtl/`,
 `constraints/`, `host/`, `sim/`, `scripts/`, `tests/` and the root project files
@@ -130,6 +154,9 @@ $Gowin = 'D:\Gowin\Gowin_V1.9.11.03_Education_x64\IDE\bin\gw_sh.exe'
 .venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
+A successful complete workflow checks **10,907 engine responses, 1,107 RTL UART
+packets, 21 mapped-circuit packets and 100 passing regression tests**.
+
 The build uses `trade_top.gprj` and `scripts/build_gowin.tcl`, then exports the
 bitstream and vendor reports. Use an ASCII-only project/tool path where possible.
 Preserve original file line endings: source and evidence files are hash-bound.
@@ -138,11 +165,17 @@ verification and must not inherit the supplied bitstream's physical-test results
 
 ## Program and test
 
+To evaluate the supplied bitstream, complete the Python setup and install Gowin
+Programmer and the board drivers. **No compiler or source rebuild is required.**
+Keep the supplied `reports/` and `bitstream/` directories: the preflight below
+uses them to check artifact consistency, not to substitute for the live tests.
+
 Detect the board's current JTAG location and UART port before programming.
 `273` and `COM6` below are examples; replace them with the detected values.
 Close other applications using the serial port.
 
 ```powershell
+.\preflight.ps1
 # Replace this example with the programmer path on this computer.
 $Programmer = 'D:\Gowin\Gowin_V1.9.11.03_Education_x64\Programmer\bin\programmer_cli.exe'
 .\program-board.ps1 -Programmer $Programmer -ListCables
